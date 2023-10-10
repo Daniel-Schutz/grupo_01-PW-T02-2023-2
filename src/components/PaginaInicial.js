@@ -1,5 +1,5 @@
 import React from 'react';
-import '..styles/PaginaInicial.css';
+import '../styles/PaginaInicial.css';
 
 function PaginaInicial() {
   const handleJogarClick = () => {

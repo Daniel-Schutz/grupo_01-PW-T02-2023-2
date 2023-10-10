@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '..styles/EscolherOpcoes.css';
+import '../styles/EscolherOpcoes.css';
 
 function EscolherOpcoes() {
   const [categorias, setCategorias] = useState({

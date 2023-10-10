@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '..styles/TelaPrincipal.css';
+import '../styles/TelaPrincipal.css';
 
 function TelaPrincipal() {
   const [imagemSelecionada, setImagemSelecionada] = useState(null);
