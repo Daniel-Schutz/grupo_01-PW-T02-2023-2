@@ -1,0 +1,61 @@
+/* Estilizando o container da página de ranking */
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* Estilizando o título da página */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilizando a tabela de ranking */
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  /* Estilizando as linhas da tabela */
+  table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilizando as células da tabela */
+  table tbody td {
+    font-size: 16px;
+  }
+  
+  /* Estilizando a célula de posição */
+  table tbody td:first-child {
+    font-weight: bold;
+  }
+  
+  /* Estilizando a célula de imagem */
+  table tbody td:nth-child(2) {
+    text-align: left;
+  }
+  
+  /* Estilizando a célula de escolhas */
+  table tbody td:last-child {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  
