@@ -1,62 +1,85 @@
 /* Estilizando o container da página de login */
 div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Estilizando o título da página */
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  /* Estilizando o formulário */
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Estilizando os campos de entrada */
-  label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 16px;
-  }
-  
-  /* Estilizando o botão de envio */
-  button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Estilizando mensagens de erro, se necessário */
-  .error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Centraliza o texto no centro horizontalmente */
+}
+
+/* Estilizando o título da página */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilizando o formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilizando os campos de entrada */
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+/* Estilizando o botão de envio */
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px; /* Espaçamento inferior entre os botões */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilizando mensagens de erro, se necessário */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Estilizando os botões "Criar Conta" e "Esqueci Minha Senha" */
+div a {
+  text-decoration: none; /* Remove sublinhado do link */
+  margin-top: 10px; /* Espaçamento superior entre os botões e o formulário */
+}
+
+div a button {
+  background-color: #28a745; /* Cor verde para o botão "Criar Conta" */
+}
+
+div a button:hover {
+  background-color: #218838; /* Cor verde mais escura no hover */
+}
+
+div a:nth-child(2) button {
+  background-color: #dc3545; /* Cor vermelha para o botão "Esqueci Minha Senha" */
+}
+
+div a:nth-child(2) button:hover {
+  background-color: #c82333; /* Cor vermelha mais escura no hover */
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Importe o Link do React Router
 import '../styles/EscolherOpcoes.css';
 
 function EscolherOpcoes() {
@@ -84,7 +85,9 @@ function EscolherOpcoes() {
           </label>
         </div>
         <div>
+        <Link to="/tela-principal">
           <button type="submit">Salvar Opções</button>
+          </Link>
         </div>
       </form>
     </div>

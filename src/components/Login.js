@@ -1,4 +1,6 @@
+// Importe as bibliotecas necessárias
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Importe o Link do React Router
 import '../styles/Login.css';
 
 function Login() {
@@ -53,9 +55,21 @@ function Login() {
           />
         </div>
         <div>
+          <Link to="/pagina-inicial">
           <button type="submit">Entrar</button>
+          </Link>
         </div>
       </form>
+
+      {/* Adicione os botões "Criar Conta" e "Esqueci Minha Senha" aqui */}
+      <div>
+        <Link to="/sign-up">
+          <button>Criar Conta</button>
+        </Link>
+        <Link to="/recuperar-senha">
+          <button>Esqueci Minha Senha</button>
+        </Link>
+      </div>
     </div>
   );
 }
