@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '..styles/Ranking.css';
 
 function Ranking() {
   const [imagens, setImagens] = useState([

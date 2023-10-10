@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import '..styles/RecuperarSenha.css';
 
 function RecuperarSenha() {
   const [email, setEmail] = useState('');
