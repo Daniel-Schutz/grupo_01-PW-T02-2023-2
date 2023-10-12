@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/RecuperarSenha.css';
+import { useNavigate } from 'react-router-dom';
+
 
 function RecuperarSenha() {
   const [email, setEmail] = useState('');
@@ -22,6 +24,12 @@ function RecuperarSenha() {
       console.error('Erro ao enviar email de recuperação de senha:', error);
       setMensagem('Ocorreu um erro ao enviar o email. Por favor, tente novamente mais tarde.');
     }
+  };
+
+  const navigate = useNavigate();
+
+  const handleVoltar = () => {
+    navigate(-1); 
   };
 
   return (
@@ -48,6 +56,9 @@ function RecuperarSenha() {
           {mensagem && <p>{mensagem}</p>}
         </form>
       )}
+       <div>
+          <button onClick={handleVoltar}>Voltar</button>
+        </div>
     </div>
   );
 }

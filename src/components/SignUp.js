@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/SignUp.css';
+import { useNavigate } from 'react-router-dom';
+
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -26,6 +28,12 @@ function SignUp() {
       email: '',
       password: '',
     });
+  };
+
+  const navigate = useNavigate();
+
+  const handleVoltar = () => {
+    navigate(-1); 
   };
 
   return (
@@ -69,6 +77,9 @@ function SignUp() {
           <button type="submit">Criar Conta</button>
         </div>
       </form>
+      <div>
+          <button onClick={handleVoltar}>Voltar</button>
+        </div>
     </div>
   );
 }

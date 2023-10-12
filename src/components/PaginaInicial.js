@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Importe o Link do React Router
 import '../styles/PaginaInicial.css';
+import { useNavigate } from 'react-router-dom';
+
 
 function PaginaInicial() {
   const handleJogarClick = () => {
@@ -16,6 +18,12 @@ function PaginaInicial() {
   const handleEditarPerfilClick = () => {
     // Adicione a lógica para redirecionar para a página de edição de perfil
     console.log('Clicou em Editar Perfil');
+  };
+
+  const navigate = useNavigate();
+
+  const handleVoltar = () => {
+    navigate(-1); 
   };
 
   return (
@@ -36,6 +44,9 @@ function PaginaInicial() {
         <button onClick={handleVerRankingClick}>Ver Ranking</button>
         </Link>
       </div>
+      <div>
+          <button onClick={handleVoltar}>Voltar</button>
+        </div>
     </div>
   );
 }

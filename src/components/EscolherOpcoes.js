@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Importe o Link do React Router
 import '../styles/EscolherOpcoes.css';
+import { useNavigate } from 'react-router-dom';
+
 
 function EscolherOpcoes() {
   const [categorias, setCategorias] = useState({
@@ -23,6 +25,12 @@ function EscolherOpcoes() {
     e.preventDefault();
     // Adicione a lógica para enviar as opções de categorias selecionadas para o servidor
     console.log('Categorias selecionadas:', categorias);
+  };
+
+  const navigate = useNavigate();
+
+  const handleVoltar = () => {
+    navigate(-1); 
   };
 
   return (
@@ -88,6 +96,9 @@ function EscolherOpcoes() {
         <Link to="/tela-principal">
           <button type="submit">Salvar Opções</button>
           </Link>
+        </div>
+        <div>
+          <button onClick={handleVoltar}>Voltar</button>
         </div>
       </form>
     </div>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Ranking.css';
+import { useNavigate } from 'react-router-dom';
+
 
 function Ranking() {
   const [imagens, setImagens] = useState([
@@ -15,6 +17,12 @@ function Ranking() {
     const imagensOrdenadas = [...imagens].sort((a, b) => b.escolhas - a.escolhas);
     setImagens(imagensOrdenadas);
   }, []);
+
+  const navigate = useNavigate();
+
+  const handleVoltar = () => {
+    navigate(-1); 
+  };
 
   return (
     <div>
@@ -37,6 +45,9 @@ function Ranking() {
           ))}
         </tbody>
       </table>
+      <div>
+          <button onClick={handleVoltar}>Voltar</button>
+        </div>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/EditarPerfil.css';
+import { useNavigate } from 'react-router-dom';
 
 function EditarPerfil() {
   const [formData, setFormData] = useState({
@@ -21,6 +22,12 @@ function EditarPerfil() {
     e.preventDefault();
     // Adicione a lógica para atualizar as informações do perfil no servidor
     console.log('Dados do formulário de edição de perfil:', formData);
+  };
+
+  const navigate = useNavigate();
+
+  const handleVoltar = () => {
+    navigate(-1); 
   };
 
   return (
@@ -72,6 +79,9 @@ function EditarPerfil() {
         </div>
         <div>
           <button type="submit">Salvar Alterações</button>
+        </div>
+        <div>
+          <button onClick={handleVoltar}>Voltar</button>
         </div>
       </form>
     </div>
