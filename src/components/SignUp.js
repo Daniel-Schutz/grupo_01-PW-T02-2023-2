@@ -40,6 +40,9 @@ function SignUp() {
     <div>
       <h1>Página de Criar Conta</h1>
       <form onSubmit={handleSubmit}>
+      <div className='BotaoVoltar'>
+          <button onClick={handleVoltar}>Voltar</button>
+        </div>
         <div>
           <label htmlFor="username">Nome de Usuário:</label>
           <input
@@ -77,9 +80,7 @@ function SignUp() {
           <button type="submit">Criar Conta</button>
         </div>
       </form>
-      <div>
-          <button onClick={handleVoltar}>Voltar</button>
-        </div>
+
     </div>
   );
 }

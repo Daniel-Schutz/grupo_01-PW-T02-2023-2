@@ -54,22 +54,23 @@ function Login() {
             required
           />
         </div>
-        <div>
+        <div className='Links'>
           <Link to="/pagina-inicial">
+          <Link to="/recuperar-senha">
+          <p className='RecuperarSenha'>Esqueci Minha Senha</p>
+         </Link>
+
+           <Link to="/sign-up">
+          <button>Criar Conta</button>
+        </Link>
+        
+
           <button type="submit">Entrar</button>
+          
           </Link>
         </div>
       </form>
-
-      {/* Adicione os botões "Criar Conta" e "Esqueci Minha Senha" aqui */}
-      <div>
-        <Link to="/sign-up">
-          <button>Criar Conta</button>
-        </Link>
-        <Link to="/recuperar-senha">
-          <button>Esqueci Minha Senha</button>
-        </Link>
-      </div>
+      
     </div>
   );
 }

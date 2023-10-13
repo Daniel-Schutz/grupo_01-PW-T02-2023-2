@@ -1,4 +1,17 @@
 /* Estilizando o container da página de login */
+
+.RecuperarSenha{
+  text-decoration: underline;
+  color: #1f7ce1;
+  align-items: flex-start;
+  justify-content: left;
+  text-align: left;
+}
+
+.RecuperarSenha:hover{
+  text-decoration: none;
+}
+
 div {
   display: flex;
   flex-direction: column;

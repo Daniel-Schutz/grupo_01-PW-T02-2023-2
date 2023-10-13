@@ -5,6 +5,12 @@ div {
     align-items: center;
     justify-content: center;
   }
+
+.BotaoVoltar{
+  align-items: flex-start;
+  justify-content: flex-start;
+  
+}
   
   /* Estilizando o título da página */
   h1 {
