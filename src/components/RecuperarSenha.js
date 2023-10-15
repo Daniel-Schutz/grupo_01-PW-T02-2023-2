@@ -34,13 +34,13 @@ function RecuperarSenha() {
 
   return (
     <div>
-      <h1>Recuperar Senha</h1>
+      <h1>This or That - The Game</h1>
       {enviado ? (
         <p>{mensagem}</p>
       ) : (
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="email">Digite seu email:</label>
+            <label htmlFor="email">Digite seu email. Uma nova senha será enviada, e você poderá alterá-la depois.</label>
             <input
               type="email"
               id="email"
@@ -51,14 +51,15 @@ function RecuperarSenha() {
             />
           </div>
           <div>
-            <button type="submit">Enviar Email de Recuperação de Senha</button>
+            <button type="submit">Enviar</button>
           </div>
+          <div>
+          <button onClick={handleVoltar}>Voltar</button>
+        </div>
           {mensagem && <p>{mensagem}</p>}
         </form>
       )}
-       <div>
-          <button onClick={handleVoltar}>Voltar</button>
-        </div>
+
     </div>
   );
 }

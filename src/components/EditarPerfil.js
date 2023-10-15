@@ -34,6 +34,9 @@ function EditarPerfil() {
     <div>
       <h1>Editar Perfil</h1>
       <form onSubmit={handleSubmit}>
+        <div className='BotaoVoltar'>
+          <button onClick={handleVoltar}>Voltar</button>
+        </div>
         <div>
           <label htmlFor="username">Nome de Usuário:</label>
           <input
@@ -78,11 +81,9 @@ function EditarPerfil() {
           />
         </div>
         <div>
-          <button type="submit">Salvar Alterações</button>
+          <button type="submit">Salvar edições</button>
         </div>
-        <div>
-          <button onClick={handleVoltar}>Voltar</button>
-        </div>
+        
       </form>
     </div>
   );

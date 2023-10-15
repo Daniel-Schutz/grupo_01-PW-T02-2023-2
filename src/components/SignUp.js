@@ -38,7 +38,6 @@ function SignUp() {
 
   return (
     <div>
-      <h1>Página de Criar Conta</h1>
       <form onSubmit={handleSubmit}>
       <div className='BotaoVoltar'>
           <button onClick={handleVoltar}>Voltar</button>

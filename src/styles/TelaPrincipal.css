@@ -5,6 +5,19 @@ div {
     align-items: center;
     justify-content: center;
   }
+
+.TelaCentral{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #a49d9d;
+  padding: 20px;
+}
+
+.BotaoVoltar{
+  align-items: flex-start;
+}
   
   /* Estilizando o título da página */
   h1 {

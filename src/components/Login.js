@@ -30,7 +30,7 @@ function Login() {
 
   return (
     <div>
-      <h1>Página de Login</h1>
+      <h1>This or That - The Game</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">E-mail:</label>

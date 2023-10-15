@@ -11,6 +11,10 @@ div {
     font-size: 24px;
     margin-bottom: 20px;
   }
+
+.BotaoVoltar{
+  text-align: left;
+}
   
   /* Estilizando o formulário */
   form {

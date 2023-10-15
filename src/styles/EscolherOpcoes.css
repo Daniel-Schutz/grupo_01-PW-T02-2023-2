@@ -37,4 +37,13 @@ div {
   button:hover {
     background-color: #0056b3;
   }
-  
+
+.Botoes{
+  display: flex;
+  justify-content: space-between; 
+  align-items: flex-end; 
+}
+
+.Avancar{
+  background-color: #0056b3;
+}

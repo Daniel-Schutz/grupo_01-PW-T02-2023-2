@@ -13,19 +13,28 @@ function TelaPrincipal() {
   const imagens = [
     {
       id: 1,
-      src: 'imagem1.jpg',
-      legenda: 'Imagem 1',
+      src: 'strogonof.jpg',
+      legenda: 'Strogonoff de carne',
     },
     {
       id: 2,
-      src: 'imagem2.jpg',
-      legenda: 'Imagem 2',
+      src: 'fettuccine.jpg',
+      legenda: 'Fettuccine com bolonhesa',
     },
   ];
 
+  const navigate = useNavigate();
+
+
+  const handleVoltar = () => {
+    navigate(-1); 
+  };
+
   return (
-    <div>
-      <h1>Tela Principal</h1>
+    <div className='TelaCentral'>
+      <div className='BotaoVoltar'>
+        <button onClick={handleVoltar}>Voltar</button>
+      </div>
       <div className="imagens-container">
         {imagens.map((imagem) => (
           <div

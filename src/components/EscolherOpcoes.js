@@ -11,6 +11,7 @@ function EscolherOpcoes() {
     filmes: false,
     comida: false,
     viagens: false,
+    animais: false,
   });
 
   const handleChange = (e) => {
@@ -35,9 +36,9 @@ function EscolherOpcoes() {
 
   return (
     <div>
-      <h1>Editar Opções</h1>
       <form onSubmit={handleSubmit}>
         <div>
+          <h1>Marque aleatório ou escolha suas categorias:</h1>
           <label>
             <input
               type="checkbox"
@@ -93,13 +94,24 @@ function EscolherOpcoes() {
           </label>
         </div>
         <div>
-        <Link to="/tela-principal">
-          <button type="submit">Salvar Opções</button>
+          <label>
+            <input
+              type="checkbox"
+              name="animais"
+              checked={categorias.animais}
+              onChange={handleChange}
+            />
+            Animais
+          </label>
+        </div>
+        <div className='Botoes'>
+          <button onClick={handleVoltar}>Voltar</button>
+          <Link to="/tela-principal">
+          <button className='Avancar' type="submit">Avançar</button>
           </Link>
         </div>
-        <div>
-          <button onClick={handleVoltar}>Voltar</button>
-        </div>
+      
+        
       </form>
     </div>
   );

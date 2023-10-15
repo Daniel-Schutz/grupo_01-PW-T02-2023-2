@@ -35,7 +35,7 @@ function PaginaInicial() {
         </button>
         </Link>
       </div>
-      <h1>Bem-vindo à Página Inicial</h1>
+      <h1>This or That - The Game</h1>
       <div className="botoes-principais">
         <Link to="/escolher-opcoes">
         <button onClick={handleJogarClick}>Jogar</button>
