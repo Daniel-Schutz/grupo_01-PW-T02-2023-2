@@ -3,7 +3,7 @@ div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
   }
 
 .TelaCentral{
@@ -28,6 +28,7 @@ div {
   /* Estilizando o container das imagens */
   .imagens-container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     gap: 20px;
   }
@@ -39,8 +40,8 @@ div {
   }
   
   .imagem img {
-    max-width: 100%;
-    height: auto;
+    height: 40vh;
+    width: 40vh;
     border: 1px solid #ccc;
     border-radius: 5px;
     transition: border-color 0.3s ease-in-out;

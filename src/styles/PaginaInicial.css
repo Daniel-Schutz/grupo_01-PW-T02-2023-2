@@ -6,26 +6,34 @@ div {
     justify-content: center;
   }
   
+.corpo{
+  width: 100%;
+  background-color: aliceblue;
+  border: rgb(182, 200, 215);
+  border-radius: 10%;
+  border-style: solid;
+}
   /* Estilizando o cabeçalho */
   .header {
+    width: 30%;
     display: flex;
-    justify-content: flex-end;
-    padding: 10px;
+    font-size: 12px;
+    margin-left: 60%;
   }
   
   /* Estilizando o botão de editar perfil */
   .editar-perfil {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    padding: 10px 15px;
-    font-size: 16px;
+    color: black;
     cursor: pointer;
+    font-size: 12px;
   }
-  
-  .editar-perfil:hover {
-    background-color: #0056b3;
+
+  .underlink{
+    font-size: 12px;
+    text-decoration: underline;
+  }
+  a:hover{
+    color: #2b6eb5;
   }
   
   /* Estilizando o título da página */
@@ -37,11 +45,15 @@ div {
   /* Estilizando os botões principais */
   .botoes-principais {
     display: flex;
-    gap: 20px;
   }
   
+  .voltar{
+    margin-top: 10%;
+  }
+
   button {
-    padding: 10px 15px;
+    width: 100px;
+    padding: 10px;
     background-color: #007bff;
     color: #fff;
     border: none;

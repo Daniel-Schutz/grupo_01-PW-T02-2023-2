@@ -40,10 +40,12 @@ div {
 
 .Botoes{
   display: flex;
+  flex-direction: row;
   justify-content: space-between; 
   align-items: flex-end; 
 }
 
 .Avancar{
   background-color: #0056b3;
+  
 }

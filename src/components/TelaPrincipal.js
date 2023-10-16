@@ -32,9 +32,6 @@ function TelaPrincipal() {
 
   return (
     <div className='TelaCentral'>
-      <div className='BotaoVoltar'>
-        <button onClick={handleVoltar}>Voltar</button>
-      </div>
       <div className="imagens-container">
         {imagens.map((imagem) => (
           <div
@@ -46,6 +43,9 @@ function TelaPrincipal() {
             <p>{imagem.legenda}</p>
           </div>
         ))}
+      </div>
+      <div className='BotaoVoltar'>
+        <button onClick={handleVoltar}>Voltar</button>
       </div>
     </div>
   );

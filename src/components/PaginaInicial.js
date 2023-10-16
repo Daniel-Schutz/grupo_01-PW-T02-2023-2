@@ -27,27 +27,28 @@ function PaginaInicial() {
   };
 
   return (
-    <div>
+  <div>
+    <h1>This or That - The Game</h1>
+    <div className="corpo">
       <div className="header">
+
         <Link to="/editar-perfil">
-        <button className="editar-perfil" onClick={handleEditarPerfilClick}>
-          Editar Perfil
-        </button>
+        <p className="editar-perfil">Olá Usuário! <a className='underlink'>Editar Perfil</a></p>
         </Link>
       </div>
-      <h1>This or That - The Game</h1>
       <div className="botoes-principais">
         <Link to="/escolher-opcoes">
         <button onClick={handleJogarClick}>Jogar</button>
         </Link>
         <Link to="/ranking">
-        <button onClick={handleVerRankingClick}>Ver Ranking</button>
+        <button onClick={handleVerRankingClick}>Ranking</button>
         </Link>
       </div>
-      <div>
+      <div className='voltar'>
           <button onClick={handleVoltar}>Voltar</button>
         </div>
     </div>
+  </div>
   );
 }
 
