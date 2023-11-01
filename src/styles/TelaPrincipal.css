@@ -1,12 +1,12 @@
 /* Estilizando o container da tela principal */
 div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+}
 
-.TelaCentral{
+.TelaCentral {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -15,51 +15,72 @@ div {
   padding: 20px;
 }
 
-.BotaoVoltar{
+.BotaoVoltar {
   align-items: flex-start;
 }
-  
-  /* Estilizando o título da página */
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  /* Estilizando o container das imagens */
-  .imagens-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  /* Estilizando as imagens clicáveis */
-  .imagem {
-    cursor: pointer;
-    text-align: center;
-  }
-  
-  .imagem img {
-    height: 40vh;
-    width: 40vh;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s ease-in-out;
-  }
-  
-  .imagem p {
-    margin-top: 5px;
-    font-size: 16px;
-  }
-  
-  /* Estilizando a imagem selecionada */
-  .imagem.selecionada {
-    border-color: #007bff;
-  }
-  
 
-  
- /* Estilos para o cabeçalho */
+/* Estilizando o título da página */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilizando o container das imagens */
+.imagens-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Estilizando as imagens clicáveis */
+.imagem {
+  cursor: pointer;
+  text-align: center;
+}
+
+.imagem img {
+  height: 40vh;
+  width: 40vh;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.imagem p {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+/* Estilizando a imagem selecionada */
+.imagem.selecionada {
+  border-color: #007bff;
+}
+
+/* Estilizando a barra translúcida */
+/* Estilizando a barra translúcida */
+.barra-translucida {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: width 0.3s; /* Animação da largura */
+}
+
+.barra-translucida.esquerda {
+  left: 0; /* Ajusta a barra à esquerda */
+  transform-origin: left; /* Mantém a origem da transformação à esquerda */
+  transform: scaleX(1); /* Crescer da esquerda para a direita */
+}
+
+.barra-translucida.direita {
+  right: 0; /* Ajusta a barra à direita */
+  transform-origin: right; /* Define a origem da transformação à direita */
+  transform: scaleX(-1); /* Crescer da direita para a esquerda */
+}
+
+
+/* Estilos para o cabeçalho */
 header {
   background-color: #333;
   color: #fff;
@@ -75,7 +96,6 @@ header {
 header h1 {
   margin: 0;
 }
-
 
 .header-left {
   display: flex;
@@ -99,7 +119,6 @@ header h1 {
 
 /* Estilizando o botão de editar perfil */
 .usuario-editar p {
-  
   color: white;
   cursor: pointer;
   font-size: 12px;

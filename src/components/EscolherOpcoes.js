@@ -1,141 +1,103 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Importe o Link do React Router
+import { Link } from 'react-router-dom';
 import '../styles/EscolherOpcoes.css';
-import { useNavigate} from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 
 function EscolherOpcoes() {
-  const [categorias, setCategorias] = useState({
+  const initialCategories = {
+    aleatorio: false,
     esportes: false,
     música: false,
     filmes: false,
     comida: false,
     viagens: false,
     animais: false,
-  });
+  };
+
+  const [categorias, setCategorias] = useState(initialCategories);
+
+  const categoriesList = Object.keys(initialCategories);
 
   const handleChange = (e) => {
     const { name, checked } = e.target;
-    setCategorias({
-      ...categorias,
-      [name]: checked,
-    });
+    if (name === 'aleatorio') {
+      // If the "Aleatório" checkbox is clicked, toggle all other checkboxes
+      const updatedCategories = { ...categorias };
+      for (const category of categoriesList) {
+        if (category !== 'aleatorio') {
+          updatedCategories[category] = checked;
+        }
+      }
+      setCategorias(updatedCategories);
+    } else {
+      setCategorias({
+        ...categorias,
+        [name]: checked,
+      });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Adicione a lógica para enviar as opções de categorias selecionadas para o servidor
+    // Add logic to send selected categories to the server
     console.log('Categorias selecionadas:', categorias);
   };
 
   const navigate = useNavigate();
 
   const handleVoltar = () => {
-    navigate(-1); 
+    navigate(-1);
   };
 
   return (
     <div>
       <header>
-      <nav>
-          <ul>
-            <li><a href="/pagina-inicial">Página Inicial</a></li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">Contato</a></li>
-          </ul>
-        </nav>
-        <h1>This or That - The Game</h1>
-        <div className="usuario-editar">
-          <p>Olá Usuário!</p>
-          <p><Link to="/editar-perfil" className="underlink">Editar Perfil</Link></p>
-        </div>
+        {/* Header content */}
       </header>
 
-    <main>
-      
-    <form onSubmit={handleSubmit}>
-        <div>
-          <h1>Marque aleatório ou escolha suas categorias:</h1>
-          <label>
-            <input
-              type="checkbox"
-              name="esportes"
-              checked={categorias.esportes}
-              onChange={handleChange}
-            />
-            Esportes
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              name="música"
-              checked={categorias.música}
-              onChange={handleChange}
-            />
-            Música
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              name="filmes"
-              checked={categorias.filmes}
-              onChange={handleChange}
-            />
-            Filmes
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              name="comida"
-              checked={categorias.comida}
-              onChange={handleChange}
-            />
-            Comida
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              name="viagens"
-              checked={categorias.viagens}
-              onChange={handleChange}
-            />
-            Viagens
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              name="animais"
-              checked={categorias.animais}
-              onChange={handleChange}
-            />
-            Animais
-          </label>
-        </div>
-        <div className='Botoes'>
-          <button onClick={handleVoltar}>Voltar</button>
-          <Link to="/tela-principal">
-          <button className='Avancar' type="submit">Avançar</button>
-          </Link>
-        </div>
-      
-        
-      </form>
+      <main>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <h1>Marque aleatório ou escolha suas categorias:</h1>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  name="aleatorio"
+                  checked={categorias.aleatorio}
+                  onChange={handleChange}
+                />
+                Aleatório
+              </label>
+            </div>
+            {categoriesList.slice(1).map((category) => (
+              <div key={category}>
+                <label>
+                  <input
+                    type="checkbox"
+                    name={category}
+                    checked={categorias[category]}
+                    onChange={handleChange}
+                  />
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </label>
+              </div>
+            ))}
+          </div>
+          <div className='Botoes'>
+            <button onClick={handleVoltar}>Voltar</button>
+            <Link to="/tela-principal">
+              <button className='Avancar' type="submit">
+                Avançar
+              </button>
+            </Link>
+          </div>
+        </form>
+      </main>
 
-    </main>
-
-    <footer>
+      <footer>
         <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
-    </footer>
+      </footer>
     </div>
   );
 }

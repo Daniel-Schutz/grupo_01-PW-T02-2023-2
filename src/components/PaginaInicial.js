@@ -4,21 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 
 
 function PaginaInicial() {
-  const handleJogarClick = () => {
-    // Adicione a lógica para redirecionar para a página de jogo
-    console.log('Clicou em Jogar');
-  };
-
-  const handleVerRankingClick = () => {
-    // Adicione a lógica para redirecionar para a página de ranking
-    console.log('Clicou em Ver Ranking');
-  };
-
-  const handleEditarPerfilClick = () => {
-    // Adicione a lógica para redirecionar para a página de edição de perfil
-    console.log('Clicou em Editar Perfil');
-  };
-
+ 
   const navigate = useNavigate();
 
   const handleVoltar = () => {
@@ -31,8 +17,8 @@ function PaginaInicial() {
       <nav>
           <ul>
             <li><a href="/pagina-inicial">Página Inicial</a></li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">Contato</a></li>
+            <li><a href="/escolher-opcoes">Jogar</a></li>
+            <li><a href="/ranking">Ranking</a></li>
           </ul>
         </nav>
         <h1>This or That - The Game</h1>
@@ -47,10 +33,10 @@ function PaginaInicial() {
         <div className="corpo">
           <div className="botoes-principais">
             <Link to="/escolher-opcoes">
-              <button onClick={handleJogarClick}>Jogar</button>
+              <button>Jogar</button>
             </Link>
             <Link to="/ranking">
-              <button onClick={handleVerRankingClick}>Ranking</button>
+              <button>Ranking</button>
             </Link>
           </div>
           <div className='voltar'>

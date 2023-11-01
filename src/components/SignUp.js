@@ -43,8 +43,8 @@ function SignUp() {
         <nav>
             <ul>
                 <li><a href="/pagina-inicial">Página Inicial</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="/escolher-opcoes">Jogar</a></li>
+                <li><a href="/ranking">Ranking</a></li>
             </ul>
         </nav>
     </header>
