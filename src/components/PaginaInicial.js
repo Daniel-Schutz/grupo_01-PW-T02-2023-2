@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Importe o Link do React Router
 import '../styles/PaginaInicial.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 function PaginaInicial() {

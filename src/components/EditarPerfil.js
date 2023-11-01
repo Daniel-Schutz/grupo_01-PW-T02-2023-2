@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/EditarPerfil.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function EditarPerfil() {
   const [formData, setFormData] = useState({
@@ -35,15 +35,19 @@ function EditarPerfil() {
 
   return (
     <div>
-        <header>
-          <h1>This or That - The Game</h1>
-          <nav>
-              <ul>
-                  <li><a href="/pagina-inicial">Página Inicial</a></li>
-                  <li><a href="#">Sobre</a></li>
-                  <li><a href="#">Contato</a></li>
-              </ul>
-          </nav>
+         <header>
+      <nav>
+          <ul>
+            <li><a href="/pagina-inicial">Página Inicial</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </nav>
+        <h1>This or That - The Game</h1>
+        <div className="usuario-editar">
+          <p>Olá Usuário!</p>
+          <p><Link to="/editar-perfil" className="underlink">Editar Perfil</Link></p>
+        </div>
       </header>
 
       <main>

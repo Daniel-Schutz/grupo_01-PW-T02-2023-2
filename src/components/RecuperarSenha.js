@@ -46,7 +46,6 @@ function RecuperarSenha() {
     </header>
 
     <main>
-    <h1>This or That - The Game</h1>
       {enviado ? (
         <p>{mensagem}</p>
       ) : (

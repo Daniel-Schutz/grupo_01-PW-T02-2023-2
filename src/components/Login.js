@@ -32,7 +32,7 @@ function Login() {
   return (
     <div>
         <header>
-        <h1>Meu Cabeçalho</h1>
+        <h1>This or That - The Game</h1>
         <nav>
             <ul>
                 <li><a href="/pagina-inicial">Página Inicial</a></li>
@@ -43,8 +43,6 @@ function Login() {
     </header>
 
     <main>
-    
-    <h1>This or That - The Game</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">E-mail:</label>

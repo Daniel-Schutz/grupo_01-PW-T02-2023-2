@@ -58,31 +58,51 @@ div {
   }
   
   
-  /* Estilos para o cabeçalho */
+/* Estilos para o cabeçalho */
 header {
   background-color: #333;
   color: #fff;
   padding: 20px;
   text-align: center;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centralize verticalmente os elementos dentro do cabeçalho */
+  height: 100%; /* Adicione esta linha */
 }
 
 header h1 {
   margin: 0;
 }
 
-header ul {
+
+.header-left {
+  display: flex;
+  align-items: center; /* Centralize verticalmente os elementos à esquerda */
+}
+
+.header-left ul {
   list-style: none;
   padding: 0;
 }
 
-header ul li {
+.header-left ul li {
   display: inline;
   margin-right: 10px;
 }
 
-header ul li a {
+.header-left ul li a {
   text-decoration: none;
   color: #fff;
+}
+
+/* Estilizando o botão de editar perfil */
+.usuario-editar p {
+  
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 10px; 
 }
 
 /* Estilos para o rodapé */

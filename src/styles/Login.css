@@ -82,6 +82,11 @@ div a {
   margin-top: 10px; /* Espaçamento superior entre os botões e o formulário */
 }
 
+
+main{
+  margin-top: 10%;
+}
+
   /* Estilos para o cabeçalho */
   header {
     background-color: #333;
@@ -91,7 +96,7 @@ div a {
   }
   
   header h1 {
-    margin: 0;
+    margin-left: 75px;
   }
   
   header ul {

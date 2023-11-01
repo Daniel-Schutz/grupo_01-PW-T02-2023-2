@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Ranking.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+
 
 
 function Ranking() {
@@ -26,16 +27,20 @@ function Ranking() {
 
   return (
     <div>
-    <header>
-    <h1>This or That - The Game</h1>
-    <nav>
-        <ul>
+      <header>
+      <nav>
+          <ul>
             <li><a href="/pagina-inicial">Página Inicial</a></li>
             <li><a href="#">Sobre</a></li>
             <li><a href="#">Contato</a></li>
-        </ul>
-    </nav>
-</header>
+          </ul>
+        </nav>
+        <h1>This or That - The Game</h1>
+        <div className="usuario-editar">
+          <p>Olá Usuário!</p>
+          <p><Link to="/editar-perfil" className="underlink">Editar Perfil</Link></p>
+        </div>
+      </header>
 
 <main>
     

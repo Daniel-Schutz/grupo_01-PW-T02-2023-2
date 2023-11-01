@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Importe o Link do React Router
 import '../styles/EscolherOpcoes.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 
 function EscolherOpcoes() {
@@ -37,15 +37,19 @@ function EscolherOpcoes() {
   return (
     <div>
       <header>
-        <h1>This or That - The Game</h1>
-        <nav>
-            <ul>
-                <li><a href="/pagina-inicial">Página Inicial</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
+      <nav>
+          <ul>
+            <li><a href="/pagina-inicial">Página Inicial</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
         </nav>
-    </header>
+        <h1>This or That - The Game</h1>
+        <div className="usuario-editar">
+          <p>Olá Usuário!</p>
+          <p><Link to="/editar-perfil" className="underlink">Editar Perfil</Link></p>
+        </div>
+      </header>
 
     <main>
       
