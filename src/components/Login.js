@@ -28,9 +28,23 @@ function Login() {
     });
   };
 
+
   return (
     <div>
-      <h1>This or That - The Game</h1>
+        <header>
+        <h1>Meu Cabeçalho</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Página Inicial</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    
+    <h1>This or That - The Game</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">E-mail:</label>
@@ -71,6 +85,11 @@ function Login() {
         </div>
       </form>
       
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+    </footer>
     </div>
   );
 }

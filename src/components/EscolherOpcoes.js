@@ -36,7 +36,20 @@ function EscolherOpcoes() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <header>
+        <h1>Meu Cabeçalho</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Página Inicial</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+      
+    <form onSubmit={handleSubmit}>
         <div>
           <h1>Marque aleatório ou escolha suas categorias:</h1>
           <label>
@@ -113,6 +126,12 @@ function EscolherOpcoes() {
       
         
       </form>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+    </footer>
     </div>
   );
 }

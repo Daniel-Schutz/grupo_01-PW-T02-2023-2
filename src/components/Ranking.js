@@ -26,7 +26,20 @@ function Ranking() {
 
   return (
     <div>
-      <h1>Ranking de Imagens</h1>
+    <header>
+    <h1>Meu Cabeçalho</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Página Inicial</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    
+<h1>Ranking de Imagens</h1>
       <table>
         <thead>
           <tr>
@@ -48,6 +61,11 @@ function Ranking() {
       <div>
           <button onClick={handleVoltar}>Voltar</button>
         </div>
+</main>
+
+<footer>
+    <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+</footer>
     </div>
   );
 }

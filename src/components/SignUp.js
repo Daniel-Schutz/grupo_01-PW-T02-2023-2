@@ -38,7 +38,19 @@ function SignUp() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+        <header>
+        <h1>Meu Cabeçalho</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Página Inicial</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    <form onSubmit={handleSubmit}>
       <div className='BotaoVoltar'>
           <button onClick={handleVoltar}>Voltar</button>
         </div>
@@ -79,6 +91,11 @@ function SignUp() {
           <button type="submit">Criar Conta</button>
         </div>
       </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+    </footer>
 
     </div>
   );
