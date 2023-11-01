@@ -5,6 +5,10 @@ div {
     align-items: center;
     justify-content: center;
   }
+
+nav{
+    margin-left: 10px;
+  }
   
 .corpo{
   width: 100%;
@@ -13,24 +17,11 @@ div {
   border-radius: 10%;
   border-style: solid;
 }
-  /* Estilizando o cabeçalho */
-  .header {
-    width: 30%;
-    display: flex;
-    font-size: 12px;
-    margin-left: 60%;
-  }
   
-  /* Estilizando o botão de editar perfil */
-  .editar-perfil {
-    color: black;
-    cursor: pointer;
-    font-size: 12px;
-  }
-
-  .underlink{
+.underlink{
     font-size: 12px;
     text-decoration: underline;
+    color: white;
   }
   a:hover{
     color: #2b6eb5;
@@ -67,37 +58,63 @@ div {
   }
   
   
-  /* Estilos para o cabeçalho */
+/* Estilos para o cabeçalho */
 header {
   background-color: #333;
   color: #fff;
   padding: 20px;
   text-align: center;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centralize verticalmente os elementos dentro do cabeçalho */
+  height: 100%; /* Adicione esta linha */
 }
 
 header h1 {
   margin: 0;
 }
 
-header ul {
+
+.header-left {
+  display: flex;
+  align-items: center; /* Centralize verticalmente os elementos à esquerda */
+}
+
+.header-left ul {
   list-style: none;
   padding: 0;
 }
 
-header ul li {
+.header-left ul li {
   display: inline;
   margin-right: 10px;
 }
 
-header ul li a {
+.header-left ul li a {
   text-decoration: none;
   color: #fff;
 }
 
+/* Estilizando o botão de editar perfil */
+.usuario-editar p {
+  
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 10px; 
+}
+
+
 /* Estilos para o rodapé */
+
 footer {
   background-color: green;
   color: #fff;
   text-align: center;
   padding: 10px 0;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
 }
+

@@ -27,45 +27,43 @@ function PaginaInicial() {
   };
 
   return (
-  <div>
+    <div>
       <header>
-        <h1>Meu Cabeçalho</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Página Inicial</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
+      <nav>
+          <ul>
+            <li><a href="/pagina-inicial">Página Inicial</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
         </nav>
-    </header>
-
-    <main>
-    <h1>This or That - The Game</h1>
-    <div className="corpo">
-      <div className="header">
-
-        <Link to="/editar-perfil">
-        <p className="editar-perfil">Olá Usuário! <a className='underlink'>Editar Perfil</a></p>
-        </Link>
-      </div>
-      <div className="botoes-principais">
-        <Link to="/escolher-opcoes">
-        <button onClick={handleJogarClick}>Jogar</button>
-        </Link>
-        <Link to="/ranking">
-        <button onClick={handleVerRankingClick}>Ranking</button>
-        </Link>
-      </div>
-      <div className='voltar'>
-          <button onClick={handleVoltar}>Voltar</button>
+        <h1>This or That - The Game</h1>
+        <div className="usuario-editar">
+          <p>Olá Usuário!</p>
+          <p><Link to="/editar-perfil" className="underlink">Editar Perfil</Link></p>
         </div>
-    </div>
-    </main>
+      </header>
 
-    <footer>
+      <main>
+        <h1>This or That - The Game</h1>
+        <div className="corpo">
+          <div className="botoes-principais">
+            <Link to="/escolher-opcoes">
+              <button onClick={handleJogarClick}>Jogar</button>
+            </Link>
+            <Link to="/ranking">
+              <button onClick={handleVerRankingClick}>Ranking</button>
+            </Link>
+          </div>
+          <div className='voltar'>
+            <button onClick={handleVoltar}>Voltar</button>
+          </div>
+        </div>
+      </main>
+
+      <footer>
         <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
-    </footer>
-  </div>
+      </footer>
+    </div>
   );
 }
 

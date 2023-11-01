@@ -35,7 +35,7 @@ function Login() {
         <h1>Meu Cabeçalho</h1>
         <nav>
             <ul>
-                <li><a href="#">Página Inicial</a></li>
+                <li><a href="/pagina-inicial">Página Inicial</a></li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Contato</a></li>
             </ul>
@@ -78,7 +78,7 @@ function Login() {
           <button>Criar Conta</button>
         </Link>
         
-
+          
           <button type="submit">Entrar</button>
           
           </Link>

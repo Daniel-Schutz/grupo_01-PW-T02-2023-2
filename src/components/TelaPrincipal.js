@@ -31,18 +31,18 @@ function TelaPrincipal() {
   };
 
   return (
-    <div className='TelaCentral'>
-        <header>
-        <h1>Meu Cabeçalho</h1>
+    <div>
+       <header>
+        <h1>This or That - The Game</h1>
         <nav>
             <ul>
-                <li><a href="#">Página Inicial</a></li>
+                <li><a href="/pagina-inicial">Página Inicial</a></li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Contato</a></li>
             </ul>
         </nav>
     </header>
-
+    <div className='TelaCentral'>
     <main>
     <div className="imagens-container">
         {imagens.map((imagem) => (
@@ -61,6 +61,8 @@ function TelaPrincipal() {
       </div>
     </main>
 
+    </div>
+    
     <footer>
         <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
     </footer>

@@ -39,10 +39,10 @@ function SignUp() {
   return (
     <div>
         <header>
-        <h1>Meu Cabeçalho</h1>
+        <h1>This or That - The Game</h1>
         <nav>
             <ul>
-                <li><a href="#">Página Inicial</a></li>
+                <li><a href="/pagina-inicial">Página Inicial</a></li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Contato</a></li>
             </ul>

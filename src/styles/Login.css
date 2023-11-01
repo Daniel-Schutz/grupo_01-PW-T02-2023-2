@@ -62,6 +62,7 @@ button {
   font-size: 16px;
   cursor: pointer;
   margin-bottom: 10px; /* Espaçamento inferior entre os botões */
+  margin: 5px;
 }
 
 button:hover {
@@ -80,23 +81,6 @@ div a {
   text-decoration: none; /* Remove sublinhado do link */
   margin-top: 10px; /* Espaçamento superior entre os botões e o formulário */
 }
-
-div a button {
-  background-color: #28a745; /* Cor verde para o botão "Criar Conta" */
-}
-
-div a button:hover {
-  background-color: #218838; /* Cor verde mais escura no hover */
-}
-
-div a:nth-child(2) button {
-  background-color: #dc3545; /* Cor vermelha para o botão "Esqueci Minha Senha" */
-}
-
-div a:nth-child(2) button:hover {
-  background-color: #c82333; /* Cor vermelha mais escura no hover */
-}
-
 
   /* Estilos para o cabeçalho */
   header {
