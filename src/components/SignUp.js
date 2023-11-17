@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/SignUp.css';
 import { useNavigate } from 'react-router-dom';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 
 function SignUp() {
@@ -18,16 +20,34 @@ function SignUp() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica para enviar os dados do formulário para o servidor
-    console.log('Dados do formulário enviados:', formData);
-    // Limpar o formulário
-    setFormData({
-      username: '',
-      email: '',
-      password: '',
-    });
+
+    try {
+      // Criar um novo usuário no Firebase
+      const { user } = await firebase.auth().createUserWithEmailAndPassword(
+        formData.email,
+        formData.password
+      );
+
+      // Atualizar o nome do usuário no perfil do Firebase
+      await user.updateProfile({
+        displayName: formData.username,
+      });
+
+      // Limpar o formulário
+      setFormData({
+        username: '',
+        email: '',
+        password: '',
+      });
+
+      
+      navigate('/pagina-inicial');
+    } catch (error) {
+      console.error('Erro ao criar usuário:', error.message);
+      // Tratar o erro conforme necessário (exibindo uma mensagem de erro, etc.)
+    }
   };
 
   const navigate = useNavigate();
