@@ -31,40 +31,45 @@ function TelaPrincipal() {
   };
 
   return (
-    <div className='TelaCentral'>
-        <header>
-        <h1>Meu Cabeçalho</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Página Inicial</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
+    
+    <><header>
+      <h1>Meu Cabeçalho</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Página Inicial</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
     </header>
-
-    <main>
-    <div className="imagens-container">
-        {imagens.map((imagem) => (
-          <div
-            key={imagem.id}
-            className={`imagem ${imagemSelecionada === imagem ? 'selecionada' : ''}`}
-            onClick={() => handleImagemClick(imagem)}
-          >
-            <img src={imagem.src} alt={imagem.legenda} />
-            <p>{imagem.legenda}</p>
+    <div className='TelaCentral'>
+        <main>
+          <div className="imagens-container">
+            {imagens.map((imagem) => (
+              <div
+                key={imagem.id}
+                className={`imagem ${imagemSelecionada === imagem ? 'selecionada' : ''}`}
+                onClick={() => handleImagemClick(imagem)}
+              >
+                <img src={imagem.src} alt={imagem.legenda} />
+                <p>{imagem.legenda}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className='BotaoVoltar'>
-        <button onClick={handleVoltar}>Voltar</button>
-      </div>
-    </main>
+          <div className='BotaoVoltar'>
+            <button onClick={handleVoltar}>Voltar</button>
+          </div>
+        </main>
 
-    <footer>
-        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
-    </footer>
-    </div>
+        
+      </div>      
+      <div>
+        <footer>
+          <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+        </footer>
+      </div>
+      </>
+
   );
 }
 
