@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/SignUp.css';
 import { useNavigate } from 'react-router-dom';
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import firebase from 'firebase/compat/app'; // Modificado para 'compat'
+import 'firebase/compat/auth'; // Modificado para 'compat'
 
 
 function SignUp() {
