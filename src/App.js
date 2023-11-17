@@ -8,6 +8,8 @@ import EditarPerfil from './components/EditarPerfil';
 import Ranking from './components/Ranking';
 import TelaPrincipal from './components/TelaPrincipal';
 import EscolherOpcoes from './components/EscolherOpcoes';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
         <Route path="/tela-principal" element={<TelaPrincipal />} />
         <Route path="/escolher-opcoes" element={<EscolherOpcoes />} />
       </Routes>
+      <ToastContainer />
     </Router>
+    
   );
 }
 

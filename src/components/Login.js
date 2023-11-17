@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -35,9 +37,9 @@ function Login() {
       // Redirecionar para a página desejada após o login bem-sucedido
       navigate('/tela-principal');
     } catch (error) {
-      navigate('/pagina-inicial');
-
       console.error('Erro ao fazer login:', error.message);
+      toast.error('Não foi possível efetuar o login. Senha ou email inválidos!');
+
       // Tratar o erro conforme necessário (exibindo uma mensagem de erro, etc.)
     }
   };

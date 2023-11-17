@@ -3,6 +3,8 @@ import '../styles/SignUp.css';
 import { useNavigate } from 'react-router-dom';
 import firebase from 'firebase/compat/app'; // Modificado para 'compat'
 import 'firebase/compat/auth'; // Modificado para 'compat'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function SignUp() {
@@ -46,7 +48,7 @@ function SignUp() {
       navigate('/pagina-inicial');
     } catch (error) {
       console.error('Erro ao criar usuário:', error.message);
-      // Tratar o erro conforme necessário (exibindo uma mensagem de erro, etc.)
+      toast.error('Não foi possível criar o usuário. Por favor, tente novamente.');
     }
   };
 
