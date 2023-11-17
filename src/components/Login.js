@@ -1,7 +1,12 @@
 // Importe as bibliotecas necessárias
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Importe o Link do React Router
+import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+
+
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -17,16 +22,27 @@ function Login() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica para autenticar o usuário
-    console.log('Dados do formulário de login:', formData);
-    // Limpar o formulário
-    setFormData({
-      email: '',
-      password: '',
-    });
+
+    try {
+      // Autenticar o usuário usando Firebase
+      await firebase.auth().signInWithEmailAndPassword(
+        formData.email,
+        formData.password
+      );
+
+      // Redirecionar para a página desejada após o login bem-sucedido
+      navigate('/tela-principal');
+    } catch (error) {
+      navigate('/pagina-inicial');
+
+      console.error('Erro ao fazer login:', error.message);
+      // Tratar o erro conforme necessário (exibindo uma mensagem de erro, etc.)
+    }
   };
+
+  const navigate = useNavigate();
 
 
   return (
@@ -43,7 +59,7 @@ function Login() {
     </header>
 
     <main>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div>
           <label htmlFor="email">E-mail:</label>
           <input
@@ -77,7 +93,7 @@ function Login() {
         </Link>
         
           
-          <button type="submit">Entrar</button>
+          <button onClick={handleSubmit}>Entrar</button>
           
           </Link>
         </div>
