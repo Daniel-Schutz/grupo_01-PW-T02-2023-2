@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import '../styles/TelaPrincipal.css';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation} from 'react-router-dom';
 
 function TelaPrincipal() {
   const [imagemSelecionada, setImagemSelecionada] = useState(null);
   const [larguraBarra, setLarguraBarra] = useState(0); // Renomeada para larguraBarra
+  const location = useLocation();
+  const categoriasSelecionadas = location.state?.categoriasSelecionadas || {};
+
+  console.log(categoriasSelecionadas)
 
   const handleImagemClick = (imagem) => {
     setImagemSelecionada(imagem);

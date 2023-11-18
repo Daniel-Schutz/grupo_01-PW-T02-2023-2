@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import '../styles/EscolherOpcoes.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function EscolherOpcoes() {
   const initialCategories = {
-    aleatorio: false,
     esportes: false,
-    música: false,
     filmes: false,
-    comida: false,
-    viagens: false,
+    comidas: false,
+    lugares: false,
     animais: false,
   };
 
@@ -39,8 +36,7 @@ function EscolherOpcoes() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add logic to send selected categories to the server
-    console.log('Categorias selecionadas:', categorias);
+    navigate("/tela-principal",{ state: { categoriasSelecionadas: categorias } })
   };
 
   const navigate = useNavigate();
@@ -51,8 +47,19 @@ function EscolherOpcoes() {
 
   return (
     <div>
-      <header>
-        {/* Header content */}
+  <header>
+      <nav>
+          <ul>
+            <li><a href="/pagina-inicial">Página Inicial</a></li>
+            <li><a href="/escolher-opcoes">Jogar</a></li>
+            <li><a href="/ranking">Ranking</a></li>
+          </ul>
+        </nav>
+        <h1>This or That - The Game</h1>
+        <div className="usuario-editar">
+          <p>Olá Usuário!</p>
+          <p><Link to="/editar-perfil" className="underlink">Editar Perfil</Link></p>
+        </div>
       </header>
 
       <main>
@@ -86,11 +93,9 @@ function EscolherOpcoes() {
           </div>
           <div className='Botoes'>
             <button onClick={handleVoltar}>Voltar</button>
-            <Link to="/tela-principal">
               <button className='Avancar' type="submit">
                 Avançar
               </button>
-            </Link>
           </div>
         </form>
       </main>
