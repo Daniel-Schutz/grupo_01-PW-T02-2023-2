@@ -75,7 +75,7 @@ return (
         <div className='links'>
 
            <Link to="/sign-up">
-          <button>Criar Conta</button>
+          <button type="button" >Criar Conta</button>
         </Link>
           <button type="submit">Entrar</button>
         </div>
