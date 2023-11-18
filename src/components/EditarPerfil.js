@@ -4,9 +4,10 @@ import { useNavigate, Link } from 'react-router-dom';
 import firebase from 'firebase/compat/app'
 
 function EditarPerfil() {
+  const user = firebase.auth().currentUser;
   const [formData, setFormData] = useState({
-    username: 'exemplo',
-    email: 'exemplo@email.com',
+    username: user.displayName,
+    email: user.email,
     senhaAtual: '',
     novaSenha: '',
   });
@@ -22,7 +23,6 @@ function EditarPerfil() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Adicione a lógica para atualizar as informações do perfil no servidor
-    const user = firebase.auth().currentUser;
     console.log(user);
     if (formData.novaSenha){
       await user.updatePassword(formData.novaSenha)
