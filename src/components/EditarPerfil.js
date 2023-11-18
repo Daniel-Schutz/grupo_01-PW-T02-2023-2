@@ -22,15 +22,14 @@ function EditarPerfil() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Adicione a lógica para atualizar as informações do perfil no servidor
     console.log(user);
     if (formData.novaSenha){
       await user.updatePassword(formData.novaSenha)
     }
-    if (formData.email != user.email){
+    if (formData.email !== user.email){
       await user.updateEmail(formData.email)
     }
-    if (formData.username != user.username){
+    if (formData.username !== user.username){
       await user.updateProfile({
         displayName: formData.username
       })
