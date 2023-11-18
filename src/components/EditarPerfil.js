@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/EditarPerfil.css';
 import { useNavigate, Link } from 'react-router-dom';
+import firebase from 'firebase/compat/app'
 
 function EditarPerfil() {
   const [formData, setFormData] = useState({
@@ -18,10 +19,23 @@ function EditarPerfil() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Adicione a lógica para atualizar as informações do perfil no servidor
-    console.log('Dados do formulário de edição de perfil:', formData);
+    const user = firebase.auth().currentUser;
+    console.log(user);
+    if (formData.novaSenha){
+      await user.updatePassword(formData.novaSenha)
+    }
+    if (formData.email != user.email){
+      await user.updateEmail(formData.email)
+    }
+    if (formData.username != user.username){
+      await user.updateProfile({
+        displayName: formData.username
+      })
+    }
+    console.log(user);
   };
 
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
@@ -10,8 +10,21 @@ import TelaPrincipal from './components/TelaPrincipal';
 import EscolherOpcoes from './components/EscolherOpcoes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { logout } from './firebaseConnection';
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      logout();
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
+
   return (
     <Router>
       <Routes>

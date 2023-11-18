@@ -1,53 +1,35 @@
-// Importe as bibliotecas necessárias
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Importe o Link do React Router
-import { useNavigate } from 'react-router-dom';
-import '../styles/Login.css';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-
-
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebaseConnection";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import "../styles/Login.css";
+import { toast } from "react-toastify";
+import { signInWithEmailAndPassword } from "firebase/auth";
 function Login() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      // Autenticar o usuário usando Firebase
-      await firebase.auth().signInWithEmailAndPassword(
-        formData.email,
-        formData.password
-      );
-
-      // Redirecionar para a página desejada após o login bem-sucedido
-      navigate('/tela-principal');
-    } catch (error) {
-      console.error('Erro ao fazer login:', error.message);
-      toast.error('Não foi possível efetuar o login. Senha ou email inválidos!');
-
-      // Tratar o erro conforme necessário (exibindo uma mensagem de erro, etc.)
-    }
-  };
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
+  useEffect(() => {
+    console.log(user)
+    if (user) navigate("/pagina-inicial");
+  }, [user, loading, navigate]);
 
+  const signIn = async (e) => {
+    e.preventDefault();
+    console.log('log');
+    await signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log(userCredential);
+    }) 
+    .catch((error) => {
+      toast.error("Invalid email or password!");
+      console.log(error);
+    });
 
-  return (
+    console.log('cheguei');
+  }
+return (
     <div>
         <header>
         <h1>This or That - The Game</h1>
@@ -61,15 +43,15 @@ function Login() {
     </header>
 
     <main>
-      <form>
+      <form onSubmit={signIn}>
         <div>
           <label htmlFor="email">E-mail:</label>
           <input
             type="email"
             id="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
@@ -79,25 +61,21 @@ function Login() {
             type="password"
             id="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        <div className='Links'>
-          <Link to="/pagina-inicial">
-          <Link to="/recuperar-senha">
+        <Link to="/recuperar-senha">
           <p className='RecuperarSenha'>Esqueci Minha Senha</p>
          </Link>
+         
+        <div className='links'>
 
            <Link to="/sign-up">
           <button>Criar Conta</button>
         </Link>
-        
-          
-          <button onClick={handleSubmit}>Entrar</button>
-          
-          </Link>
+          <button type="submit">Entrar</button>
         </div>
       </form>
       

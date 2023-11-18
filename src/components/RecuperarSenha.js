@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
-import '../styles/RecuperarSenha.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react'; 
+import '../styles/RecuperarSenha.css'; 
+import { useNavigate } from 'react-router-dom'; 
+import { sendPasswordResetEmail } from "firebase/auth";
+import {auth} from "../firebaseConnection"
+import { toast } from "react-toastify";
 
 
 function RecuperarSenha() {
@@ -8,24 +11,22 @@ function RecuperarSenha() {
   const [mensagem, setMensagem] = useState('');
   const [enviado, setEnviado] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Simulação do envio de solicitação de recuperação de senha
-    // Você deve implementar a lógica real de envio de email no backend
-
-    try {
-      // Substitua esta parte com a lógica real de envio de email
-      // Pode ser uma chamada de API para seu servidor
-      // Aqui, apenas uma mensagem é exibida para simular o envio bem-sucedido
-      setMensagem('Um email com instruções para recuperar sua senha foi enviado para ' + email);
-      setEnviado(true);
-    } catch (error) {
-      console.error('Erro ao enviar email de recuperação de senha:', error);
-      setMensagem('Ocorreu um erro ao enviar o email. Por favor, tente novamente mais tarde.');
-    }
-  };
-
+  const handleSubmit = async (e) => { 
+    e.preventDefault(); 
+    try { 
+      await sendPasswordResetEmail(auth, email); 
+      setMensagem('Um email com instruções para recuperar sua senha foi enviado para '+ email); 
+      setEnviado(true); 
+      toast.success('Email enviado com sucesso!'); 
+    } catch (error) { 
+      console.error('Erro ao enviar email de recuperação de senha:', error); 
+      if (error.code === 'auth/invalid-email') { 
+        toast.error('Email inválido!'); 
+      } else { 
+        toast.error('Ocorreu um erro ao enviar o email. Por favor, tente novamente mais tarde.'); 
+      } 
+    } 
+  }; 
   const navigate = useNavigate();
 
   const handleVoltar = () => {

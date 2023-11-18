@@ -75,7 +75,9 @@ button:hover {
   font-size: 14px;
   margin-top: 5px;
 }
-
+.links{
+  flex-direction: row;
+}
 /* Estilizando os botões "Criar Conta" e "Esqueci Minha Senha" */
 div a {
   text-decoration: none; /* Remove sublinhado do link */
