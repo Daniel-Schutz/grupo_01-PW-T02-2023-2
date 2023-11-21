@@ -11,7 +11,6 @@ import EscolherOpcoes from './components/EscolherOpcoes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { logout } from './firebaseConnection';
-import NotFound from "./components/NotFound";
 import { Navigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebaseConnection";
@@ -20,7 +19,7 @@ import { auth } from "./firebaseConnection";
 const PrivateRoute = ({ element }) => {
   const [user] = useAuthState(auth);
 
-  return user ? element : <Navigate to="/not-found" replace />;
+  return user ? element : <Navigate to="/login" replace />;
 };
 
 const App = () => {
@@ -47,8 +46,8 @@ const App = () => {
         <Route path="/ranking" element={<PrivateRoute element={<Ranking />} />}/>
         <Route path="/tela-principal" element={<PrivateRoute element={<TelaPrincipal />} />}/>
         <Route path="/escolher-opcoes" element={<PrivateRoute element={<EscolherOpcoes />} />}/>
-        <Route path="/not-found" element={<NotFound />} />
-        <Route path="*" element={<Navigate to="/not-found" replace />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
       <ToastContainer />
     </Router>
