@@ -67,7 +67,7 @@ function EditarPerfil() {
       <h1>Editar Perfil</h1>
       <form onSubmit={handleSubmit}>
         <div className='BotaoVoltar'>
-          <button onClick={handleVoltar}>Voltar</button>
+          <button onClick={handleVoltar}>Cancelar edições</button>
         </div>
         <div>
           <label htmlFor="username">Nome de Usuário:</label>
