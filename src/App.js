@@ -11,6 +11,16 @@ import EscolherOpcoes from './components/EscolherOpcoes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { logout } from './firebaseConnection';
+import { Navigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "./firebaseConnection";
+
+
+const PrivateRoute = ({ element }) => {
+  const [user] = useAuthState(auth);
+
+  return user ? element : <Navigate to="/login" replace />;
+};
 
 const App = () => {
   useEffect(() => {
@@ -31,11 +41,13 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/recuperar-senha" element={<RecuperarSenha />} />
-        <Route path="/pagina-inicial" element={<PaginaInicial />} />
-        <Route path="/editar-perfil" element={<EditarPerfil />} />
-        <Route path="/ranking" element={<Ranking />} />
-        <Route path="/tela-principal" element={<TelaPrincipal />} />
-        <Route path="/escolher-opcoes" element={<EscolherOpcoes />} />
+        <Route path="/pagina-inicial" element={<PrivateRoute element={<PaginaInicial />} />}/>
+        <Route path="/editar-perfil" element={<PrivateRoute element={<EditarPerfil />} />}/>
+        <Route path="/ranking" element={<PrivateRoute element={<Ranking />} />}/>
+        <Route path="/tela-principal" element={<PrivateRoute element={<TelaPrincipal />} />}/>
+        <Route path="/escolher-opcoes" element={<PrivateRoute element={<EscolherOpcoes />} />}/>
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
       <ToastContainer />
     </Router>
