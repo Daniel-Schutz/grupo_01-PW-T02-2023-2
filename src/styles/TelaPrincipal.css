@@ -1,11 +1,14 @@
 /* Estilizando o container da tela principal */
 .TelaCentral {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  max-width: 800px; /* Defina uma largura máxima desejada */
+  width: 80%; /* Você pode ajustar esse valor conforme necessário */
+  margin: 0 auto;
   background-color: #a49d9d;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .BotaoVoltar {
@@ -15,8 +18,9 @@
 /* Estilizando as imagens clicáveis */
 .imagens-container {
   display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
   flex-direction: row;
-  margin-top: 20px; /* Ajuste conforme necessário */
 }
 
 .imagem-item {
@@ -38,7 +42,7 @@ img {
 
 /* Adicione margem à direita para criar um espaço entre as imagens */
 .imagem-item + .imagem-item {
-  margin-left: 5px;
+  margin-left: 2%;
 }
 
 
