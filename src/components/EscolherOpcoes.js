@@ -50,9 +50,9 @@ function EscolherOpcoes() {
   <header>
       <nav>
           <ul>
-            <li><a href="/pagina-inicial">Página Inicial</a></li>
-            <li><a href="/escolher-opcoes">Jogar</a></li>
-            <li><a href="/ranking">Ranking</a></li>
+            <li><Link to="/pagina-inicial">Página Inicial</Link></li>
+            <li><Link to="/escolher-opcoes">Jogar</Link></li>
+            <li><Link to="/ranking">Ranking</Link></li>
           </ul>
         </nav>
         <h1>This or That - The Game</h1>

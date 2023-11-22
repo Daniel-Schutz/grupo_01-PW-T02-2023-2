@@ -16,6 +16,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebaseConnection";
 
 
+
 const PrivateRoute = ({ element }) => {
   const [user] = useAuthState(auth);
 

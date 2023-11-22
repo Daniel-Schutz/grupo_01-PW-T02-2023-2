@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { sendPasswordResetEmail } from "firebase/auth";
 import {auth} from "../firebaseConnection"
 import { toast } from "react-toastify";
+import { Link } from 'react-router-dom';
+
 
 
 function RecuperarSenha() {
@@ -39,9 +41,9 @@ function RecuperarSenha() {
         <h1>This or That - The Game</h1>
         <nav>
             <ul>
-                <li><a href="/pagina-inicial">Página Inicial</a></li>
-                <li><a href="/escolher-opcoes">Jogar</a></li>
-                <li><a href="/ranking">Ranking</a></li>
+                <li><Link to="/pagina-inicial">Página Inicial</Link></li>
+                <li><Link to="/escolher-opcoes">Jogar</Link></li>
+                <li><Link to="/ranking">Ranking</Link></li>
             </ul>
         </nav>
     </header>
