@@ -8,15 +8,15 @@ div {
 
 /* Estilizando o título da página */
 h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Adicione a margem inferior desejada */
+  text-align: center; /* Centralize o texto */
 }
 
 /* Estilizando a tabela de ranking */
 table {
   width: 80%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin: 0 auto; /* Define margens automáticas para centralizar a tabela */
 }
 
 table th,
@@ -93,10 +93,22 @@ header {
 
 /* Estilos para o rodapé */
 footer {
-  background-color: green;
-  color: #fff;
+  margin-top: 20px; /* Adicione a margem superior desejada */
+  padding: 10px;
+  background-color: #f1f1f1;
   text-align: center;
-  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+main {
+  margin-top: 20px; /* Adicione a margem superior desejada */
+  margin-bottom: 70px; /* Adicione a margem inferior desejada */
+}
+
+select {
+  margin-bottom: 10px; /* Adicione a margem inferior desejada */
 }
 
 /* Media queries para telas menores */
