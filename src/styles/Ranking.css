@@ -95,17 +95,6 @@ header {
   margin-right: 10px;
 }
 
-/* Estilos para o rodapé */
-footer {
-  margin-top: 20px; /* Adicione a margem superior desejada */
-  padding: 10px;
-  background-color: #f1f1f1;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
 main {
   margin-top: 20px; /* Adicione a margem superior desejada */
   margin-bottom: 70px; /* Adicione a margem inferior desejada */

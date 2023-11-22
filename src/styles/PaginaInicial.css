@@ -104,16 +104,6 @@ header {
   margin-right: 10px;
 }
 
-/* Estilos para o rodapé */
-footer {
-  background-color: green;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-}
 
 /* Media queries para telas menores */
 @media screen and (max-width: 768px) {

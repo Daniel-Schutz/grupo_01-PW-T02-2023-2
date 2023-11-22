@@ -31,17 +31,22 @@ function Login() {
 
     console.log('cheguei');
   }
+  const linkStyle = {
+    color: 'white',
+    textDecoration: 'none',
+  };
 return (
     <div>
-        <header>
-        <h1 className="TituloHeader">This or That - The Game</h1>
-        <nav>
-            <ul>
+
+    <header>
+        <div className="NavBar">
+        <div className="logo"><Link className="st" to="/pagina-inicial" style={linkStyle}>This or That - The Game</Link></div>
+            <ul className="links">
                 <li><a href="/pagina-inicial">Página Inicial</a></li>
                 <li><a href="/escolher-opcoes">Jogar</a></li>
                 <li><a href="/ranking">Ranking</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
 
     <main>
@@ -83,7 +88,7 @@ return (
       
     </main>
 
-    <footer>
+    <footer className="bottom">
         <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
     </footer>
     </div>
