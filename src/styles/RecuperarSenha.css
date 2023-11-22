@@ -1,69 +1,66 @@
 /* Estilizando o container da página de recuperação de senha */
 div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-  }
-  
-  /* Estilizando o título da página */
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  /* Estilizando o formulário */
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Estilizando os campos de entrada */
-  label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 16px;
-  }
-  
-  /* Estilizando o botão de envio */
-  button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Estilizando a mensagem de feedback */
-  p {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #333;
-  }
-  
+/* Estilizando o título da página */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
-  
-  /* Estilos para o cabeçalho */
+/* Estilizando o formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilizando os campos de entrada */
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+/* Estilizando o botão de envio */
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilizando a mensagem de feedback */
+p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Estilos para o cabeçalho */
 header {
   background-color: #333;
   color: #fff;
@@ -96,4 +93,11 @@ footer {
   color: #fff;
   text-align: center;
   padding: 10px 0;
+}
+
+/* Media query para telas menores */
+@media screen and (max-width: 768px) {
+  form {
+    width: 90%; /* Reduz a largura do formulário para telas menores */
+  }
 }

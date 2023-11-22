@@ -73,9 +73,6 @@ function SignUp() {
 
     <main>
     <form onSubmit={handleSubmit}>
-      <div className='BotaoVoltar'>
-          <button onClick={handleVoltar}>Voltar</button>
-        </div>
         <div>
           <label htmlFor="username">Nome de Usuário:</label>
           <input
@@ -109,9 +106,11 @@ function SignUp() {
             required
           />
         </div>
-        <div>
+        <div className='Botoes'>
+        <button onClick={handleVoltar}>Voltar</button>
           <button type="submit">Criar Conta</button>
         </div>
+       
       </form>
     </main>
 

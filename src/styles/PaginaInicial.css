@@ -1,84 +1,81 @@
 /* Estilizando o container da página inicial */
 div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-nav{
-    margin-left: 10px;
-  }
-  
-.corpo{
+nav {
+  margin-left: 10px;
+}
+
+.corpo {
   width: 100%;
   background-color: aliceblue;
-  border: rgb(182, 200, 215);
-  border-radius: 10%;
+  border: 1px solid rgb(182, 200, 215);
+  border-radius: 10px;
   border-style: solid;
 }
-  
-.underlink{
-    font-size: 12px;
-    text-decoration: underline;
-    color: white;
-  }
-  a:hover{
-    color: #2b6eb5;
-  }
-  
-  /* Estilizando o título da página */
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  /* Estilizando os botões principais */
-  .botoes-principais {
-    display: flex;
-  }
-  
-  .voltar{
-    margin-top: 3%;
-  }
 
-  button {
-    width: 100px;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  
+.underlink {
+  font-size: 12px;
+  text-decoration: underline;
+  color: white;
+}
+
+a:hover {
+  color: #2b6eb5;
+}
+
+/* Estilizando o título da página */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilizando os botões principais */
+.botoes-principais {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.voltar {
+  margin-top: 3%;
+}
+
+button {
+  width: 100px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
 /* Estilos para o cabeçalho */
 header {
   background-color: #333;
   color: #fff;
   padding: 20px;
   text-align: center;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Centralize verticalmente os elementos dentro do cabeçalho */
-  height: 100%; /* Adicione esta linha */
+  align-items: center;
 }
-
-header h1 {
-  margin: 0;
-}
-
 
 .header-left {
   display: flex;
-  align-items: center; /* Centralize verticalmente os elementos à esquerda */
+  align-items: center;
 }
 
 .header-left ul {
@@ -96,25 +93,47 @@ header h1 {
   color: #fff;
 }
 
-/* Estilizando o botão de editar perfil */
 .usuario-editar p {
-  
   color: white;
   cursor: pointer;
   font-size: 12px;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
-
 /* Estilos para o rodapé */
-
 footer {
   background-color: green;
   color: #fff;
   text-align: center;
   padding: 10px 0;
-  width: 100vw;
+  width: 100%;
   position: fixed;
   bottom: 0;
 }
 
+/* Media queries para telas menores */
+@media screen and (max-width: 768px) {
+  .botoes-principais {
+    flex-direction: column; /* Altera a direção dos botões para coluna */
+  }
+
+  button {
+    width: 100%; /* Botões ocupam toda a largura disponível */
+    margin-bottom: 10px; /* Espaçamento entre os botões */
+  }
+
+  .voltar {
+    margin-top: 5%; /* Ajusta o espaçamento para o botão "Voltar" */
+  }
+
+  header {
+    flex-direction: column; /* Ajusta o cabeçalho para empilhar os elementos */
+    text-align: center;
+  }
+
+  .header-left {
+    margin-bottom: 10px; /* Espaçamento inferior para os elementos do cabeçalho */
+  }
+
+
+}
