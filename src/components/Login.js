@@ -34,7 +34,7 @@ function Login() {
 return (
     <div>
         <header>
-        <h1>This or That - The Game</h1>
+        <h1 className="TituloHeader">This or That - The Game</h1>
         <nav>
             <ul>
                 <li><a href="/pagina-inicial">Página Inicial</a></li>

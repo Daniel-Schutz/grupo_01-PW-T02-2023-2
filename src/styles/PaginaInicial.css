@@ -73,6 +73,10 @@ header {
   align-items: center;
 }
 
+.TituloHeader{
+  margin-right: 155px;
+}
+
 .header-left {
   display: flex;
   align-items: center;

@@ -38,7 +38,7 @@ function RecuperarSenha() {
   return (
     <div>
         <header>
-        <h1>This or That - The Game</h1>
+        <h1 className='TituloHeader'>This or That - The Game</h1>
         <nav>
             <ul>
                 <li><Link to="/pagina-inicial">Página Inicial</Link></li>

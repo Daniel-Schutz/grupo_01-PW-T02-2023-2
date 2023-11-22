@@ -12,6 +12,10 @@ h1 {
   margin-bottom: 20px;
 }
 
+.TituloHeader{
+  margin-right: 155px;
+}
+
 .Botoes {
   text-align: left;
   display: flex;

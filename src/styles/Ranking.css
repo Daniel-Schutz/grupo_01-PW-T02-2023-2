@@ -12,6 +12,10 @@ h1 {
   text-align: center; /* Centralize o texto */
 }
 
+.TituloHeader{
+  margin-right: 155px;
+}
+
 /* Estilizando a tabela de ranking */
 table {
   width: 80%;

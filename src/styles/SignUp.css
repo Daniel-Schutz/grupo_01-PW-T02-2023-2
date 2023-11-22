@@ -68,6 +68,10 @@ header {
   text-align: center;
 }
 
+.TituloHeader{
+  margin-left: 600px;
+}
+
 header h1 {
   margin: 0;
 }

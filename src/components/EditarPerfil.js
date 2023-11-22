@@ -56,7 +56,7 @@ function EditarPerfil() {
             <li><Link to="/ranking">Ranking</Link></li>
           </ul>
         </nav>
-        <h1>This or That - The Game</h1>
+        <h1 className='TituloHeader'>This or That - The Game</h1>
         <div className="usuario-editar">
           <p>Olá Usuário!</p>
           <p><Link to="/editar-perfil" className="underlink">Editar Perfil</Link></p>

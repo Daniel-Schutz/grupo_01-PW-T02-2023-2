@@ -58,6 +58,10 @@ div {
   height: 100%; /* Adicione esta linha */
 }
 
+.TituloHeader{
+  margin-right: 155px;
+}
+
 header h1 {
   margin: 0;
 }
