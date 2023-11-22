@@ -1,32 +1,94 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import '../styles/TelaPrincipal.css';
 import { useNavigate, Link, useLocation} from 'react-router-dom';
+//import { getStorage,ref,getDownloadURL,listAll } from "firebase/storage";
+import { collection, query, where, orderBy, getDocs, limit, startAfter } from 'firebase/firestore';
+import { db } from "../firebaseConnection";
+
 
 function TelaPrincipal() {
-  const [imagemSelecionada, setImagemSelecionada] = useState(null);
-  const [larguraBarra, setLarguraBarra] = useState(0); // Renomeada para larguraBarra
   const location = useLocation();
   const categoriasSelecionadas = location.state?.categoriasSelecionadas || {};
 
   console.log(categoriasSelecionadas)
 
-  const handleImagemClick = (imagem) => {
-    setImagemSelecionada(imagem);
-    setLarguraBarra(50); // Defina a largura da barra aqui (50% como exemplo)
+  
+
+  /*
+  const storage = getStorage();
+  const imagesRef = ref(storage, 'gs://trabalhoprogweb-213bc.appspot.com/comidas/'); // Substitua com o caminho da sua pasta de imagens
+  const imgElement = document.getElementById('sua-imagem');
+  
+  // Recupera todas as referências de imagem da pasta
+  listAll(imagesRef)
+    .then((res) => {
+      // Seleciona uma referência de imagem aleatória
+      const randomIndex = Math.floor(Math.random() * res.items.length);
+      const randomImageRef = res.items[randomIndex];
+  
+      // Obtém a URL da imagem selecionada e a exibe no elemento <img>
+      getDownloadURL(randomImageRef)
+        .then((url) => {
+          imgElement.src = url;
+        })
+        .catch((error) => {
+          console.error('Erro ao obter a URL da imagem:', error);
+        });
+    })
+    .catch((error) => {
+      console.error('Erro ao recuperar as referências de imagem:', error);
+    });
+
+    */
+
+  const [imagens, setImagens] = useState([]);
+  const [categoriaFiltro, setCategoriaFiltro] = useState('');
+  
+  useEffect(() => {
+    const buscarImagensAleatorias = async () => {
+      try {
+        const imagensCollection = collection(db, 'imagens');
+        let imagensQuery = query(imagensCollection);
+  
+        // Aplicar filtro por categoria, se selecionada
+        if (categoriaFiltro !== '') {
+          imagensQuery = query(imagensCollection, where('categoria', '==', categoriaFiltro));
+        }
+  
+        imagensQuery = query(imagensQuery, orderBy('votos', 'desc'));
+        
+        // Obter o total de documentos na coleção
+        const totalImagens = await getDocs(imagensQuery);
+        const totalDocumentos = totalImagens.size;
+  
+        // Gerar dois números aleatórios entre 0 e o total de documentos - 1
+        const indiceAleatorio1 = Math.floor(Math.random() * totalDocumentos);
+        const indiceAleatorio2 = Math.floor(Math.random() * totalDocumentos);
+  
+        // Obter as duas imagens aleatórias
+        const imagensSnapshot = await getDocs(
+          query(imagensQuery, orderBy('votos', 'desc'), limit(2), startAfter(indiceAleatorio1))
+        );
+  
+        const imagensData = imagensSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+  
+        console.log(imagensData);
+        setImagens(imagensData);
+      } catch (error) {
+        console.error('Erro ao buscar imagens:', error);
+      }
+    };
+  
+    buscarImagensAleatorias();    
+  }, [categoriaFiltro]);
+  
+  const handleFiltrarCategoria = (categoria) => {
+    setCategoriaFiltro(categoria);
   };
 
-  const imagens = [
-    {
-      id: 1,
-      src: 'strogonof.jpg',
-      legenda: 'Strogonoff de carne',
-    },
-    {
-      id: 2,
-      src: 'fettuccine.jpg',
-      legenda: 'Fettuccine com bolonhesa',
-    },
-  ];
 
   const navigate = useNavigate();
 
@@ -52,19 +114,18 @@ function TelaPrincipal() {
       </header>
       <div className='TelaCentral'>
         <main>
-          <div className="imagens-container">
-            {imagens.map((imagem) => (
-              <div
-                key={imagem.id}
-                className={`imagem ${imagemSelecionada === imagem ? 'selecionada' : ''}`}
-                onClick={() => handleImagemClick(imagem)}
-              >
-                <div className={`barra-translucida ${imagemSelecionada === imagem ? (imagem.id === 1 ? 'esquerda' : 'direita') : ''}`} style={{ width: `${larguraBarra}%` }}></div>
-                <img src={imagem.src} alt={imagem.legenda} />
-                <p>{imagem.legenda}</p>
-              </div>
-            ))}
+        <div className="imagens-container">
+        {imagens.map((imagem) => (
+          <div key={imagem.id} style={{ marginRight: '10px' }}>
+            <img
+              src={imagem.img_ref}  // Supondo que 'url' seja a propriedade da imagem que contém o caminho da imagem
+              alt={imagem.descricao} // Substitua 'nome' pela propriedade correta que contém o nome da imagem
+              style={{ width: '200px', height: '200px', objectFit: 'cover' }}
+            />
+            <p>{imagem.descricao}</p> {/* Substitua 'nome' pela propriedade correta que contém o nome da imagem */}
           </div>
+        ))}
+      </div>
           <div className='BotaoVoltar'>
             <button onClick={handleVoltar}>Voltar</button>
           </div>

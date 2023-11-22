@@ -25,12 +25,23 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Estilizando o container das imagens */
 .imagens-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between; /* Espaçamento entre as imagens */
+  margin-top: 20px; /* Ajuste conforme necessário */
+}
+
+.imagem-item {
+  flex: 0 0 48%; /* Largura das imagens com algum espaço entre elas */
+  margin-bottom: 10px; /* Espaçamento inferior entre as imagens */
+}
+
+.imagem-item img {
+  width: 100%;
+  height: auto;
+  max-width: 100%; /* Tornar a imagem responsiva */
+  border: 1px solid #ddd; /* Adicione uma borda se desejar */
+  border-radius: 8px; /* Adicione borda arredondada se desejar */
 }
 
 /* Estilizando as imagens clicáveis */
