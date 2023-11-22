@@ -14,6 +14,9 @@ import '../styles/TelaPrincipal.css';
 
 function TelaPrincipal() {
   const [infoImagens, setInfoImagens] = useState([]);
+  const [votesImage1, setVotesImage1] = useState(0);
+  const [votesImage2, setVotesImage2] = useState(0);
+  const [showVoteBars, setShowVoteBars] = useState(false);
   const location = useLocation();
   const categoriasSelecionadas = location.state?.categoriasSelecionadas || {};
   const navigate = useNavigate();
@@ -24,8 +27,26 @@ function TelaPrincipal() {
       await updateDoc(imagemRef, {
         votos: imagem.votos + 1,
       });
-      buscarImagens(); // Atualiza as imagens após o voto
+
+      if (infoImagens[0].id === imagem.id) {
+        setVotesImage1(infoImagens[0].votos + 1 / (infoImagens[1].votos + infoImagens[0].votos + 1) * 100);
+        setVotesImage2(infoImagens[1].votos / (infoImagens[1].votos + infoImagens[0].votos + 1) * 100);
+        console.log((infoImagens[0].votos +1)/ (infoImagens[1].votos + infoImagens[0].votos+1)*100,infoImagens[1].votos/(infoImagens[1].votos + infoImagens[0].votos+1)*100)
+      } else {
+        setVotesImage1(infoImagens[0].votos / (infoImagens[1].votos + infoImagens[0].votos + 1) * 100);
+        setVotesImage2((infoImagens[1].votos + 1) / (infoImagens[1].votos + infoImagens[0].votos + 1) * 100);
+        console.log(infoImagens[0].votos/ (infoImagens[1].votos + infoImagens[0].votos+1)*100,(infoImagens[1].votos+1)/(infoImagens[1].votos + infoImagens[0].votos+1)*100)
+      }
     }
+
+    setShowVoteBars(true);
+
+    setTimeout(() => {
+      buscarImagens();
+      setShowVoteBars(false);
+      setVotesImage1(0);
+      setVotesImage2(0);
+    }, 2000);
   };
 
   const selecionarImagem = async (caminhoDaImagem) => {
@@ -90,7 +111,6 @@ function TelaPrincipal() {
           const url1 = await selecionarImagem(linksImagens[0]);
           const url2 = await selecionarImagem(linksImagens[1]);
 
-          // Atualiza o src das imagens diretamente no estado
           setInfoImagens((prevImagens) => [
             { ...prevImagens[0], url: url1 },
             { ...prevImagens[1], url: url2 },
@@ -108,7 +128,27 @@ function TelaPrincipal() {
 
   useEffect(() => {
     buscarImagens();
-  }, [categoriasSelecionadas]); // Atualiza as imagens sempre que as categorias selecionadas mudam
+  }, [categoriasSelecionadas]);
+
+  useEffect(() => {
+    const updateVoteBars = () => {
+      const image1Width = `${votesImage1}%`;
+      const image2Width = `${votesImage2}%`;
+
+      const imagem1Bar = document.querySelector('.image1-bar');
+      const imagem2Bar = document.querySelector('.image2-bar');
+
+      if (imagem1Bar) {
+        imagem1Bar.style.width = image1Width;
+      }
+
+      if (imagem2Bar) {
+        imagem2Bar.style.width = image2Width;
+      }
+    };
+
+    updateVoteBars();
+  }, [votesImage1, votesImage2]);
 
   const handleVoltar = () => {
     navigate(-1);
@@ -134,13 +174,21 @@ function TelaPrincipal() {
         <main>
           <div className="imagens-container">
             {infoImagens.map((imagem, index) => (
-              <img
-                key={index}
-                className="imagem-item"
-                alt="Imagem do Firebase Storage"
-                src={imagem.url}
-                onClick={() => handleImagemClick(imagem)}
-              />
+              <div key={index} className="imagem-wrapper">
+                {showVoteBars && (
+                  <div
+                    className={`imagem-vote-bar ${index === 0 ? 'image1-bar' : 'image2-bar'}`}
+                    style={{ width: `${index === 0 ? votesImage1 : votesImage2}%` }}
+                  ></div>
+                )}
+                <img
+                  className="imagem-item"
+                  alt="Imagem do Firebase Storage"
+                  src={imagem.url}
+                  onClick={() => handleImagemClick(imagem)}
+                />
+                <p>{imagem.descricao}</p>
+              </div>
             ))}
           </div>
           <div className="BotaoVoltar">

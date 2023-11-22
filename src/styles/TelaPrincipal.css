@@ -124,3 +124,39 @@ footer {
   text-align: center;
   padding: 10px 0;
 }
+
+.barra-progresso {
+  background-color: rgba(0, 0, 0, 0.3); /* Cor da barra translúcida */
+  height: 0; /* Altura inicial da barra */
+  transition: height 0.3s ease; /* Adiciona uma transição suave */
+}
+
+/* Define styles for the image wrapper */
+.imagem-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  /* Other styles as needed */
+}
+
+/* Define styles for the vote bars */
+.imagem-vote-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px; /* Adjust height as needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  transition: width 0.3s ease; /* Add a smooth transition */
+}
+
+/* Define different styles for image 1 and image 2 bars */
+.image1-bar {
+  background-color: rgba(255, 0, 0, 0.7); /* Adjust color for image 1 */
+}
+
+.image2-bar {
+  background-color: rgba(0, 0, 255, 0.7); /* Adjust color for image 2 */
+}
+
+/* Other existing styles for your component */
+/* ... */
