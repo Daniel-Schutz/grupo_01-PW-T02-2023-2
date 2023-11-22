@@ -1,94 +1,125 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState} from 'react';
 import '../styles/TelaPrincipal.css';
 import { useNavigate, Link, useLocation} from 'react-router-dom';
-//import { getStorage,ref,getDownloadURL,listAll } from "firebase/storage";
-import { collection, query, where, orderBy, getDocs, limit, startAfter } from 'firebase/firestore';
 import { db } from "../firebaseConnection";
-
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 function TelaPrincipal() {
+  const [imagemSelecionada, setImagemSelecionada] = useState(null);
+  const [larguraBarra, setLarguraBarra] = useState(0); // Renomeada para larguraBarra
   const location = useLocation();
   const categoriasSelecionadas = location.state?.categoriasSelecionadas || {};
 
   console.log(categoriasSelecionadas)
 
-  
+  const handleImagemClick = (imagem) => {
+    buscarImagens();
+    setImagemSelecionada(imagem);
+    setLarguraBarra(50); // Defina a largura da barra aqui (50% como exemplo)
+  };
 
-  /*
-  const storage = getStorage();
-  const imagesRef = ref(storage, 'gs://trabalhoprogweb-213bc.appspot.com/comidas/'); // Substitua com o caminho da sua pasta de imagens
-  const imgElement = document.getElementById('sua-imagem');
+  const selecionarImagem = (caminhoDaImagem) => {
+    const storage = getStorage();
+    const imageRef = ref(storage, caminhoDaImagem);
   
-  // Recupera todas as referências de imagem da pasta
-  listAll(imagesRef)
-    .then((res) => {
-      // Seleciona uma referência de imagem aleatória
-      const randomIndex = Math.floor(Math.random() * res.items.length);
-      const randomImageRef = res.items[randomIndex];
-  
-      // Obtém a URL da imagem selecionada e a exibe no elemento <img>
-      getDownloadURL(randomImageRef)
-        .then((url) => {
-          imgElement.src = url;
-        })
-        .catch((error) => {
-          console.error('Erro ao obter a URL da imagem:', error);
-        });
-    })
-    .catch((error) => {
-      console.error('Erro ao recuperar as referências de imagem:', error);
-    });
+    return getDownloadURL(imageRef)
+      .then((url) => {
+        return url; // Retorna a URL da imagem obtida
+      })
+      .catch((error) => {
+        // Trata qualquer erro que possa ocorrer ao recuperar a URL da imagem
+        console.error('Erro ao obter a URL da imagem:', error);
+        throw error; // Lança o erro para ser tratado externamente, se necessário
+      });
+  };
 
-    */
-
-  const [imagens, setImagens] = useState([]);
-  const [categoriaFiltro, setCategoriaFiltro] = useState('');
-  
-  useEffect(() => {
-    const buscarImagensAleatorias = async () => {
-      try {
+  const buscarImagens = async () => {
+    try {
         const imagensCollection = collection(db, 'imagens');
         let imagensQuery = query(imagensCollection);
-  
-        // Aplicar filtro por categoria, se selecionada
-        if (categoriaFiltro !== '') {
-          imagensQuery = query(imagensCollection, where('categoria', '==', categoriaFiltro));
-        }
-  
-        imagensQuery = query(imagensQuery, orderBy('votos', 'desc'));
-        
-        // Obter o total de documentos na coleção
-        const totalImagens = await getDocs(imagensQuery);
-        const totalDocumentos = totalImagens.size;
-  
-        // Gerar dois números aleatórios entre 0 e o total de documentos - 1
-        const indiceAleatorio1 = Math.floor(Math.random() * totalDocumentos);
-        const indiceAleatorio2 = Math.floor(Math.random() * totalDocumentos);
-  
-        // Obter as duas imagens aleatórias
-        const imagensSnapshot = await getDocs(
-          query(imagensQuery, orderBy('votos', 'desc'), limit(2), startAfter(indiceAleatorio1))
+     
+        const categoriasSelecionadasRef = categoriasSelecionadas;
+    
+        // Filtrar apenas as categorias que são true
+        const categoriasAtivas = Object.keys(categoriasSelecionadasRef).filter(
+          categoria => categoriasSelecionadasRef[categoria]
         );
-  
-        const imagensData = imagensSnapshot.docs.map((doc) => ({
+          console.log(categoriasAtivas)
+          imagensQuery = query(imagensCollection, where('categoria', 'in', categoriasAtivas));
+        console.log(imagensQuery)
+
+        const imagensSnapshot = await getDocs(imagensQuery);
+    
+        const imagens = imagensSnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data()
         }));
-  
-        console.log(imagensData);
-        setImagens(imagensData);
-      } catch (error) {
-        console.error('Erro ao buscar imagens:', error);
-      }
-    };
-  
-    buscarImagensAleatorias();    
-  }, [categoriaFiltro]);
-  
-  const handleFiltrarCategoria = (categoria) => {
-    setCategoriaFiltro(categoria);
-  };
 
+        console.log(imagens)
+  
+ 
+      const imagensPorCategoria = {};
+  
+      imagens.forEach(imagem => {
+        if (!imagensPorCategoria[imagem.categoria]) {
+          imagensPorCategoria[imagem.categoria] = [];
+        }
+        imagensPorCategoria[imagem.categoria].push(imagem);
+      });
+  
+      // Selecionar aleatoriamente duas imagens da mesma categoria
+      const categorias = Object.keys(imagensPorCategoria);
+      const categoriaAleatoria = categorias[Math.floor(Math.random() * categorias.length)];
+      const imagensDaCategoria = imagensPorCategoria[categoriaAleatoria];
+  
+      // Garantir que há pelo menos duas imagens na categoria selecionada
+      if (imagensDaCategoria.length >= 2) {
+        const indicesAleatorios = [];
+  
+        while (indicesAleatorios.length < 2) {
+          const indiceAleatorio = Math.floor(Math.random() * imagensDaCategoria.length);
+          if (!indicesAleatorios.includes(indiceAleatorio)) {
+            indicesAleatorios.push(indiceAleatorio);
+          }
+        }
+  
+        const imagensSelecionadas = indicesAleatorios.map(indice => imagensDaCategoria[indice]);
+        const linksImagens = imagensSelecionadas.map(imagem => imagem.img_ref);
+  
+        console.log('Links das imagens selecionadas:', linksImagens);
+
+            selecionarImagem(linksImagens[0])
+      .then((url) => {
+        // Use a URL da imagem para exibi-la em um elemento <img>
+        const imgElement = document.getElementById('imagem1');
+        imgElement.src = url;
+      })
+      .catch((error) => {
+        // Trate o erro ao obter a URL da imagem aqui, se necessário
+        console.error('Erro ao obter a URL da imagem:', error);
+      });
+
+          selecionarImagem(linksImagens[1])
+      .then((url) => {
+        // Use a URL da imagem para exibi-la em um elemento <img>
+        const imgElement = document.getElementById('imagem2');
+        imgElement.src = url;
+      })
+      .catch((error) => {
+        // Trate o erro ao obter a URL da imagem aqui, se necessário
+        console.error('Erro ao obter a URL da imagem:', error);
+      });
+
+
+      } else {
+        console.log('Não há imagens suficientes nessa categoria.');
+      }
+  
+    } catch (error) {
+      console.error('Erro ao buscar imagens:', error);
+    }
+  };
 
   const navigate = useNavigate();
 
@@ -113,29 +144,21 @@ function TelaPrincipal() {
         </div>
       </header>
       <div className='TelaCentral'>
-        <main>
+      <main>
         <div className="imagens-container">
-        {imagens.map((imagem) => (
-          <div key={imagem.id} style={{ marginRight: '10px' }}>
-            <img
-              src={imagem.img_ref}  // Supondo que 'url' seja a propriedade da imagem que contém o caminho da imagem
-              alt={imagem.descricao} // Substitua 'nome' pela propriedade correta que contém o nome da imagem
-              style={{ width: '200px', height: '200px', objectFit: 'cover' }}
-            />
-            <p>{imagem.descricao}</p> {/* Substitua 'nome' pela propriedade correta que contém o nome da imagem */}
-          </div>
-        ))}
-      </div>
-          <div className='BotaoVoltar'>
-            <button onClick={handleVoltar}>Voltar</button>
-          </div>
-        </main>
-      </div>
-      <footer>
-        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
-      </footer>
+          <img id="imagem1" className="imagem-item" alt="Imagem do Firebase Storage" onClick={handleImagemClick} />
+          <img id="imagem2" className="imagem-item" alt="Imagem do Firebase Storage" onClick={handleImagemClick} />
+        </div>
+        <div className='BotaoVoltar'>
+          <button onClick={handleVoltar}>Voltar</button>
+        </div>
+      </main>
     </div>
-  );
+    <footer>
+      <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+    </footer>
+  </div>
+);
 }
 
 export default TelaPrincipal;
