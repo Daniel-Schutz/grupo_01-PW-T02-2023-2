@@ -1,5 +1,5 @@
 /* Estilizando o container da página inicial */
-div {
+/* div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,13 +28,13 @@ a:hover {
   color: #2b6eb5;
 }
 
-/* Estilizando o título da página */
+
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-/* Estilizando os botões principais */
+
 .botoes-principais {
   display: flex;
   flex-wrap: wrap;
@@ -61,7 +61,7 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Estilos para o cabeçalho */
+
 header {
   background-color: #333;
   color: #fff;
@@ -105,29 +105,97 @@ header {
 }
 
 
-/* Media queries para telas menores */
 @media screen and (max-width: 768px) {
   .botoes-principais {
-    flex-direction: column; /* Altera a direção dos botões para coluna */
-  }
+    flex-direction: column; 
 
   button {
-    width: 100%; /* Botões ocupam toda a largura disponível */
-    margin-bottom: 10px; /* Espaçamento entre os botões */
+    width: 100%; 
+    margin-bottom: 10px;
   }
 
   .voltar {
-    margin-top: 5%; /* Ajusta o espaçamento para o botão "Voltar" */
+    margin-top: 5%; 
   }
 
   header {
-    flex-direction: column; /* Ajusta o cabeçalho para empilhar os elementos */
+    flex-direction: column; 
     text-align: center;
   }
 
   .header-left {
-    margin-bottom: 10px; /* Espaçamento inferior para os elementos do cabeçalho */
+    margin-bottom: 10px; 
   }
 
 
+}} */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
 }
+
+.wrapeInicialHeader{
+  position: relative;
+  padding: 0 1rem;
+}
+
+.NavBarInicial{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.NavBarInicial .TituloHeader{
+  font-size: 1.2rem;
+  font-weight: normal;
+  transition: .3s;
+}
+
+.NavBarInicial .TituloHeader:hover{
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: black;
+}
+
+.NavBarInicial .linksA{
+    display: flex;
+    flex-direction: row;
+    padding: 0rem;
+    gap: 2rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+
+.NavBarInicial .linksA .linksAux{
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: .3s;
+  color: #344648;
+
+}
+
+.NavBarInicial .linksA .linksAux:hover{
+  font-size: 1.2rem;
+  color: black;
+}
+
+.NavBarInicial .under{
+  text-decoration: none;
+  font-weight: normal;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.NavBarInicial .under:hover{
+  font-weight: normal;
+  color: black;
+}
+
+

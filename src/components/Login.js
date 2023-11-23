@@ -32,62 +32,68 @@ function Login() {
     console.log('cheguei');
   }
   const linkStyle = {
-    color: 'white',
+    color: '#344648',
     textDecoration: 'none',
   };
+  // <style scoped>
+  //   form
+  // </style>
 return (
-    <div>
+  <div>
 
-    <header>
-        <div className="NavBar">
-        <div className="logo"><Link className="st" to="/pagina-inicial" style={linkStyle}>This or That - The Game</Link></div>
-            <ul className="links">
-                <li><a href="/pagina-inicial">Página Inicial</a></li>
-                <li><a href="/escolher-opcoes">Jogar</a></li>
-                <li><a href="/ranking">Ranking</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <main>
+   <body>
+    
+    <div className="wrapHeader">
+      <header>
+          <div className="NavBar">
+          <div className="logo"><Link className="st" to="/pagina-inicial" style={linkStyle}>This or That - The Game</Link></div>
+              <ul className="links">
+                  <li><a href="/pagina-inicial">Página Inicial</a></li>
+                  <li><a href="/escolher-opcoes">Jogar</a></li>
+                  <li><a href="/ranking">Ranking</a></li>
+              </ul>
+          </div>
+      </header>
+    </div>
+    <div className="wrapMain">
+    
+      <div className = "FormSubmit">
+      
       <form onSubmit={signIn}>
-        <div>
-          <label htmlFor="email">E-mail:</label>
-          <input
+      <h2 className="loginTitle">Login</h2>
+          <input className="input1"
             type="email"
+            placeholder="Email"
             id="email"
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </div>
-        <div>
-          <label htmlFor="password">Senha:</label>
-          <input
+          <input className="input2"
             type="password"
+            placeholder="Password"
             id="password"
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </div>
-        <Link to="/recuperar-senha">
-          <p className='RecuperarSenha'>Esqueci Minha Senha</p>
-         </Link>
-         
-        <div className='links'>
-
-           <Link to="/sign-up">
-          <button type="button" >Criar Conta</button>
-        </Link>
-          <button type="submit">Entrar</button>
-        </div>
+       
+      <Link to="/recuperar-senha" style={linkStyle}>
+        <p className='RecuperarSenha'>Esqueci Minha Senha</p>
+      </Link>
+      <Link to="/sign-up">
+        <button className = "botaoCriar" type="button" >Criar Conta</button>
+      </Link>
+        <button className = "botaoEntrar" type="submit">Entrar</button>
+        
       </form>
-      
-    </main>
-
+      </div>
+    
+    </div>
+    </body>
+    
     <footer className="bottom">
         <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
     </footer>

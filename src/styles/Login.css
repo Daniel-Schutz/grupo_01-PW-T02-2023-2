@@ -1,67 +1,124 @@
-/* Estilizando o container da página de login */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
 .RecuperarSenha {
   text-decoration: underline;
-  color: #1f7ce1;
+  color: rgb(251, 251, 251);
+  transition: .3s ;
   align-items: flex-start;
   justify-content: left;
   text-align: left;
+  padding: 0.5rem;
 }
 
 .RecuperarSenha:hover {
-  text-decoration: none;
+  text-decoration: underline;
+  color: #FFBB98;
 }
 
-/* Estilizando o título da página */
 li {
   list-style: none;
 }
 
-/* Estilizando o formulário */
-form {
+.FormSubmit {
   display: flex;
-  flex-direction: column;
-  max-width: 300px; /* Mudança para largura máxima em vez de largura fixa */
-  width: 90%; /* Adaptação para telas menores */
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #fff;
+  max-width: 30%;
+  width: 18%;
+  border: 1px solid black;
+  padding: 2.0rem 5rem;
+  border-radius: 6%;
+  background: linear-gradient(100deg,#7D8E95, #344648 );
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Estilizando os campos de entrada */
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
+.loginTitle{
+  color: rgb(251, 251, 251);
+  padding: 0rem 0.3rem;
 }
 
-input {
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 16px;
-  width: 100%; /* Utiliza toda a largura disponível */
+.input1 {
+  display: flex;
+  border: 1px solid #344648;
+  transition: .3s border-color;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-left: 0.3rem;
+  margin-top: 1rem;
+  min-width: 2rem;
+  padding: 1rem;  
+  background-color: #7D8E95;;
+
 }
 
-/* Estilizando o botão de envio */
-button {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: #fff;
+.input1::placeholder, .input1[type="email"]{
+  color: rgb(251, 251, 251);
+}
+
+.input1:hover{
+  border: 1px solid #eee;
+}
+
+.input2 {
+  display: flex;
+  border: 1px solid #344648;
+  transition: .3s border-color;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-left: 0.3rem;
+  margin-top: 1rem;
+  min-width: 125px;
+  padding: 1rem;  
+  background-color: #7D8E95;
+
+}
+
+.input2::placeholder, .input2[type="password"]{
+  color: rgb(251, 251, 251);
+}
+.input2:hover{
+  border: 1px solid #eee;
+}
+
+.botaoEntrar {
+  padding: 0.5rem 1.0rem;
+  background-color: #dcbe9f;
+  color: rgb(251, 251, 251);
   border: none;
   border-radius: 3px;
   font-size: 16px;
   cursor: pointer;
-  margin-bottom: 10px; /* Espaçamento inferior entre os botões */
-  margin: 5px;
+  margin: 2%;
+  transition: .3s ;
 }
 
-button:hover {
-  background-color: #0056b3;
+.botaoEntrar:hover {
+  background-color: #FFBB98;
 }
 
-/* Estilizando mensagens de erro, se necessário */
+.botaoCriar {
+  padding: 0.5rem 1.0rem;
+  background-color: #dcbe9f;
+  color: rgb(251, 251, 251);
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 2%;
+  transition: .3s ;
+}
+
+.botaoCriar:hover {
+  background-color: #FFBB98;
+}
+
+
 .error-message {
   color: red;
   font-size: 14px;
@@ -72,20 +129,20 @@ button:hover {
   flex-direction: row;
 }
 
-main {
+.wrapMain {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  min-height: 80vh;
+  flex-wrap: wrap;
   justify-content: center;
-  min-height: 70vh; /* Garante que a main ocupe pelo menos a altura da viewport */
+  min-width: 80vh;
+  align-content: center;
 }
 
-/* Estilos para o cabeçalho */
-header {
-  background-color:green;
+.wrapHeader{
   color: #fff;
   position: relative;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 .NavBar{
@@ -99,16 +156,14 @@ header {
   justify-content: space-between;
 }
 
-
 .NavBar .logo{
   font-size: 1.5rem;
-  font-weight:lighter;
+  font-weight:normal;
 }
-
 
 .NavBar .logo:hover{
   font-size: 1.5rem;
-  font-weight:lighter;
+  font-weight:normal;
 }
 
 .NavBar .links{
@@ -117,14 +172,37 @@ header {
   gap: 2rem;
 }
 
+.NavBar .links a{
+  text-decoration: none;
+  color: #344648;
+  font-size: 1.1rem;
+  transition: .3s;
+}
 
-/* Estilos para o rodapé */
+.NavBar .links a:hover{
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+}
+
+body{
+background: linear-gradient(100deg, #FBE0C3, #FFBB98); 
+background-repeat: no-repeat;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+}
+
 .bottom {
-  background-color: lightblue;
-  color: #fff;
+  color: #344648;
   text-align: center;
   padding: 10px 0;
   width: 100%;
   position: fixed;
   bottom: 0;
 }
+
+/* 
+@media (max-width: 992px) {
+  .NavBar .links,
+} */

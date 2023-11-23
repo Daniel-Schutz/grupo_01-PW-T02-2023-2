@@ -1,12 +1,12 @@
 /* Estilizando o container da página de edição de perfil */
-div {
+/* div {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-/* Estilizando o título da página */
+
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -22,7 +22,7 @@ h1 {
   flex-direction: column;
 }
 
-/* Estilizando o formulário */
+
 form {
   display: flex;
   flex-direction: column;
@@ -34,7 +34,6 @@ form {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilizando os campos de entrada */
 label {
   font-weight: bold;
   margin-bottom: 5px;
@@ -48,7 +47,7 @@ input {
   font-size: 16px;
 }
 
-/* Estilizando o botão de envio */
+
 button {
   padding: 10px 15px;
   background-color: #007bff;
@@ -63,7 +62,7 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Estilos para o cabeçalho */
+
 header {
   background-color: #333;
   color: #fff;
@@ -102,19 +101,18 @@ header {
   margin-right: 10px;
 }
 
-/* Media queries para telas menores */
 @media screen and (max-width: 768px) {
   form {
-    width: 90%; /* Reduz a largura do formulário para telas menores */
+    width: 90%;
   }
 
   header {
-    flex-direction: column; /* Ajusta o cabeçalho para empilhar os elementos */
+    flex-direction: column; 
     text-align: center;
   }
 
   .header-left {
-    margin-bottom: 10px; /* Espaçamento inferior para os elementos do cabeçalho */
+    margin-bottom: 10px; 
   }
 
-}
+} */

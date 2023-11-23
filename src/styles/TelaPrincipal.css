@@ -1,8 +1,8 @@
-/* Estilizando o container da tela principal */
+/* 
 .TelaCentral {
   position: relative;
-  max-width: 800px; /* Defina uma largura máxima desejada */
-  width: 80%; /* Você pode ajustar esse valor conforme necessário */
+  max-width: 800px; 
+  width: 80%; 
   margin: 0 auto;
   background-color: #a49d9d;
   padding: 20px;
@@ -15,7 +15,6 @@
   align-items: flex-start;
 }
 
-/* Estilizando as imagens clicáveis */
 .imagens-container {
   display: flex;
   justify-content: space-between;
@@ -24,55 +23,55 @@
 }
 
 .imagem-item {
-  flex: 0 0 48%; /* Largura das imagens com algum espaço entre elas */
-  margin-bottom: 10px; /* Espaçamento inferior entre as imagens */
+  flex: 0 0 48%; 
+  margin-bottom: 10px; 
 }
 
 img {
   width: 200px;
   height: 200px;
-  border: 1px solid #ddd; /* Adicione uma borda se desejar */
-  border-radius: 8px; /* Adicione borda arredondada se desejar */
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
 }
 
 .imagem-item {
-  flex: 0 0 calc(48% - 5px); /* Largura das imagens com algum espaço entre elas */
-  margin-bottom: 10px; /* Espaçamento inferior entre as imagens */
+  flex: 0 0 calc(48% - 5px); 
+  margin-bottom: 10px; 
 }
 
-/* Adicione margem à direita para criar um espaço entre as imagens */
+
 .imagem-item + .imagem-item {
   margin-left: 2%;
 }
 
 
-/* Estilizando a imagem selecionada */
+
 .imagem.selecionada {
   border-color: #007bff;
 }
 
-/* Estilizando a barra translúcida */
+
 .barra-translucida {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
   height: 100%;
-  transition: width 0.3s; /* Animação da largura */
-}
+  transition: width 0.3s; 
 
+}
 .barra-translucida.esquerda {
-  left: 0; /* Ajusta a barra à esquerda */
-  transform-origin: left; /* Mantém a origem da transformação à esquerda */
-  transform: scaleX(1); /* Crescer da esquerda para a direita */
+  left: 0; 
+  transform-origin: left; 
+  transform: scaleX(1);
 }
 
 .barra-translucida.direita {
-  right: 0; /* Ajusta a barra à direita */
-  transform-origin: right; /* Define a origem da transformação à direita */
-  transform: scaleX(-1); /* Crescer da direita para a esquerda */
+  right: 0; 
+  transform-origin: right; 
+  transform: scaleX(-1); 
 }
 
-/* Estilos para o cabeçalho */
+
 header {
   background-color: #333;
   color: #fff;
@@ -81,8 +80,8 @@ header {
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Centralize verticalmente os elementos dentro do cabeçalho */
-  height: 100%; /* Adicione esta linha */
+  align-items: center; 
+  height: 100%;
 }
 
 header h1 {
@@ -91,7 +90,7 @@ header h1 {
 
 .header-left {
   display: flex;
-  align-items: center; /* Centralize verticalmente os elementos à esquerda */
+  align-items: center;
 }
 
 .header-left ul {
@@ -109,7 +108,6 @@ header h1 {
   color: #fff;
 }
 
-/* Estilizando o botão de editar perfil */
 .usuario-editar p {
   color: white;
   cursor: pointer;
@@ -119,37 +117,33 @@ header h1 {
 
 
 .barra-progresso {
-  background-color: rgba(0, 0, 0, 0.3); /* Cor da barra translúcida */
-  height: 0; /* Altura inicial da barra */
-  transition: height 0.3s ease; /* Adiciona uma transição suave */
+  background-color: rgba(0, 0, 0, 0.3); 
+  height: 0; 
+  transition: height 0.3s ease; 
 }
 
-/* Define styles for the image wrapper */
+
 .imagem-wrapper {
   position: relative;
   display: inline-block;
   margin: 10px;
-  /* Other styles as needed */
+
 }
 
-/* Define styles for the vote bars */
 .imagem-vote-bar {
   position: absolute;
   top: 0;
   left: 0;
-  height: 50px; /* Adjust height as needed */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  transition: width 0.3s ease; /* Add a smooth transition */
+  height: 50px; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  transition: width 0.3s ease; 
 }
 
-/* Define different styles for image 1 and image 2 bars */
+
 .image1-bar {
-  background-color: rgba(255, 0, 0, 0.7); /* Adjust color for image 1 */
+  background-color: rgba(255, 0, 0, 0.7);
 }
 
 .image2-bar {
-  background-color: rgba(0, 0, 255, 0.7); /* Adjust color for image 2 */
-}
-
-/* Other existing styles for your component */
-/* ... */
+  background-color: rgba(0, 0, 255, 0.7); 
+} */
