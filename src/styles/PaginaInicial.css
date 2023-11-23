@@ -151,7 +151,7 @@ header {
 }
 
 .NavBarInicial .TituloHeader{
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: normal;
   transition: .3s;
 }
@@ -170,14 +170,14 @@ header {
 
 .NavBarInicial .linksA .linksAux{
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   transition: .3s;
   color: #344648;
 
 }
 
 .NavBarInicial .linksA .linksAux:hover{
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: black;
 }
 
@@ -200,6 +200,12 @@ header {
     align-content: center;
     justify-content: space-around;
     align-items: center;
+    height: 80vh;
+}
+
+.gameTitle{
+  margin-bottom: 0;
+  color:  rgb(251, 251, 251);;
 }
 
 .corpo .botoes-principais{
@@ -208,35 +214,54 @@ header {
     flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
-    align-items: stretch;
-    gap: 1rem;
+    align-items: center;
+    gap: 1.5rem;
     border: 2px solid black;
     border-radius: 6%;  
     padding: 1rem 3rem;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #344648, #7D8E95);
+}
+.regua{
+  display:block; 
+  padding:0;
+  margin: 0 10px; 
+  width:100%; 
+  height:1px;
+  background-color: rgb(251, 251, 251);
+}
+.corpo .botoes-principais .botao-estilo-padrao{
+  color:rgb(251, 251, 251);;
+  padding: 0.5rem 1.0rem;
+  width: 10rem;
+  height: 4rem;
+  background-color: #dcbe9f;
+  border-radius: 6%;
+  cursor: pointer;
+  border: none;
+
+ 
 }
 
-.corpo .botoes-principais .botao-estilo-padrao{
-  color: white;
-  padding: 0.5rem 1.0rem;
-  width: 100px;
-  height: 50px;
-  background-color: #344648;
-  border-radius: 6%;
- 
+.corpo .botoes-principais .botao-estilo-padrao:hover{
+  background-color: #FFBB98;
 }
 
 .corpo .botoes-principais .botao-voltar{
-  color: white;
+  color:  rgb(251, 251, 251);;
   padding: 0.5rem 1.0rem;
-  width: 100px;
-  height: 50px;
-  background-color: #344648;
+  width: 10rem;
+  height: 4rem;
+  background-color: #dcbe9f;
   border-radius: 6%;
-
-
+  cursor: pointer;
+  border: none;
  
 } 
+
+.corpo .botoes-principais .botao-voltar:hover{
+  background-color: #FFBB98;
+}
 
 .bottomInicial{
   text-align: center;

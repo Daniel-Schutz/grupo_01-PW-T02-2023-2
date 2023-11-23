@@ -36,9 +36,10 @@ function PaginaInicial() {
       </header>
      </div>
       <div className="corpo">
-        <h1>This or That - The Game</h1>
-        
+      
           <div className="botoes-principais">
+          <h2 className='gameTitle'>This or That - The Game</h2>
+          <span class="regua"></span>
             <Link to="/escolher-opcoes">
               <button  className = "botao-estilo-padrao">Jogar</button>
             </Link>

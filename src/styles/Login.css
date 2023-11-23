@@ -132,11 +132,10 @@ li {
 .wrapMain {
   display: flex;
   flex-direction: column;
-  min-height: 80vh;
   flex-wrap: wrap;
   justify-content: center;
-  min-width: 80vh;
   align-content: center;
+  height: 70vh;
 }
 
 .wrapHeader{
@@ -146,24 +145,19 @@ li {
 }
 
 .NavBar{
-  width: 100%;
-  height: 60px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0.1rem auto;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .NavBar .logo{
   font-size: 1.5rem;
   font-weight:normal;
-}
-
-.NavBar .logo:hover{
-  font-size: 1.5rem;
-  font-weight:normal;
+  padding-top: 2rem;
+  color: #344648;
 }
 
 .NavBar .links{
@@ -200,6 +194,8 @@ flex-direction: column;
   width: 100%;
   position: fixed;
   bottom: 0;
+  background: linear-gradient(100deg, #FBE0C3, #FFBB98); 
+
 }
 
 /* 

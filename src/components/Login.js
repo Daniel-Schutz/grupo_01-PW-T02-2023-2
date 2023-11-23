@@ -46,13 +46,14 @@ return (
     <div className="wrapHeader">
       <header>
           <div className="NavBar">
-          <div className="logo"><Link className="st" to="/pagina-inicial" style={linkStyle}>This or That - The Game</Link></div>
-              <ul className="links">
+          <div className="logo"><h3>This or That - The Game</h3></div>
+              {/* <ul className="links">
                   <li><a href="/pagina-inicial">Página Inicial</a></li>
                   <li><a href="/escolher-opcoes">Jogar</a></li>
                   <li><a href="/ranking">Ranking</a></li>
-              </ul>
+              </ul> */}
           </div>
+          
       </header>
     </div>
     <div className="wrapMain">
