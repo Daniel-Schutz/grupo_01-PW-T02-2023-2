@@ -29,28 +29,25 @@ function PaginaInicial() {
             <li><Link className='linksAux' to="/pagina-inicial">Página Inicial</Link></li>
             <li><Link className='linksAux' to="/escolher-opcoes">Jogar</Link></li>
             <li><Link className='linksAux' to="/ranking">Ranking</Link></li>
+            <Link className="under" to="/editar-perfil"  style={linkStyle}><Avatar src="/broken-image.jpg" /></Link>
           </ul>
-       
-          <Link className="under" to="/editar-perfil"  style={linkStyle}><Avatar src="/broken-image.jpg" /></Link> 
        
       </div>
       </header>
-      
-      </div>
+     </div>
       <div className="corpo">
         <h1>This or That - The Game</h1>
         
           <div className="botoes-principais">
             <Link to="/escolher-opcoes">
-              <button>Jogar</button>
+              <button  className = "botao-estilo-padrao">Jogar</button>
             </Link>
             <Link to="/ranking">
-              <button>Ranking</button>
+              <button  className = "botao-estilo-padrao">Ranking</button>
             </Link>
-          </div>
-          <div className='voltar'>
-            <button onClick={handleVoltar}>Voltar</button>
-          </div>
+          
+            <button className = "botao-voltar" onClick={handleVoltar}>Voltar</button>
+            </div>
         </div>
       
       
