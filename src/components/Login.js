@@ -73,7 +73,7 @@ return (
           />
           <input className="input2"
             type="password"
-            placeholder="Password"
+            placeholder="Senha"
             id="password"
             name="password"
             value={password}
@@ -96,7 +96,7 @@ return (
     </body>
     
     <footer className="bottom">
-        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+        <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
     </footer>
     </div>
   );

@@ -15,7 +15,6 @@ function EscolherOpcoes() {
   const [categorias, setCategorias] = useState(initialCategories);
 
   const categoriesList = Object.keys(initialCategories);
-
   const handleChange = (e) => {
     const { name, checked } = e.target;
     if (name === 'aleatorio') {
@@ -37,7 +36,14 @@ function EscolherOpcoes() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/tela-principal",{ state: { categoriasSelecionadas: categorias } })
+    const isAnyCategorySelected = Object.values(categorias).some((value) => value === true);
+  
+    if (isAnyCategorySelected) {
+      navigate("/tela-principal", { state: { categoriasSelecionadas: categorias } });
+    } else {
+      // Aqui você pode exibir uma mensagem para o usuário informando que pelo menos uma opção deve ser selecionada
+      alert("Selecione pelo menos uma opção.");
+    }
   };
 
   const navigate = useNavigate();
@@ -79,7 +85,7 @@ function EscolherOpcoes() {
                 Aleatório
               </label>
             </div>
-            {categoriesList.slice(1).map((category) => (
+            {categoriesList.map((category) => (
               <div key={category}>
                 <label>
                   <input className='inputAl'
@@ -103,7 +109,7 @@ function EscolherOpcoes() {
       </main>
 
       <footer className='bottomEscOp'>
-        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+        <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
       </footer>
     </div>
   );
