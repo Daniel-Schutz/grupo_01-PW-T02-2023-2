@@ -60,24 +60,35 @@ function SignUp() {
 
   return (
     <div>
+
+      <body>
+
+        <div className='wrapHeaderSignUp'>
         <header>
-        <h1 className='TituloHeader'>This or That - The Game</h1>
-        <nav>
-            <ul>
-                <li><a href="/pagina-inicial">Página Inicial</a></li>
-                <li><a href="/escolher-opcoes">Jogar</a></li>
-                <li><a href="/ranking">Ranking</a></li>
+        <div className='NavBarSignUp'>
+          <div className='logoSignUp'><h3>This or That - The Game</h3></div>
+          {/* 
+            <ul className='LinksSignUpPai'>
+                <li className='LinksSignUp'><a href="/pagina-inicial">Página Inicial</a></li>
+                <li className='LinksSignUp'><a href="/escolher-opcoes">Jogar</a></li>
+                <li className='LinksSignUp'><a href="/ranking">Ranking</a></li>
             </ul>
-        </nav>
+            */}
+          </div>
     </header>
 
-    <main>
+    </div>
+    
+    <div className='wrapMainSignUp'>
+
+    <div className='FormSignUp'>
     <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">Nome de Usuário:</label>
-          <input
+          <h3 className="titlesSignUp">Nome de Usuário:</h3>
+          <input className='inputSignUp'
             type="text"
             id="username"
+            placeholder='Nome'
             name="username"
             value={formData.username}
             onChange={handleChange}
@@ -85,10 +96,11 @@ function SignUp() {
           />
         </div>
         <div>
-          <label htmlFor="email">E-mail:</label>
-          <input
+          <h3 className="titlesSignUp">E-mail:</h3>
+          <input className='inputSignUp'
             type="email"
             id="email"
+            placeholder='Email'
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -96,25 +108,29 @@ function SignUp() {
           />
         </div>
         <div>
-          <label htmlFor="password">Senha:</label>
-          <input
+          <h3 className="titlesSignUp">Senha:</h3>
+          <input className='inputSignUp'
             type="password"
             id="password"
+            placeholder='Senha'
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
           />
         </div>
-        <div className='Botoes'>
-        <button onClick={handleVoltar}>Voltar</button>
-          <button type="submit">Criar Conta</button>
-        </div>
+        
+        <button className='BotoesSignUp' onClick={handleVoltar}>Voltar</button>
+        <button className='BotoesSignUp' type="submit">Criar Conta</button>
+       
        
       </form>
-    </main>
+    
+      </div>
 
-    <footer>
+      </div>
+    </body>
+    <footer className='footerSignUp'>
         <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
     </footer>
 
