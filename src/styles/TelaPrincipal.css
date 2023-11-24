@@ -1,157 +1,11 @@
-/* 
-.TelaCentral {
-  position: relative;
-  max-width: 800px; 
-  width: 80%; 
-  margin: 0 auto;
-  background-color: #a49d9d;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.BotaoVoltar {
-  align-items: flex-start;
-}
-
-.imagens-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  flex-direction: row;
-}
-
-.imagem-item {
-  flex: 0 0 48%; 
-  margin-bottom: 10px; 
-}
-
-img {
-  width: 200px;
-  height: 200px;
-  border: 1px solid #ddd; 
-  border-radius: 8px; 
-}
-
-.imagem-item {
-  flex: 0 0 calc(48% - 5px); 
-  margin-bottom: 10px; 
-}
-
-
-.imagem-item + .imagem-item {
-  margin-left: 2%;
-}
-
-
-
-.imagem.selecionada {
-  border-color: #007bff;
-}
-
-
-.barra-translucida {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 0;
-  height: 100%;
-  transition: width 0.3s; 
-
-}
-.barra-translucida.esquerda {
-  left: 0; 
-  transform-origin: left; 
-  transform: scaleX(1);
-}
-
-.barra-translucida.direita {
-  right: 0; 
-  transform-origin: right; 
-  transform: scaleX(-1); 
-}
-
-
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center; 
-  height: 100%;
-}
-
-header h1 {
-  margin: 0;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-}
-
-.header-left ul {
-  list-style: none;
-  padding: 0;
-}
-
-.header-left ul li {
-  display: inline;
-  margin-right: 10px;
-}
-
-.header-left ul li a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.usuario-editar p {
-  color: white;
-  cursor: pointer;
-  font-size: 12px;
-  margin-right: 10px; 
-}
-
-
-.barra-progresso {
-  background-color: rgba(0, 0, 0, 0.3); 
-  height: 0; 
-  transition: height 0.3s ease; 
-}
-
-
-.imagem-wrapper {
-  position: relative;
-  display: inline-block;
-  margin: 10px;
-
-}
-
-.imagem-vote-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 50px; 
-  background-color: rgba(0, 0, 0, 0.5); 
-  transition: width 0.3s ease; 
-}
-
-
-.image1-bar {
-  background-color: rgba(255, 0, 0, 0.7);
-}
-
-.image2-bar {
-  background-color: rgba(0, 0, 255, 0.7); 
-} */
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
 
+
+:root{
+  --blur-value: blur(5px);
+  --final-scale-y: 1;
+}
+/* usar essas variaveis na classe a ser animada */
 *{
   font-family: 'Poppins', sans-serif;
 }
@@ -234,6 +88,10 @@ header h1 {
   padding-top: 0px;
 }
 
+.engloba{
+  display: flex;
+}
+
 .box-images {
   display: flex;
   flex-direction: row;
@@ -260,7 +118,23 @@ header h1 {
   height: 30vh;
   margin: 30px;
   margin-bottom: 0px;
+  transition: transform 2s ease;
 }
+
+.imagem-item:hover{
+  cursor: pointer;
+}
+
+.imagem-item:active{
+  transform: scale(1.1);
+  transition-duration: 0.00001s ;
+}
+/* 
+.imagem-vote-bar{
+  animation: blur 1s ease 0s 1 normal none ;
+  animation: customAni 2s ease-out 1s 1 normal none;
+} */
+
 .bottomPrincipal{
   text-align: center;
   position: fixed;
@@ -268,3 +142,26 @@ header h1 {
   width: 100%;
   bottom: 0;
 }
+
+  /* animation: blur 1s ease 0s 1 normal none ;
+  animation: customAni 2s ease-out 1s 1 normal none; */
+/* @keyframes customAni {
+  0% {
+	transform: scaleY(0);
+	transform-origin: 0% 100%;
+  }
+
+  100% {
+	transform: scaleY(var(--final-scale-y));
+	transform-origin: 0% 100%;
+  }
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: var(--blur-value);
+  }
+} */
