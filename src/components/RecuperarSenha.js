@@ -35,28 +35,43 @@ function RecuperarSenha() {
     navigate(-1); 
   };
 
+  const linkStyle = {
+    color: '#344648',
+    textDecoration: 'none',
+  };
+
   return (
     <div>
+
+      <body>
+
+      <div className='wrapRecuperarSenhaHeader'>
         <header>
-        <h1 className='TituloHeader'>This or That - The Game</h1>
-        <nav>
-            <ul>
-                <li><Link to="/pagina-inicial">Página Inicial</Link></li>
-                <li><Link to="/escolher-opcoes">Jogar</Link></li>
-                <li><Link to="/ranking">Ranking</Link></li>
+          <div className='NavBarRecuperarSenha'>
+          <Link className='TituloHeaderRecuperarSenha' to="/pagina-inicial" style={linkStyle}>This or That - The Game</Link>        
+            <ul className='LinksRecuperarSenha'>
+                <li><Link className='LinksAuxRecuperarSenha' to="/pagina-inicial">Página Inicial</Link></li>
+                <li><Link className='LinksAuxRecuperarSenha' to="/escolher-opcoes">Jogar</Link></li>
+                <li><Link className='LinksAuxRecuperarSenha' to="/ranking">Ranking</Link></li>
             </ul>
-        </nav>
+        
+        </div>
     </header>
 
-    <main>
+     </div>
+
+    <div className='wrapMainRecuperarSenha'>
+    
+      <div className='CorpoRecuperarSenha'>
       {enviado ? (
         <p>{mensagem}</p>
       ) : (
-        <form onSubmit={handleSubmit}>
+        <form className='formRecuperarSenha' onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="email">Digite seu email. Uma nova senha será enviada, e você poderá alterá-la depois.</label>
-            <input
+            <h2 className='TituloRecuperarSenha'>Digite seu email. Uma nova senha será enviada, e você poderá alterá-la depois.</h2>
+            <input className='InputRecuperarSenha'
               type="email"
+              placeholder='Email'
               id="email"
               name="email"
               value={email}
@@ -64,19 +79,21 @@ function RecuperarSenha() {
               required
             />
           </div>
-          <div>
-            <button type="submit">Enviar</button>
-          </div>
-          <div>
-          <button onClick={handleVoltar}>Voltar</button>
+          <div className='BotoesRecuperarSenhaPai'>
+
+            <button className='botoesRecuperarSenha' onClick={handleVoltar}>Voltar</button>
+
+            <button className='botoesRecuperarSenha' type="submit">Enviar</button>
         </div>
           {mensagem && <p>{mensagem}</p>}
         </form>
       )}
+        </div>
+    
+      </div>
+    </body>
 
-    </main>
-
-    <footer>
+    <footer className='footerRecuperarSenha'>
         <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
     </footer>
     </div>
