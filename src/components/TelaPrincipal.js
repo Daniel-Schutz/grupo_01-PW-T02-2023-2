@@ -11,6 +11,8 @@ import {
 } from 'firebase/firestore';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import '../styles/TelaPrincipal.css';
+import { Avatar } from '@mui/material';
+
 
 function TelaPrincipal() {
   const [infoImagens, setInfoImagens] = useState([]);
@@ -154,27 +156,35 @@ function TelaPrincipal() {
     navigate(-1);
   };
 
+  const linkStyle = {
+    color: '#344648',
+    textDecoration: 'none',
+  };
+
   return (
     <div>
-      <header>
-        <nav>
-          <ul>
-            <li><Link to="/pagina-inicial">Página Inicial</Link></li>
-            <li><Link to="/escolher-opcoes">Jogar</Link></li>
-            <li><Link to="/ranking">Ranking</Link></li>
+      <header className='wrapePrincipalHeader'>
+        <nav className='NavBarPrincipal'>
+
+        <Link className='TituloHeaderP' to="/pagina-inicial" style={linkStyle}>This or That - The Game</Link>
+          <ul className='linksPrincipal'>
+            <li><Link className='linksAuxPrincipal' to="/pagina-inicial">Página Inicial</Link></li>
+            <li><Link className='linksAuxPrincipal' to="/escolher-opcoes">Jogar</Link></li>
+            <li><Link className ="linksAuxPrincipal" to="/ranking">Ranking</Link></li>
+            <Link className="underPrincipal" to="/editar-perfil"  style={linkStyle}><Avatar src="/broken-image.jpg" /></Link>
           </ul>
         </nav>
-        <h1>This or That - The Game</h1>
-        <div className="usuario-editar">
-          <p>Olá Usuário!</p>
-          <p><Link to="/editar-perfil" className="underlink">Editar Perfil</Link></p>
-        </div>
       </header>
-      <div className="TelaCentral">
+
+      <div>
         <main>
-          <div className="imagens-container">
+          <div className="box-images">
+            <div className="botao-voltar-principal">
+                    <button className='botao-voltar-principal-conteudo' onClick={handleVoltar}>Voltar</button>
+            </div>
             {infoImagens.map((imagem, index) => (
               <div key={index} className="imagem-wrapper">
+               
                 {showVoteBars && (
                   <div
                     className={`imagem-vote-bar ${index === 0 ? 'image1-bar' : 'image2-bar'}`}
@@ -187,16 +197,13 @@ function TelaPrincipal() {
                   src={imagem.url}
                   onClick={() => handleImagemClick(imagem)}
                 />
-                <p>{imagem.descricao}</p>
+                <p className='imagem-descricao'>{imagem.descricao}</p>
               </div>
             ))}
           </div>
-          <div className="BotaoVoltar">
-            <button onClick={handleVoltar}>Voltar</button>
-          </div>
         </main>
       </div>
-      <footer>
+      <footer className='bottomPrincipal'>
         <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
       </footer>
     </div>
