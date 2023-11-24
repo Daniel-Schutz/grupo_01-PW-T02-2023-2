@@ -9,7 +9,7 @@ import { Avatar } from '@mui/material';
 function Ranking() {
   const [imagens, setImagens] = useState([]);
   const [categoriaFiltro, setCategoriaFiltro] = useState('');
-  
+
   // Use useEffect para buscar as imagens do Firestore e aplicar o filtro
   useEffect(() => {
     const buscarImagens = async () => {
@@ -24,7 +24,7 @@ function Ranking() {
 
         imagensQuery = query(imagensQuery, orderBy('votos', 'desc'));
         const imagensSnapshot = await getDocs(imagensQuery);
-        
+
         const imagensData = imagensSnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data()
@@ -42,7 +42,7 @@ function Ranking() {
   const navigate = useNavigate();
 
   const handleVoltar = () => {
-    navigate(-1); 
+    navigate(-1);
   };
 
   const handleFiltrarCategoria = (categoria) => {
@@ -56,61 +56,65 @@ function Ranking() {
   return (
     <div>
       <body>
-      <header className='rankingHeader'>
-        <div className='NavBarRanking'> 
-        <Link className='TituloHeaderRankiing'>This or That - The Game</Link>
-          
-          <ul className='listLinks'>
-            <li><Link to="/pagina-inicial">Página Inicial</Link></li>
-            <li><Link to="/escolher-opcoes">Jogar</Link></li>
-            <Link className="under" to="/editar-perfil"  style={linkStyle}><Avatar src="/broken-image.jpg" /></Link>
-          </ul>
+        <header className='rankingHeader'>
+          <div className='NavBarRanking'>
+            <Link className='TituloHeaderRanking'>This or That - The Game</Link>
 
-        </div>
-      </header>
+            <ul className='listLinks'>
+              <li><Link className='listsLinksNames' to="/pagina-inicial">Página Inicial</Link></li>
+              <li><Link className='listsLinksNames' to="/escolher-opcoes">Jogar</Link></li>
+              <Link className="under" to="/editar-perfil" style={linkStyle}><Avatar src="/broken-image.jpg" /></Link>
+            </ul>
 
-<main>
-      <div>
-        <label htmlFor="categoria">Filtrar por Categoria:</label>
-        <select id="categoria" onChange={(e) => handleFiltrarCategoria(e.target.value)}>
-          <option value="">Todas</option>
-          <option value="animais">Animais</option>
-          <option value="comidas">Comidas</option>
-          <option value="esportes">Esportes</option>
-          <option value="filmes">Filmes</option>
-          <option value="lugares">Lugares</option>
-        
-        </select>
-      </div>
-  <h1>Ranking de Imagens</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Posição</th>
-            <th>Imagem</th>
-            <th>Categoria</th>
-            <th>votos</th>
-          </tr>
-        </thead>
-        <tbody>
-          {imagens.map((imagem, index) => (
-            <tr key={imagem.id}>
-              <td>{index + 1}</td>
-              <td>{imagem.descricao}</td>
-              <td>{imagem.categoria}</td>
-              <td>{imagem.votos}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div>
-          <button onClick={handleVoltar}>Voltar</button>
-        </div>
-  </main>
-</body>
-<footer>
-    <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
-</footer>
+          </div>
+        </header>
+
+        <main className='corpoRanking'>
+          <div className = 'displayCorpo'> 
+
+          <h2 className='titleRank'>Ranking de Imagens</h2>
+          <span class="reguaRank"></span>
+          <div className='selectContainer'>
+            <label htmlFor="categoria">Filtrar por Categoria:</label>
+            <select id="categoria" onChange={(e) => handleFiltrarCategoria(e.target.value)}>
+              <option value="">Todas</option>
+              <option value="animais">Animais</option>
+              <option value="comidas">Comidas</option>
+              <option value="esportes">Esportes</option>
+              <option value="filmes">Filmes</option>
+              <option value="lugares">Lugares</option>
+
+            </select>
+          </div>
+          <table className='tabela'>
+            <thead>
+              <tr>
+                <th>Posição</th>
+                <th>Imagem</th>
+                <th>Categoria</th>
+                <th>votos</th>
+              </tr>
+            </thead>
+            <tbody>
+              {imagens.map((imagem, index) => (
+                <tr key={imagem.id}>
+                  <td>{index + 1}</td>
+                  <td>{imagem.descricao}</td>
+                  <td>{imagem.categoria}</td>
+                  <td>{imagem.votos}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div>
+            <button className = "botao-voltar" onClick={handleVoltar}>Voltar</button>
+          </div>
+          </div>
+        </main>
+      </body>
+      <footer className='bottomRanking'>
+        <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
+      </footer>
 
     </div>
   );

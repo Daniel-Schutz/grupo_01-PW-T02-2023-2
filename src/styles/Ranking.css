@@ -1,112 +1,170 @@
-/* 
-div {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.RankingHeader {
+  position: relative;
+  padding: 0 1rem;
+}
+
+.NavBarRanking {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-
-h1 {
-  margin-bottom: 20px; 
-  text-align: center; 
-}
-
-.TituloHeader{
-  margin-right: 155px;
-}
-
-table {
-  width: 80%;
-  border-collapse: collapse;
-  margin: 0 auto; 
-}
-
-table th,
-table td {
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center;
-}
-
-table th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
-
-table tbody tr:nth-child(odd) {
-  background-color: #f9f9f9;
-}
-
-table tbody td {
-  font-size: 16px;
-}
-
-table tbody td:first-child {
-  font-weight: bold;
-}
-
-table tbody td:nth-child(2) {
-  text-align: left;
-}
-
-table tbody td:last-child {
-  font-weight: bold;
-  color: #007bff;
-}
-
-
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  width: 100vw;
-  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 0 1rem;
 }
 
-.header-left {
-  display: flex;
-  align-items: center;
-}
-
-.header-left ul {
-  list-style: none;
-  padding: 0;
-}
-
-.header-left ul li {
-  display: inline;
-  margin-right: 10px;
-}
-
-.header-left ul li a {
+.TituloHeaderRanking {
+  font-size: 1.4rem;
   text-decoration: none;
-  color: #fff;
+  color: #344648;
+  transition: .3s;
 }
 
-.usuario-editar p {
-  color: white;
+.TituloHeaderRanking:hover {
+  font-size: 1.6rem;
+  color: black;
+}
+
+.listLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.listsLinksNames {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #344648;
+  transition: .3s;
+}
+
+.listsLinksNames:hover {
+  font-size: 1.4rem;
+  color: black;
+
+}
+
+.corpoRanking {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+
+}
+
+.displayCorpo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid black;
+  border-radius: 6px;
+  background: linear-gradient(45deg, #344648, #7D8E95);
+  padding:2rem 7rem 2rem 4rem;
+}
+
+.selectContainer {
+  width: 15rem;
+  height: 3rem;
+  padding: 0.3rem 0.3rem 1rem 0.3rem;
+  margin-top: 1rem;
+  overflow: hidden;
+  color: black;
+  /* background: url(nova_setinha.jpg) no-repeat right #ddd; */
+  border: 1px solid black;
+  border-radius: 6%;
+  background: linear-gradient(45deg, #dcbe9f, #FFBB98);
+}
+
+.selectContainer label {
+  padding-left: 3px;
+}
+
+.selectContainer select {
+  background: transparent;
+  color: black;
+  width: 12rem;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 1px solid black;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 12px;
-  margin-right: 10px;
+  height: 34px;
+
 }
 
-main {
-  margin-top: 20px; 
-  margin-bottom: 70px; 
-
-select {
-  margin-bottom: 10px; 
+.selectContainer select option {
+  color: black;
+  background-color: #dcbe9f;
 }
 
+.selectContainer select option:hover {
+  color: rgb(251, 251, 251);
 
-@media screen and (max-width: 768px) {
-  table {
-    width: 100%; 
-    margin-bottom: 60px; 
-  }
+  cursor: pointer;
 }
-} */
+
+.titleRank {
+  margin: 0.3rem 0 0.3rem 0;
+  color: rgb(251, 251, 251);
+}
+
+.reguaRank {
+  display: block;
+  padding: 0;
+  margin: 0 0 0rem 0;
+  width: 100%;
+  height: 1px;
+  background-color: #dcbe9f;
+}
+
+.tabela {
+  margin-top: 1rem;
+}
+table{
+  width: 100%;
+}
+
+.tabela,
+th, 
+td {
+  height: 20px;
+  width: 50px;
+  font-size: 16px;
+  color: #344648;
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid darkslategray;
+  border-radius: 6%;
+  background: #dcbe9f
+}
+
+.botao-voltar {
+  border: 2px solid black;
+  border-radius: 6%;
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background: #dcbe9f;
+  transition: .3s;
+}
+
+.botao-voltar:hover{
+  background-color: #FFBB98;
+}
+
+.bottomRanking {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}

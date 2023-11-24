@@ -62,7 +62,7 @@
 }
 
 .corpo{
-  display: flex;
+    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
@@ -106,8 +106,7 @@
   background-color: #dcbe9f;
   border-radius: 6%;
   cursor: pointer;
-  border: none;
-
+  border: none
  
 }
 
