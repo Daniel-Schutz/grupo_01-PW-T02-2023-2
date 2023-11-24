@@ -64,7 +64,7 @@ function RecuperarSenha() {
     
       <div className='CorpoRecuperarSenha'>
       {enviado ? (
-        <p>{mensagem}</p>
+        <p style={{ color: 'white' }}>{mensagem}</p>
       ) : (
         <form className='formRecuperarSenha' onSubmit={handleSubmit}>
           <div>
@@ -85,7 +85,7 @@ function RecuperarSenha() {
 
             <button className='botoesRecuperarSenha' type="submit">Enviar</button>
         </div>
-          {mensagem && <p>{mensagem}</p>}
+          {mensagem && <p style={{ color: 'white' }}>{mensagem}</p>}
         </form>
       )}
         </div>
