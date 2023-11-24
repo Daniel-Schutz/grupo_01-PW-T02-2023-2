@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/EscolherOpcoes.css';
 import { useNavigate, Link } from 'react-router-dom';
+import { Avatar } from '@mui/material';
 
 function EscolherOpcoes() {
   const initialCategories = {
@@ -44,31 +45,32 @@ function EscolherOpcoes() {
   const handleVoltar = () => {
     navigate(-1);
   };
+  const linkStyle = {
+    color: '#344648',
+    textDecoration: 'none',
+  };
+
 
   return (
     <div>
-  <header>
-      <nav>
-          <ul>
-            <li><Link to="/pagina-inicial">Página Inicial</Link></li>
-            <li><Link to="/escolher-opcoes">Jogar</Link></li>
-            <li><Link to="/ranking">Ranking</Link></li>
+        <header className='headerEscOp'>
+        <div className='NavBarEscOp'>
+          <Link className='TitleTheGame' to="/pagina-inicial" style={linkStyle}>This or That - The Game</Link>
+          <ul className='linksEscOp'>
+            <li><Link className='linksEscOpAux' to="/pagina-inicial">Página Inicial</Link></li>
+            <li><Link className='linksEscOpAux' to="/ranking">Ranking</Link></li>
+            <li><Link className="under" to="/editar-perfil"  style={linkStyle}><Avatar src="/broken-image.jpg" /></Link></li>
           </ul>
-        </nav>
-        <h1 className='TituloHeader'>This or That - The Game</h1>
-        <div className="usuario-editar">
-          <p>Olá Usuário!</p>
-          <p><Link to="/editar-perfil" className="underlink">Editar Perfil</Link></p>
-        </div>
+          </div>
       </header>
-
-      <main>
+    
+      <main className='corpoMain'>
         <form onSubmit={handleSubmit}>
-          <div>
-            <h1>Marque aleatório ou escolha suas categorias:</h1>
+          <div className='formChooseOpt'>
+            <h3 className='choseOptions'>Marque aleatório ou escolha suas categorias :</h3>
             <div>
               <label>
-                <input
+                <input className='inputAl'
                   type="checkbox"
                   name="aleatorio"
                   checked={categorias.aleatorio}
@@ -80,7 +82,7 @@ function EscolherOpcoes() {
             {categoriesList.slice(1).map((category) => (
               <div key={category}>
                 <label>
-                  <input
+                  <input className='inputAl'
                     type="checkbox"
                     name={category}
                     checked={categorias[category]}
@@ -90,17 +92,17 @@ function EscolherOpcoes() {
                 </label>
               </div>
             ))}
+          <div className='buttonDisplay'>
+          <button className='botoesCateg' onClick={handleVoltar}>Voltar</button>
+            <button className='botoesCateg' type="submit">
+              Avançar
+            </button>
           </div>
-          <div className='Botoes'>
-            <button onClick={handleVoltar}>Voltar</button>
-              <button className='Avancar' type="submit">
-                Avançar
-              </button>
           </div>
         </form>
       </main>
 
-      <footer>
+      <footer className='bottomEscOp'>
         <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
       </footer>
     </div>
