@@ -3,6 +3,7 @@ import '../styles/Ranking.css';
 import { useNavigate, Link } from 'react-router-dom';
 import { collection, query, where, orderBy, getDocs } from 'firebase/firestore';
 import { db } from "../firebaseConnection";
+import { Avatar } from '@mui/material';
 
 
 function Ranking() {
@@ -47,21 +48,24 @@ function Ranking() {
   const handleFiltrarCategoria = (categoria) => {
     setCategoriaFiltro(categoria);
   };
+  const linkStyle = {
+    color: '#344648',
+    textDecoration: 'none',
+  };
 
   return (
     <div>
-      <header>
-      <nav>
-          <ul>
+      <body>
+      <header className='rankingHeader'>
+        <div className='NavBarRanking'> 
+        <Link className='TituloHeaderRankiing'>This or That - The Game</Link>
+          
+          <ul className='listLinks'>
             <li><Link to="/pagina-inicial">Página Inicial</Link></li>
             <li><Link to="/escolher-opcoes">Jogar</Link></li>
-            <li><Link to="/ranking">Ranking</Link></li>
+            <Link className="under" to="/editar-perfil"  style={linkStyle}><Avatar src="/broken-image.jpg" /></Link>
           </ul>
-        </nav>
-        <h1 className='TituloHeader'>This or That - The Game</h1>
-        <div className="usuario-editar">
-          <p>Olá Usuário!</p>
-          <p><Link to="/editar-perfil" className="underlink">Editar Perfil</Link></p>
+
         </div>
       </header>
 
@@ -102,14 +106,14 @@ function Ranking() {
       <div>
           <button onClick={handleVoltar}>Voltar</button>
         </div>
-</main>
-
+  </main>
+</body>
 <footer>
     <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
 </footer>
 
     </div>
   );
-}
+};
 
 export default Ranking;
