@@ -147,3 +147,124 @@ header h1 {
 .image2-bar {
   background-color: rgba(0, 0, 255, 0.7); 
 } */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+.wrapePrincipalHeader{
+  position: relative;
+  padding: 0 1rem;
+}
+
+.NavBarPrincipal{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10;
+}
+
+.NavBarPrincipal .TituloHeaderP{
+  font-size: 1.4rem;
+  font-weight: normal;
+  transition: .3s;
+}
+
+.NavBarPrincipal .TituloHeaderP:hover{
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: black;
+}
+
+.NavBarPrincipal .linksPrincipal{
+    display: flex;  
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.NavBarPrincipal .linksPrincipal .linksAuxPrincipal{
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: .3s;
+  color: #344648;
+
+}
+
+.NavBarPrincipal .linksPrincipal .linksAuxPrincipal:hover{
+  font-size: 1.4rem;
+  color: black;
+}
+
+.NavBarPrincipal .underPrincipal{
+  text-decoration: none;
+  font-weight: normal;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.NavBarPrincipal .underPrincipal:hover{
+  font-weight: normal;
+  color: black;
+}
+
+.botao-voltar-principal{
+  align-self: flex-start;
+}
+
+.botao-voltar-principal-conteudo {
+  color:  rgb(251, 251, 251);;
+  padding: 0.5rem 1.0rem;
+  background-color: #dcbe9f;
+  border-radius: 6%;
+  cursor: pointer;
+  border: none;
+
+}
+
+.imagem-descricao {
+  color: white;
+  text-align: center;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.box-images {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background: linear-gradient(45deg, #344648, #7D8E95);
+  border: 2px solid #344645;
+  border-radius: 6%;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.imagem-wrapper {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.imagem-item {
+  width: 35vh;
+  height: 30vh;
+  margin: 30px;
+  margin-bottom: 0px;
+}
+.bottomPrincipal{
+  text-align: center;
+  position: fixed;
+  padding: 1rem 0;
+  width: 100%;
+  bottom: 0;
+}
