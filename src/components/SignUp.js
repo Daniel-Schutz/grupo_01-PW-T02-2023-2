@@ -115,7 +115,7 @@ function SignUp() {
     </main>
 
     <footer>
-        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+        <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
     </footer>
 
     </div>

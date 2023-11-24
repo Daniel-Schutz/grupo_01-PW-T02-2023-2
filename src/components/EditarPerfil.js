@@ -120,7 +120,7 @@ function EditarPerfil() {
       </main>
 
       <footer>
-        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+        <p>&copy; This or That - The Game. Todos os direitos reservados.</p>
       </footer>
     </div>
   );

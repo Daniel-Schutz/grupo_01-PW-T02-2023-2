@@ -1,14 +1,17 @@
 import React from 'react';
 import '../styles/PaginaInicial.css';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Avatar } from '@mui/material';
-
+import { logout } from '../firebaseConnection'
 function PaginaInicial() {
  
-  const navigate = useNavigate();
 
-  const handleVoltar = () => {
-    navigate(-1); 
+  const handleSair = async () => {
+    try {
+      await logout(); 
+    } catch (error) {
+      console.error('Erro ao fazer logout:', error);
+    }
   };
 
   const linkStyle = {
@@ -47,13 +50,13 @@ function PaginaInicial() {
               <button  className = "botao-estilo-padrao">Ranking</button>
             </Link>
           
-            <button className = "botao-voltar" onClick={handleVoltar}>Voltar</button>
+            <button className = "botao-voltar" onClick={handleSair}>Sair</button>
             </div>
         </div>
       
       
       <footer className='bottomInicial'>
-        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+        <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
       </footer>
       </body>
     </div>
