@@ -137,7 +137,7 @@ function EditarPerfil() {
       
       </div>
       <footer className='footerEditarPerfil'>
-        <p>&copy; This or That - The Game. Todos os direitos reservados.</p>
+        <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
       </footer>
       </body>
     </div>

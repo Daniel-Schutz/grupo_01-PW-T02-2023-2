@@ -122,6 +122,7 @@
 }
 
 .imagem-item:hover{
+  border: 2px solid green;
   cursor: pointer;
 }
 

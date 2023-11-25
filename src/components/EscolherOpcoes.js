@@ -48,9 +48,6 @@ function EscolherOpcoes() {
 
   const navigate = useNavigate();
 
-  const handleVoltar = () => {
-    navigate(-1);
-  };
   const linkStyle = {
     color: '#344648',
     textDecoration: 'none',
@@ -99,7 +96,7 @@ function EscolherOpcoes() {
               </div>
             ))}
           <div className='buttonDisplay'>
-          <button className='botoesCateg' onClick={handleVoltar}>Voltar</button>
+          <Link to="/" className='botoesCateg' style={{ textDecoration: 'none' }}>Voltar</Link>
             <button className='botoesCateg' type="submit">
               Avançar
             </button>

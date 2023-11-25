@@ -42,9 +42,9 @@ function TelaPrincipal() {
     }
 
     setShowVoteBars(true);
-
+    buscarImagens();
     setTimeout(() => {
-      buscarImagens();
+      
       setShowVoteBars(false);
       setVotesImage1(0);
       setVotesImage2(0);
@@ -105,18 +105,19 @@ function TelaPrincipal() {
         }
 
         const imagensSelecionadas = indicesAleatorios.map((indice) => imagensDaCategoria[indice]);
-        setInfoImagens(imagensSelecionadas);
+       
 
         const linksImagens = imagensSelecionadas.map((imagem) => imagem.img_ref);
 
         try {
           const url1 = await selecionarImagem(linksImagens[0]);
           const url2 = await selecionarImagem(linksImagens[1]);
-
+          setInfoImagens(imagensSelecionadas);
           setInfoImagens((prevImagens) => [
             { ...prevImagens[0], url: url1 },
             { ...prevImagens[1], url: url2 },
           ]);
+          
         } catch (error) {
           console.error('Erro ao obter a URL da imagem:', error);
         }
