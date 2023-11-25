@@ -150,7 +150,8 @@
 
 
   .box-images {
-    height: auto;
+    height: 60%;
+    width: 90%;
     padding: 10px;
     border-radius: 0;
   }
@@ -182,10 +183,21 @@
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
   }
+  
+  .box-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    width: 75%;
+    padding: 10px;
+    border-radius: 0;
+  }
 
   .imagem-item {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     margin: 10px;
   }
 

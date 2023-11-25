@@ -176,3 +176,59 @@
     width: 100%;
     margin-bottom: 1rem; /* Espaçamento entre as linhas */
   }
+
+
+  @media (max-width: 768px) {
+    .wrapMainEditarPerfil {
+      margin-top: 0; /* Reduzir a margem superior */
+    }
+  
+    .FormEditarPerfil {
+      padding: 2rem; /* Ajustar o preenchimento */
+    }
+  
+    .inputEditarPerfil {
+      width: 100%; /* Ajustar a largura dos inputs */
+    }
+  
+    .BotoesEditarPerfil{
+      width: 80%; /* Utilizar a largura total */
+      margin-left: 5px; /* Remover margem esquerda extra */
+      margin-top: 0px;
+    }
+    .BotoesEditarPerfil2 {
+      width: 80%; /* Utilizar a largura total */
+      margin-left: 5px; /* Remover margem esquerda extra */
+
+    }
+  
+    .LinksEditarPerfilPai {
+      flex-direction: column; /* Alterar a direção dos links para coluna */
+      gap: 1rem; /* Adicionar espaço entre os links */
+    }
+  
+    .TituloHeaderEditarPerfil {
+      font-size: 1.2rem; /* Reduzir o tamanho da fonte do título */
+    }
+
+    .UserEmailContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 80%;
+      margin-bottom: 1rem; /* Espaçamento entre as linhas */
+    }
+
+    .SenhaContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 80%;
+      margin-bottom: 1rem; /* Espaçamento entre as linhas */
+    }
+    
+    .footerEditarPerfil {
+      padding: 5px 0; /* Reduzir o padding do rodapé */
+    }
+  }
+  

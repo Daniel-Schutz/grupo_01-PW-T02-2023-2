@@ -130,3 +130,32 @@ input[type="checkbox"] {
   width: 100%;
   bottom: 0;
 }
+
+
+
+/* Media query para telas menores */
+@media screen and (max-width: 768px) {
+
+  .formChooseOpt {
+    margin-left: 5%;
+    width: 80%;
+    padding: 1rem 2rem;
+  }
+
+  .formChooseOpt .botoesCateg {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Media query para telas ainda menores, como smartphones em modo retrato */
+@media screen and (max-width: 480px) {
+  .formChooseOpt {
+    padding: 1rem;
+  }
+
+  .formChooseOpt .botoesCateg {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.8rem;
+  }
+}

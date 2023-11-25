@@ -136,6 +136,32 @@
 /* Adicionando media queries para telas menores */
 
 /* Tablets e telas menores */
+@media only screen and (max-width: 1040px) {
+  .wrapMainRecuperarSenha {
+    height: 50%;
+    padding: 2rem;
+  }
+
+  .wrapMainRecuperarSenha .CorpoRecuperarSenha {
+    width: 50%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .CorpoRecuperarSenha .BotoesRecuperarSenhaPai {
+    flex-direction:row;
+    gap: 10rem;
+  
+    margin-top: 1rem;
+  }
+
+  .CorpoRecuperarSenha .botoesRecuperarSenha {
+    align-self: center;
+  }
+}
+
+
+
 @media only screen and (max-width: 768px) {
   .wrapMainRecuperarSenha {
     height: auto;
@@ -143,15 +169,16 @@
   }
 
   .wrapMainRecuperarSenha .CorpoRecuperarSenha {
-    width: 100%;
+    width: 70%;
     height: auto;
     padding: 1rem;
   }
 
   .CorpoRecuperarSenha .BotoesRecuperarSenhaPai {
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: row;
+    gap: 10rem;
     margin-top: 1rem;
+
   }
 
   .CorpoRecuperarSenha .botoesRecuperarSenha {
@@ -175,7 +202,7 @@
   }
 
   .CorpoRecuperarSenha .BotoesRecuperarSenhaPai {
-    flex-direction: column;
+    flex-direction: row;
     gap: 1.5rem;
     margin-top: 1rem;
   }

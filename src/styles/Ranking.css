@@ -168,3 +168,34 @@ td {
   justify-content: center;
   padding: 2rem;
 }
+
+
+/* Estilos para telas pequenas */
+
+@media screen and (max-width: 768px) {
+
+  .displayCorpo {
+    padding: 2rem 2rem 2rem 2rem;
+  }
+
+  .selectContainer {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .selectContainer select {
+    width: 100%;
+  }
+
+  .tabela,
+  th,
+  td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .botao-voltar {
+    padding: 0.8rem 2rem;
+  }
+}
