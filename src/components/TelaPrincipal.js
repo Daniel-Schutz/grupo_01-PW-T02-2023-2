@@ -170,6 +170,7 @@ function TelaPrincipal() {
   };
 
   return (
+<<<<<<< HEAD
     <div>
       <header className='wrapePrincipalHeader'>
         <nav className='NavBarPrincipal'>
@@ -215,7 +216,7 @@ function TelaPrincipal() {
         <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
       </footer>
     </div>
-
+=======
     
     <><header>
       <h1>Meu Cabeçalho</h1>
@@ -255,6 +256,7 @@ function TelaPrincipal() {
       </div>
       </>
 
+>>>>>>> 78257acdcb4eff78d158e85251fef454787af048
   );
 }
 
