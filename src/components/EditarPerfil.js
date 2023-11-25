@@ -126,7 +126,7 @@ function EditarPerfil() {
           />
         </div>
           <button className='BotoesEditarPerfil' onClick={handleVoltar}>Cancelar edições</button>
-          <button className='BotoesEditarPerfil'>Salvar edições</button>
+          <button className='BotoesEditarPerfil' onClick={handleVoltar}>Salvar edições</button>
         
           
    
