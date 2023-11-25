@@ -1,118 +1,143 @@
-/* Estilizando o container da página de edição de perfil */
-/* div {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+.wrapEditarPerfilHeader{
+  position: relative;
+  padding: 0 1rem;
+}
+
+.NavBarEditarPerfil{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   align-items: center;
+  gap: 10;
+}
+
+.NavBarEditarPerfil .TituloHeaderEditarPerfil{
+  font-size: 1.4rem;
+  font-weight: normal;
+  transition: .3s;
+}
+
+.NavBarEditarPerfil .TituloHeaderEditarPerfil:hover{
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: black;
+}
+
+.NavBarEditarPerfil .LinksEditarPerfilPai{
+  display: flex;  
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.NavBarEditarPerfil .LinksEditarPerfilPai .LinksEditarPerfil{
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: .3s;
+  color: #344648;
+}
+
+.NavBarEditarPerfil .LinksEditarPerfilPai .LinksEditarPerfil:hover{
+  font-size: 1.4rem;
+  color: black;
+}
+
+.wrapMainEditarPerfil{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
+  align-content: center;
+  height: 120vh;
 }
 
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.TituloHeader{
-  margin-right: 155px;
-}
-
-.Botoes {
-  text-align: left;
+.FormEditarPerfil{
   display: flex;
-  flex-direction: column;
-}
-
-
-form {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #fff;
+  max-width: 25%;
+  width: 15%;
+  border: 1px solid black;
+  padding: 2.0rem 5rem;
+  border-radius: 6%;
+  background: linear-gradient(100deg,#7D8E95, #344648 );
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3%;
+  margin-bottom: 8rem;
 }
 
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
+.inputEditarPerfil{
+  display: flex;
+  border: 1px solid #344648;
+  transition: .3s border-color;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-left: 0.3rem;
+  margin-top: 1rem;
+  min-width: 2rem;
+  padding: 1rem;  
+  background-color: #7D8E95;
 }
 
-input {
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 16px;
+.inputEditarPerfil::placeholder{
+  color: rgb(251, 251, 251);
 }
 
+.inputEditarPerfil:hover{
+  border: 1px solid #eee;
+}
 
-button {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: #fff;
+.reguaEditarPerfil{
+  display:block; 
+  padding:0;
+  margin: 0 10px; 
+  width:100%; 
+  height:1px;
+  background-color: rgb(251, 251, 251);
+}
+
+.TituloEditarPerfil{
+  margin-bottom: 0;
+  color:  rgb(251, 251, 251);;
+}
+
+.titlesEditarPerfil{
+  color: rgb(251, 251, 251);
+  padding: 0rem 0.1rem;
+  font-size: medium;
+}
+
+.BotoesEditarPerfil{
+  padding: 0.5rem 1.0rem;
+  background-color: #dcbe9f;
+  color: rgb(251, 251, 251);
   border: none;
   border-radius: 3px;
   font-size: 16px;
   cursor: pointer;
+  margin: 2%;
+  transition: .3s ;
+  margin-top: 2rem;
 }
 
-button:hover {
-  background-color: #0056b3;
+.BotoesEditarPerfil:hover{
+  background-color: #FFBB98;
 }
 
-
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
+.footerEditarPerfil{
+  color: #344648;
   text-align: center;
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background: linear-gradient(100deg, #FBE0C3, #FFBB98);
 }
-
-.header-left {
-  display: flex;
-  align-items: center;
-}
-
-.header-left ul {
-  list-style: none;
-  padding: 0;
-}
-
-.header-left ul li {
-  display: inline;
-  margin-right: 10px;
-}
-
-.header-left ul li a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.usuario-editar p {
-  color: white;
-  cursor: pointer;
-  font-size: 12px;
-  margin-right: 10px;
-}
-
-@media screen and (max-width: 768px) {
-  form {
-    width: 90%;
-  }
-
-  header {
-    flex-direction: column; 
-    text-align: center;
-  }
-
-  .header-left {
-    margin-bottom: 10px; 
-  }
-
-} */

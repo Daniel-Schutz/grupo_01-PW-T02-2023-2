@@ -43,34 +43,47 @@ function EditarPerfil() {
     navigate(-1); 
   };
 
+  const linkStyle = {
+    color: '#344648',
+    textDecoration: 'none',
+  };
 
 
 
   return (
     <div>
+
+      <body>
+
+        <div className='wrapEditarPerfilHeader'>
          <header>
-      <nav>
-          <ul>
-            <li><Link to="/pagina-inicial">Página Inicial</Link></li>
-            <li><Link to="/escolher-opcoes">Jogar</Link></li>
-            <li><Link to="/ranking">Ranking</Link></li>
+        <div className='NavBarEditarPerfil'>
+        <Link className='TituloHeaderEditarPerfil' to="/pagina-inicial" style={linkStyle}>This or That - The Game</Link>
+          <ul className='LinksEditarPerfilPai'>
+            <li><Link className='LinksEditarPerfil' to="/pagina-inicial">Página Inicial</Link></li>
+            <li><Link className='LinksEditarPerfil' to="/escolher-opcoes">Jogar</Link></li>
+            <li><Link className='LinksEditarPerfil' to="/ranking">Ranking</Link></li>
           </ul>
-        </nav>
-        <h1 className='TituloHeader'>This or That - The Game</h1>
-        <div className="usuario-editar">
-          <p>Olá Usuário!</p>
-          <p><Link to="/editar-perfil" className="underlink">Editar Perfil</Link></p>
-        </div>
+        
+          </div>
+
+        
       </header>
 
-      <main>
-      <h1>Editar Perfil</h1>
+      </div>
+
+      <div className='wrapMainEditarPerfil'>      
+
+      <div className='FormEditarPerfil'>
+        <h2 className='TituloEditarPerfil'>Editar Perfil</h2>
+        <span className='reguaEditarPerfil'></span>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">Nome de Usuário:</label>
-          <input
+          <h3 className='titlesEditarPerfil'>Nome de Usuário:</h3>
+          <input className='inputEditarPerfil'
             type="text"
             id="username"
+            placeholder='Nome'
             name="username"
             value={formData.username}
             onChange={handleChange}
@@ -78,10 +91,11 @@ function EditarPerfil() {
           />
         </div>
         <div>
-          <label htmlFor="email">E-mail:</label>
-          <input
+          <h3 className='titlesEditarPerfil'>E-mail:</h3>
+          <input className='inputEditarPerfil'
             type="email"
             id="email"
+            placeholder='Email'
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -89,10 +103,11 @@ function EditarPerfil() {
           />
         </div>
         <div>
-          <label htmlFor="senhaAtual">Senha Atual:</label>
-          <input
+          <h3 className='titlesEditarPerfil'>Senha Atual:</h3>
+          <input className='inputEditarPerfil'
             type="password"
             id="senhaAtual"
+            placeholder='SenhaAtual'
             name="senhaAtual"
             value={formData.senhaAtual}
             onChange={handleChange}
@@ -100,28 +115,31 @@ function EditarPerfil() {
           />
         </div>
         <div>
-          <label htmlFor="novaSenha">Nova Senha:</label>
-          <input
+          <h3 className='titlesEditarPerfil'>Nova Senha:</h3>
+          <input className='inputEditarPerfil'
             type="password"
             id="novaSenha"
+            placeholder='SenhaNova'
             name="novaSenha"
             value={formData.novaSenha}
             onChange={handleChange}
           />
         </div>
-        <div className='Botoes'>
-          <button onClick={handleVoltar}>Cancelar edições</button>
-          <button type="submit">Salvar edições</button>
-        </div>
+          <button className='BotoesEditarPerfil' onClick={handleVoltar}>Cancelar edições</button>
+          <button className='BotoesEditarPerfil'>Salvar edições</button>
+        
           
    
         
       </form>
-      </main>
 
-      <footer>
+      </div>
+      
+      </div>
+      <footer className='footerEditarPerfil'>
         <p>&copy; This or That - The Game. Todos os direitos reservados.</p>
       </footer>
+      </body>
     </div>
   );
 }
