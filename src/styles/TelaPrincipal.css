@@ -1,102 +1,208 @@
-/* Estilizando o container da tela principal */
-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-  }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
 
-.TelaCentral{
+
+:root{
+  --blur-value: blur(5px);
+  --final-scale-y: 1;
+}
+/* usar essas variaveis na classe a ser animada */
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+.wrapePrincipalHeader{
+  position: relative;
+  padding: 0 1rem;
+}
+
+.NavBarPrincipal{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10;
+}
+
+.NavBarPrincipal .TituloHeaderP{
+  font-size: 1.4rem;
+  font-weight: normal;
+  transition: .3s;
+}
+
+.NavBarPrincipal .TituloHeaderP:hover{
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: black;
+}
+
+.NavBarPrincipal .linksPrincipal{
+    display: flex;  
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.NavBarPrincipal .linksPrincipal .linksAuxPrincipal{
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: .3s;
+  color: #344648;
+
+}
+
+.NavBarPrincipal .linksPrincipal .linksAuxPrincipal:hover{
+  font-size: 1.4rem;
+  color: black;
+}
+
+.NavBarPrincipal .underPrincipal{
+  text-decoration: none;
+  font-weight: normal;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.NavBarPrincipal .underPrincipal:hover{
+  font-weight: normal;
+  color: black;
+}
+
+.botao-voltar-principal{
+  align-self: flex-start;
+}
+
+.botao-voltar-principal-conteudo {
+  color:  rgb(251, 251, 251);;
+  padding: 0.5rem 1.0rem;
+  background-color: #dcbe9f;
+  border-radius: 6%;
+  cursor: pointer;
+  border: none;
+
+}
+
+.imagem-descricao {
+  color: white;
+  text-align: center;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.engloba{
+  display: flex;
+}
+
+.box-images {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background: linear-gradient(45deg, #344648, #7D8E95);
+  border: 2px solid #344645;
+  border-radius: 6%;
+  padding: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #a49d9d;
-  padding: 20px;
-  width: 100%;
 }
 
-.BotaoVoltar{
-  align-items: flex-start;
+.imagem-wrapper {
+  text-align: center;
+  margin-bottom: 20px;
 }
-  
-  /* Estilizando o título da página */
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+
+.imagem-item {
+  width: 35vh;
+  height: 30vh;
+  margin: 30px;
+  margin-bottom: 0px;
+  transition: transform 2s ease;
+}
+
+.imagem-item:hover{
+  border: 2px solid green;
+  cursor: pointer;
+}
+
+.imagem-item:active{
+  transform: scale(1.1);
+  transition-duration: 0.00001s ;
+}
+/* 
+.imagem-vote-bar{
+  animation: blur 1s ease 0s 1 normal none ;
+  animation: customAni 2s ease-out 1s 1 normal none;
+} */
+
+.bottomPrincipal{
+  text-align: center;
+  position: fixed;
+  padding: 1rem 0;
+  width: 100%;
+  bottom: 0;
+}
+
+
+/* Estilos para telas menores */
+@media screen and (max-width: 768px) {
+
+
+  .box-images {
+    height: 60%;
+    width: 90%;
+    padding: 10px;
+    border-radius: 0;
+  }
+
+  .imagem-item {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+  }
+
+
+}
+
+/* Estilos para telas de celular */
+@media screen and (max-width: 540px) {
+  .NavBarPrincipal {
+    padding: 0.5rem;
+  }
+
+  .NavBarPrincipal .TituloHeaderP {
+    font-size: 1.2rem;
+  }
+
+  .NavBarPrincipal .linksPrincipal {
+    gap: 1rem;
+  }
+
+  .botao-voltar-principal-conteudo {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
   }
   
-  img{
-    width: 50%;
-  }
-  /* Estilizando o container das imagens */
+
   .imagens-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    height: 60%;
+    width: 75%;
+    padding: 10px;
+    border-radius: 0;
   }
-  
-  /* Estilizando as imagens clicáveis */
-  .imagem {
-    cursor: pointer;
-    text-align: center;
+
+  .imagem-item {
+    width: 160px;
+    height: 160px;
+    margin: 10px;
   }
-  
-  .imagem img {
-    height: 40vh;
-    width: 40vh;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s ease-in-out;
+
+  .bottomPrincipal {
+    padding: 0.5rem 0;
   }
-  
-  .imagem p {
-    margin-top: 5px;
-    font-size: 16px;
-  }
-  
-  /* Estilizando a imagem selecionada */
-  .imagem.selecionada {
-    border-color: #007bff;
-  }
-  
 
-  
-  /* Estilos para o cabeçalho */
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-}
-
-header h1 {
-  margin: 0;
-}
-
-header ul {
-  list-style: none;
-  padding: 0;
-}
-
-header ul li {
-  display: inline;
-  margin-right: 10px;
-}
-
-header ul li a {
-  text-decoration: none;
-  color: #fff;
-}
-
-/* Estilos para o rodapé */
-footer {
-  position: fixed;
-  bottom: 0;
-  background-color: green;
-  color: #fff;
-  text-align: center;
-  width: 100%
-}

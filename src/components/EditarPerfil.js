@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import '../styles/EditarPerfil.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import firebase from 'firebase/compat/app'
 
 function EditarPerfil() {
+  const user = firebase.auth().currentUser;
   const [formData, setFormData] = useState({
-    username: 'exemplo',
-    email: 'exemplo@email.com',
+    username: user.displayName,
+    email: user.email,
     senhaAtual: '',
     novaSenha: '',
   });
@@ -18,92 +20,138 @@ function EditarPerfil() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Adicione a lógica para atualizar as informações do perfil no servidor
-    console.log('Dados do formulário de edição de perfil:', formData);
+    console.log(user);
+    if (formData.novaSenha) {
+      await user.updatePassword(formData.novaSenha)
+    }
+    if (formData.email !== user.email) {
+      await user.updateEmail(formData.email)
+    }
+    if (formData.username !== user.username) {
+      await user.updateProfile({
+        displayName: formData.username
+      })
+    }
+    console.log(user);
   };
 
   const navigate = useNavigate();
 
   const handleVoltar = () => {
-    navigate(-1); 
+    navigate(-1);
+  };
+
+  const linkStyle = {
+    color: '#344648',
+    textDecoration: 'none',
   };
 
 
 
-
   return (
-    <div>
-        <header>
-          <h1>Meu Cabeçalho</h1>
-          <nav>
-              <ul>
-                  <li><a href="#">Página Inicial</a></li>
-                  <li><a href="#">Sobre</a></li>
-                  <li><a href="#">Contato</a></li>
+    <div className='all'>
+
+
+      <body className='bodyAdjust'>
+        <div className='wrapEditarPerfilHeader'>
+          <header>
+            <div className='NavBarEditarPerfil'>
+              <Link className='TituloHeaderEditarPerfil' to="/pagina-inicial" style={linkStyle}>This or That - The Game</Link>
+              <ul className='LinksEditarPerfilPai'>
+                <li><Link className='LinksEditarPerfil' to="/pagina-inicial">Página Inicial</Link></li>
+                <li><Link className='LinksEditarPerfil' to="/escolher-opcoes">Jogar</Link></li>
+                <li><Link className='LinksEditarPerfil' to="/ranking">Ranking</Link></li>
               </ul>
-          </nav>
-      </header>
 
-      <main>
-      <h1>Editar Perfil</h1>
-      <form onSubmit={handleSubmit}>
-        <div className='BotaoVoltar'>
-          <button onClick={handleVoltar}>Voltar</button>
-        </div>
-        <div>
-          <label htmlFor="username">Nome de Usuário:</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="email">E-mail:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="senhaAtual">Senha Atual:</label>
-          <input
-            type="password"
-            id="senhaAtual"
-            name="senhaAtual"
-            value={formData.senhaAtual}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="novaSenha">Nova Senha:</label>
-          <input
-            type="password"
-            id="novaSenha"
-            name="novaSenha"
-            value={formData.novaSenha}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <button type="submit">Salvar edições</button>
-        </div>
-        
-      </form>
-      </main>
+            </div>
 
-      <footer>
-        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+
+          </header>
+
+        </div>
+
+        <div className='wrapMainEditarPerfil'>
+
+          <div className='FormEditarPerfil'>
+            <h2 className='TituloEditarPerfil'>Editar Perfil</h2>
+            <span className='reguaEditarPerfil'></span>
+
+            <form onSubmit={handleSubmit}>
+              <div className="UserEmailContainer">
+                <div>
+                  <h3 className='titlesEditarPerfil'>Nome de Usuário:</h3>
+                  <input
+                    className='inputEditarPerfil'
+                    type="text"
+                    id="username"
+                    placeholder='Nome'
+                    name="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <h3 className='titlesEditarPerfil'>E-mail:</h3>
+                  <input
+                    className='inputEditarPerfil'
+                    type="email"
+                    id="email"
+                    placeholder='Email'
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="SenhaContainer">
+                <div>
+                  <h3 className='titlesEditarPerfil'>Senha Atual:</h3>
+                  <input
+                    className='inputEditarPerfil'
+                    type="password"
+                    id="senhaAtual"
+                    placeholder='SenhaAtual'
+                    name="senhaAtual"
+                    value={formData.senhaAtual}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <h3 className='titlesEditarPerfil'>Nova Senha:</h3>
+                  <input
+                    className='inputEditarPerfil'
+                    type="password"
+                    id="novaSenha"
+                    placeholder='SenhaNova'
+                    name="novaSenha"
+                    value={formData.novaSenha}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <button className='BotoesEditarPerfil' onClick={handleVoltar}>
+                Cancelar edições
+              </button>
+              <button className='BotoesEditarPerfil2' onClick={handleVoltar}>
+                Salvar edições
+              </button>
+            </form>
+
+          </div>
+
+
+
+        </div>
+      </body>
+      <footer className='footerEditarPerfil'>
+        <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
       </footer>
     </div>
   );

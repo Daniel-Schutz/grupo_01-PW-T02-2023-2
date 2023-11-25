@@ -1,71 +1,65 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Importe o Link do React Router
 import '../styles/PaginaInicial.css';
-import { useNavigate } from 'react-router-dom';
-
-
+import { Link } from 'react-router-dom';
+import { Avatar } from '@mui/material';
+import { logout } from '../firebaseConnection'
 function PaginaInicial() {
-  const handleJogarClick = () => {
-    // Adicione a lógica para redirecionar para a página de jogo
-    console.log('Clicou em Jogar');
+ 
+
+  const handleSair = async () => {
+    try {
+      await logout(); 
+    } catch (error) {
+      console.error('Erro ao fazer logout:', error);
+    }
   };
 
-  const handleVerRankingClick = () => {
-    // Adicione a lógica para redirecionar para a página de ranking
-    console.log('Clicou em Ver Ranking');
-  };
-
-  const handleEditarPerfilClick = () => {
-    // Adicione a lógica para redirecionar para a página de edição de perfil
-    console.log('Clicou em Editar Perfil');
-  };
-
-  const navigate = useNavigate();
-
-  const handleVoltar = () => {
-    navigate(-1); 
+  const linkStyle = {
+    color: '#344648',
+    textDecoration: 'none',
   };
 
   return (
-  <div>
+    <div>
+
+      <body>
+      
+      <div className='wrapeInicialHeader'>
       <header>
-        <h1>Meu Cabeçalho</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Página Inicial</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-    <h1>This or That - The Game</h1>
-    <div className="corpo">
-      <div className="header">
-
-        <Link to="/editar-perfil">
-        <p className="editar-perfil">Olá Usuário! <a className='underlink'>Editar Perfil</a></p>
-        </Link>
+      <div className='NavBarInicial'>
+      <Link className='TituloHeader' to="/pagina-inicial" style={linkStyle}>This or That - The Game</Link>
+          <ul className='linksA'>
+            <li><Link className='linksAux' to="/pagina-inicial">Página Inicial</Link></li>
+            <li><Link className='linksAux' to="/escolher-opcoes">Jogar</Link></li>
+            <li><Link className='linksAux' to="/ranking">Ranking</Link></li>
+            <Link className="under" to="/editar-perfil"  style={linkStyle}><Avatar src="/broken-image.jpg" /></Link>
+          </ul>
+       
       </div>
-      <div className="botoes-principais">
-        <Link to="/escolher-opcoes">
-        <button onClick={handleJogarClick}>Jogar</button>
-        </Link>
-        <Link to="/ranking">
-        <button onClick={handleVerRankingClick}>Ranking</button>
-        </Link>
-      </div>
-      <div className='voltar'>
-          <button onClick={handleVoltar}>Voltar</button>
+      </header>
+     </div>
+      <div className="corpo">
+      
+          <div className="botoes-principais">
+          <h2 className='gameTitle'>This or That - The Game</h2>
+          <span class="regua"></span>
+            <Link to="/escolher-opcoes">
+              <button  className = "botao-estilo-padrao">Jogar</button>
+            </Link>
+            <Link to="/ranking">
+              <button  className = "botao-estilo-padrao">Ranking</button>
+            </Link>
+          
+            <button className = "botao-voltar" onClick={handleSair}>Sair</button>
+            </div>
         </div>
+      
+      
+      <footer className='bottomInicial'>
+        <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
+      </footer>
+      </body>
     </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
-    </footer>
-  </div>
   );
 }
 

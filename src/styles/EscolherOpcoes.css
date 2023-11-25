@@ -1,88 +1,161 @@
-/* Estilizando o container da página de edição de opções */
-div {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+.headerEscOp{
+  position: relative;
+  padding: 0 1rem;
+}
+
+.NavBarEscOp{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10;
+}
+
+.NavBarEscOp .TitleTheGame{
+  font-size: 1.4rem;
+  font-weight: normal;
+  transition: .3s;
+}
+
+.NavBarEscOp .TitleTheGame:hover{
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: black;
+}
+
+.NavBarEscOp .linksEscOp{
+    display: flex;  
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.NavBarEscOp .linksEscOp .linksEscOpAux{
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: .3s;
+  color: #344648;
+
+}
+
+.NavBarEscOp .linksEscOp .linksEscOpAux:hover{
+  font-size: 1.4rem;
+  color: black;
+}
+
+.NavBarEscOp .under{
+  text-decoration: none;
+  font-weight: normal;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.NavBarEscOp .under:hover{
+  font-weight: normal;
+  color: black;
+}
+
+.corpoMain{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
-  }
-  
-  /* Estilizando o título da página */
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  /* Estilizando as checkboxes e labels */
-  label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  
-  /* Estilizando o botão de envio */
-  button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
+    height: 80vh;
+}
 
-.Botoes{
+.formChooseOpt{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 6%;
+  padding: 2rem 5rem;
+  gap: 1rem;
+  background: linear-gradient(100deg,#7D8E95, #344648 );
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.choseOptions{
+  margin-bottom: 0;
+  color: rgb(251, 251, 251);
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: white;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.buttonDisplay{
   display: flex;
   flex-direction: row;
-  justify-content: space-between; 
-  align-items: flex-end; 
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.Avancar{
-  background-color: #0056b3;
-  
+.formChooseOpt .botoesCateg{
+    color: rgb(251, 251, 251);
+    border: 2px solid black;
+    border-radius: 6%;  
+    padding: 1rem 3rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #dcbe9f;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.formChooseOpt .botoesCateg:hover{
+  background-color: #FFBB98;
+  border-color: #eee;
+}
+
+.bottomEscOp{
+  text-align: center;
+  position: fixed;
+  padding: 1rem 0;
+  width: 100%;
+  bottom: 0;
 }
 
 
-  /* Estilos para o cabeçalho */
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+
+/* Media query para telas menores */
+@media screen and (max-width: 768px) {
+
+  .formChooseOpt {
+    margin-left: 5%;
+    width: 80%;
+    padding: 1rem 2rem;
   }
-  
-  header h1 {
-    margin: 0;
+
+  .formChooseOpt .botoesCateg {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
   }
-  
-  header ul {
-    list-style: none;
-    padding: 0;
+}
+
+/* Media query para telas ainda menores, como smartphones em modo retrato */
+@media screen and (max-width: 480px) {
+  .formChooseOpt {
+    padding: 1rem;
   }
-  
-  header ul li {
-    display: inline;
-    margin-right: 10px;
+
+  .formChooseOpt .botoesCateg {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.8rem;
   }
-  
-  header ul li a {
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  /* Estilos para o rodapé */
-  footer {
-    background-color: green;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-  }
-  
+}

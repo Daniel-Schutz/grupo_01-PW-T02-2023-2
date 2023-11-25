@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import '../styles/SignUp.css';
 import { useNavigate } from 'react-router-dom';
+import firebase from 'firebase/compat/app'; // Modificado para 'compat'
+import 'firebase/compat/auth'; // Modificado para 'compat'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function SignUp() {
@@ -18,16 +22,34 @@ function SignUp() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica para enviar os dados do formulário para o servidor
-    console.log('Dados do formulário enviados:', formData);
-    // Limpar o formulário
-    setFormData({
-      username: '',
-      email: '',
-      password: '',
-    });
+
+    try {
+      // Criar um novo usuário no Firebase
+      const { user } = await firebase.auth().createUserWithEmailAndPassword(
+        formData.email,
+        formData.password
+      );
+
+      // Atualizar o nome do usuário no perfil do Firebase
+      await user.updateProfile({
+        displayName: formData.username,
+      });
+
+      // Limpar o formulário
+      setFormData({
+        username: '',
+        email: '',
+        password: '',
+      });
+
+      
+      navigate('/pagina-inicial');
+    } catch (error) {
+      console.error('Erro ao criar usuário:', error.message);
+      toast.error('Não foi possível criar o usuário. Por favor, tente novamente.');
+    }
   };
 
   const navigate = useNavigate();
@@ -38,27 +60,35 @@ function SignUp() {
 
   return (
     <div>
+
+      <body>
+
+        <div className='wrapHeaderSignUp'>
         <header>
-        <h1>Meu Cabeçalho</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Página Inicial</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
+        <div className='NavBarSignUp'>
+          <div className='logoSignUp'><h3>This or That - The Game</h3></div>
+          {/* 
+            <ul className='LinksSignUpPai'>
+                <li className='LinksSignUp'><a href="/pagina-inicial">Página Inicial</a></li>
+                <li className='LinksSignUp'><a href="/escolher-opcoes">Jogar</a></li>
+                <li className='LinksSignUp'><a href="/ranking">Ranking</a></li>
             </ul>
-        </nav>
+            */}
+          </div>
     </header>
 
-    <main>
+    </div>
+    
+    <div className='wrapMainSignUp'>
+
+    <div className='FormSignUp'>
     <form onSubmit={handleSubmit}>
-      <div className='BotaoVoltar'>
-          <button onClick={handleVoltar}>Voltar</button>
-        </div>
         <div>
-          <label htmlFor="username">Nome de Usuário:</label>
-          <input
+          <h3 className="titlesSignUp">Nome de Usuário:</h3>
+          <input className='inputSignUp'
             type="text"
             id="username"
+            placeholder='Nome'
             name="username"
             value={formData.username}
             onChange={handleChange}
@@ -66,10 +96,11 @@ function SignUp() {
           />
         </div>
         <div>
-          <label htmlFor="email">E-mail:</label>
-          <input
+          <h3 className="titlesSignUp">E-mail:</h3>
+          <input className='inputSignUp'
             type="email"
             id="email"
+            placeholder='Email'
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -77,24 +108,30 @@ function SignUp() {
           />
         </div>
         <div>
-          <label htmlFor="password">Senha:</label>
-          <input
+          <h3 className="titlesSignUp">Senha:</h3>
+          <input className='inputSignUp'
             type="password"
             id="password"
+            placeholder='Senha'
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
           />
         </div>
-        <div>
-          <button type="submit">Criar Conta</button>
-        </div>
+        
+        <button className='BotoesSignUp' onClick={handleVoltar}>Voltar</button>
+        <button className='BotoesSignUp' type="submit">Criar Conta</button>
+       
+       
       </form>
-    </main>
+    
+      </div>
 
-    <footer>
-        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+      </div>
+    </body>
+    <footer className='footerSignUp'>
+        <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
     </footer>
 
     </div>

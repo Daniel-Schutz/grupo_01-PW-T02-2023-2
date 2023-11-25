@@ -1,99 +1,215 @@
-/* Estilizando o container da página de recuperação de senha */
-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
 
-  }
-  
-  /* Estilizando o título da página */
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  /* Estilizando o formulário */
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Estilizando os campos de entrada */
-  label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 16px;
-  }
-  
-  /* Estilizando o botão de envio */
-  button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Estilizando a mensagem de feedback */
-  p {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #333;
-  }
-  
-
-  
-  /* Estilos para o cabeçalho */
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+*{
+  font-family: 'Poppins', sans-serif;
 }
 
-header h1 {
-  margin: 0;
+.wrapRecuperarSenhaHeader{
+  position: relative;
+  padding: 0 1rem;
 }
 
-header ul {
-  list-style: none;
-  padding: 0;
+.NavBarRecuperarSenha{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10;
 }
 
-header ul li {
-  display: inline;
-  margin-right: 10px;
+.NavBarRecuperarSenha .TituloHeaderRecuperarSenha{
+  font-size: 1.4rem;
+  font-weight: normal;
+  transition: .3s;
 }
 
-header ul li a {
+.NavBarRecuperarSenha .LinksRecuperarSenha{
+  display: flex;  
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.NavBarRecuperarSenha .LinksRecuperarSenha .LinksAuxRecuperarSenha{
   text-decoration: none;
-  color: #fff;
+  font-size: 1.2rem;
+  transition: .3s;
+  color: #344648;
 }
 
-/* Estilos para o rodapé */
-footer {
-  background-color: green;
-  color: #fff;
+.NavBarRecuperarSenha .LinksRecuperarSenha .LinksAuxRecuperarSenha:hover{
+  font-size: 1.4rem;
+  color: black;
+}
+
+.wrapMainRecuperarSenha{
+  display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+}
+
+.wrapMainRecuperarSenha .CorpoRecuperarSenha{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  border: 2px solid black;
+  border-radius: 6%;  
+  padding: 1rem 3rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(45deg, #344648, #7D8E95);
+  width: 25%; 
+  height: 50%; 
+}
+
+.CorpoRecuperarSenha .BotoesRecuperarSenhaPai{
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.CorpoRecuperarSenha .botoesRecuperarSenha{
+  color:rgb(251, 251, 251);;
+  padding: 0.5rem 1.0rem;
+  width: 10rem;
+  height: 4rem;
+  background-color: #dcbe9f;
+  border-radius: 6%;
+  cursor: pointer;
+  border: none;
+}
+
+.formRecuperarSenha{
+  width: 100%;
+  height: 80%;
+}
+
+.InputRecuperarSenha{
+  width: 90%;
+  height: 80%;
+  display: flex;
+  border: 1px solid #344648;
+  transition: .3s border-color;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-top: 3rem;
+  min-width: 2rem;
+  padding: 0.8rem;  
+  background-color: #7D8E95;;
+
+}
+
+.InputRecuperarSenha::placeholder, .InputRecuperarSenha[type="email"]{
+  color: rgb(251, 251, 251);
+}
+
+.InputRecuperarSenha:hover{
+  border: 1px solid #eee;
+}
+
+.TituloRecuperarSenha{
+  margin-bottom: 0;
+  color:  rgb(251, 251, 251);
+  font-size: 1.2rem;
+}
+
+.footerRecuperarSenha{
+  color: #344648;
   text-align: center;
   padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background: linear-gradient(100deg, #FBE0C3, #FFBB98); 
 }
+
+
+
+/* Adicionando media queries para telas menores */
+
+/* Tablets e telas menores */
+@media only screen and (max-width: 1040px) {
+  .wrapMainRecuperarSenha {
+    height: 50%;
+    padding: 2rem;
+  }
+
+  .wrapMainRecuperarSenha .CorpoRecuperarSenha {
+    width: 50%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .CorpoRecuperarSenha .BotoesRecuperarSenhaPai {
+    flex-direction:row;
+    gap: 10rem;
+  
+    margin-top: 1rem;
+  }
+
+  .CorpoRecuperarSenha .botoesRecuperarSenha {
+    align-self: center;
+  }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .wrapMainRecuperarSenha {
+    height: auto;
+    padding: 2rem;
+  }
+
+  .wrapMainRecuperarSenha .CorpoRecuperarSenha {
+    width: 70%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .CorpoRecuperarSenha .BotoesRecuperarSenhaPai {
+    flex-direction: row;
+    gap: 10rem;
+    margin-top: 1rem;
+
+  }
+
+  .CorpoRecuperarSenha .botoesRecuperarSenha {
+    align-self: center;
+  }
+}
+
+/* Smartphones e telas menores */
+@media only screen and (max-width: 480px) {
+  .CorpoRecuperarSenha {
+    width: 90%;
+    max-width: 400px; /* Evita que o formulário fique muito largo */
+    margin: 0 auto; /* Centraliza o formulário */
+  }
+
+  .InputRecuperarSenha {
+    width: 100%;
+    font-size: 0.9rem;
+    box-sizing: border-box; /* Garante que a largura inclua o padding */
+    margin-bottom: 1rem; /* Espaçamento entre os campos */
+  }
+
+  .CorpoRecuperarSenha .BotoesRecuperarSenhaPai {
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .CorpoRecuperarSenha .botoesRecuperarSenha {
+    align-self: center;
+  }
+}
+
+

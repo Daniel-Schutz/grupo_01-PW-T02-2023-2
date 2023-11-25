@@ -1,135 +1,209 @@
-/* Estilizando o container da página de login */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
 
-.RecuperarSenha{
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+.RecuperarSenha {
   text-decoration: underline;
-  color: #1f7ce1;
+  color: rgb(251, 251, 251);
+  transition: .3s ;
   align-items: flex-start;
   justify-content: left;
   text-align: left;
+  padding: 0.5rem;
 }
 
-.RecuperarSenha:hover{
-  text-decoration: none;
+.RecuperarSenha:hover {
+  text-decoration: underline;
+  color: #FFBB98;
 }
 
-div {
+li {
+  list-style: none;
+}
+
+.FormSubmit {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center; /* Centraliza o texto no centro horizontalmente */
-}
-
-/* Estilizando o título da página */
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-/* Estilizando o formulário */
-form {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #fff;
+  max-width: 30%;
+  width: 18%;
+  border: 1px solid black;
+  padding: 2.0rem 5rem;
+  border-radius: 6%;
+  background: linear-gradient(100deg,#7D8E95, #344648 );
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Estilizando os campos de entrada */
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
+.loginTitle{
+  color: rgb(251, 251, 251);
+  padding: 0rem 0.3rem;
 }
 
-input {
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 16px;
+.input1 {
+  display: flex;
+  border: 1px solid #344648;
+  transition: .3s border-color;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-left: 0.3rem;
+  margin-top: 1rem;
+  min-width: 2rem;
+  padding: 1rem;  
+  background-color: #7D8E95;;
+
 }
 
-/* Estilizando o botão de envio */
-button {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: #fff;
+.input1::placeholder, .input1[type="email"]{
+  color: rgb(251, 251, 251);
+}
+
+.input1:hover{
+  border: 1px solid #eee;
+}
+
+.input2 {
+  display: flex;
+  border: 1px solid #344648;
+  transition: .3s border-color;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-left: 0.3rem;
+  margin-top: 1rem;
+  min-width: 125px;
+  padding: 1rem;  
+  background-color: #7D8E95;
+
+}
+
+.input2::placeholder, .input2[type="password"]{
+  color: rgb(251, 251, 251);
+}
+.input2:hover{
+  border: 1px solid #eee;
+}
+
+.botaoEntrar {
+  padding: 0.5rem 1.0rem;
+  background-color: #dcbe9f;
+  color: rgb(251, 251, 251);
   border: none;
   border-radius: 3px;
   font-size: 16px;
   cursor: pointer;
-  margin-bottom: 10px; /* Espaçamento inferior entre os botões */
+  margin: 2%;
+  transition: .3s ;
 }
 
-button:hover {
-  background-color: #0056b3;
+.botaoEntrar:hover {
+  background-color: #FFBB98;
 }
 
-/* Estilizando mensagens de erro, se necessário */
+.botaoCriar {
+  padding: 0.5rem 1.0rem;
+  background-color: #dcbe9f;
+  color: rgb(251, 251, 251);
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 2%;
+  transition: .3s ;
+}
+
+.botaoCriar:hover {
+  background-color: #FFBB98;
+}
+
+
 .error-message {
   color: red;
   font-size: 14px;
   margin-top: 5px;
 }
 
-/* Estilizando os botões "Criar Conta" e "Esqueci Minha Senha" */
-div a {
-  text-decoration: none; /* Remove sublinhado do link */
-  margin-top: 10px; /* Espaçamento superior entre os botões e o formulário */
+.links {
+  flex-direction: row;
 }
 
-div a button {
-  background-color: #28a745; /* Cor verde para o botão "Criar Conta" */
+.wrapMain {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  height: 70vh;
 }
 
-div a button:hover {
-  background-color: #218838; /* Cor verde mais escura no hover */
+.wrapHeader{
+  color: #fff;
+  position: relative;
+  padding: 0 1rem;
 }
 
-div a:nth-child(2) button {
-  background-color: #dc3545; /* Cor vermelha para o botão "Esqueci Minha Senha" */
+.NavBar{
+  max-width: 1200px;
+  margin: 0.1rem auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-div a:nth-child(2) button:hover {
-  background-color: #c82333; /* Cor vermelha mais escura no hover */
+.NavBar .logo{
+  font-size: 1.5rem;
+  font-weight:normal;
+  padding-top: 2rem;
+  color: #344648;
 }
 
+.NavBar .links{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
 
-  /* Estilos para o cabeçalho */
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+.NavBar .links a{
+  text-decoration: none;
+  color: #344648;
+  font-size: 1.1rem;
+  transition: .3s;
+}
+
+.NavBar .links a:hover{
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+}
+
+body{
+background: linear-gradient(100deg, #FBE0C3, #FFBB98); 
+background-repeat: no-repeat;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+}
+
+.bottom {
+  color: #344648;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background: linear-gradient(100deg, #FBE0C3, #FFBB98); 
+
+}
+
+/* Smartphones e telas menores */
+@media only screen and (max-width: 480px) {
+  .FormSubmit {
+    width: 50%;
+    max-width: 400px; /* Evita que o formulário fique muito largo */
+    margin: 0 auto; /* Centraliza o formulário */
   }
-  
-  header h1 {
-    margin: 0;
-  }
-  
-  header ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  header ul li {
-    display: inline;
-    margin-right: 10px;
-  }
-  
-  header ul li a {
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  /* Estilos para o rodapé */
-  footer {
-    background-color: green;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-  }
-  
+
+}

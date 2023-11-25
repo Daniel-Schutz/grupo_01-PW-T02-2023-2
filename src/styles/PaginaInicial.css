@@ -1,103 +1,179 @@
-/* Estilizando o container da página inicial */
-div {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+.wrapeInicialHeader{
+  position: relative;
+  padding: 0 1rem;
+}
+
+.NavBarInicial{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10;
+}
+
+.NavBarInicial .TituloHeader{
+  font-size: 1.4rem;
+  font-weight: normal;
+  transition: .3s;
+}
+
+.NavBarInicial .TituloHeader:hover{
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: black;
+}
+
+.NavBarInicial .linksA{
+    display: flex;  
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.NavBarInicial .linksA .linksAux{
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: .3s;
+  color: #344648;
+
+}
+
+.NavBarInicial .linksA .linksAux:hover{
+  font-size: 1.4rem;
+  color: black;
+}
+
+.NavBarInicial .under{
+  text-decoration: none;
+  font-weight: normal;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.NavBarInicial .under:hover{
+  font-weight: normal;
+  color: black;
+}
+
+.corpo{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
     align-items: center;
+    height: 80vh;
+}
+
+.gameTitle{
+  margin-bottom: 0;
+  color:  rgb(251, 251, 251);;
+}
+
+.corpo .botoes-principais{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
     justify-content: center;
-  }
-  
-.corpo{
+    align-items: center;
+    gap: 1.5rem;
+    border: 2px solid black;
+    border-radius: 6%;  
+    padding: 1rem 3rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #344648, #7D8E95);
+}
+.regua{
+  display:block; 
+  padding:0;
+  margin: 0 10px; 
+  width:100%; 
+  height:1px;
+  background-color: rgb(251, 251, 251);
+}
+.corpo .botoes-principais .botao-estilo-padrao{
+  color:rgb(251, 251, 251);;
+  padding: 0.5rem 1.0rem;
+  width: 10rem;
+  height: 4rem;
+  background-color: #dcbe9f;
+  border-radius: 6%;
+  cursor: pointer;
+  border: none
+ 
+}
+
+.corpo .botoes-principais .botao-estilo-padrao:hover{
+  background-color: #FFBB98;
+}
+
+.corpo .botoes-principais .botao-voltar{
+  color:  rgb(251, 251, 251);;
+  padding: 0.5rem 1.0rem;
+  width: 10rem;
+  height: 4rem;
+  background-color: #dcbe9f;
+  border-radius: 6%;
+  cursor: pointer;
+  border: none;
+ 
+} 
+
+.corpo .botoes-principais .botao-voltar:hover{
+  background-color: #FFBB98;
+}
+
+.bottomInicial{
+  text-align: center;
+  position: fixed;
+  padding: 1rem 0;
   width: 100%;
-  background-color: aliceblue;
-  border: rgb(182, 200, 215);
-  border-radius: 10%;
-  border-style: solid;
-}
-  /* Estilizando o cabeçalho */
-  .header {
-    width: 30%;
-    display: flex;
-    font-size: 12px;
-    margin-left: 60%;
-  }
-  
-  /* Estilizando o botão de editar perfil */
-  .editar-perfil {
-    color: black;
-    cursor: pointer;
-    font-size: 12px;
-  }
-
-  .underlink{
-    font-size: 12px;
-    text-decoration: underline;
-  }
-  a:hover{
-    color: #2b6eb5;
-  }
-  
-  /* Estilizando o título da página */
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  /* Estilizando os botões principais */
-  .botoes-principais {
-    display: flex;
-  }
-  
-  .voltar{
-    margin-top: 10%;
-  }
-
-  button {
-    width: 100px;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  
-  /* Estilos para o cabeçalho */
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+  bottom: 0;
 }
 
-header h1 {
-  margin: 0;
+/* Adicionando media queries para telas menores */
+
+/* Tablets e dispositivos menores */
+@media screen and (max-width: 768px) {
+  .NavBarInicial {
+    padding: 0.5rem;
+  }
+
+  .NavBarInicial .TituloHeader {
+    font-size: 1.2rem;
+  }
+
+  .NavBarInicial .linksA {
+    gap: 1rem;
+  }
+
+  .corpo .botoes-principais {
+    
+    padding: 1rem;
+  }
+ 
+
+  .corpo .botoes-principais .botao-estilo-padrao,
+  .corpo .botoes-principais .botao-voltar {
+    margin-bottom: 1rem;
+  }
 }
 
-header ul {
-  list-style: none;
-  padding: 0;
-}
+/* Smartphones e dispositivos menores */
+@media screen and (max-width: 480px) {
+  .NavBarInicial .TituloHeader {
+    font-size: 1rem;
+  }
 
-header ul li {
-  display: inline;
-  margin-right: 10px;
-}
 
-header ul li a {
-  text-decoration: none;
-  color: #fff;
-}
-
-/* Estilos para o rodapé */
-footer {
-  background-color: green;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
+  .corpo .gameTitle {
+    font-size: 1.5rem;
+  }
 }

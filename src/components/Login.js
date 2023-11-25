@@ -1,94 +1,102 @@
-// Importe as bibliotecas necessárias
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Importe o Link do React Router
-import '../styles/Login.css';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { auth} from "../firebaseConnection";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import "../styles/Login.css";
+import { toast } from "react-toastify";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 function Login() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, loading, /*error*/] = useAuthState(auth);
+  const navigate = useNavigate();
+  useEffect(() => {
+    console.log(user)
+    if (user) navigate("/pagina-inicial");
+  }, [user, loading, navigate]);
 
-  const handleSubmit = (e) => {
+  const signIn = async (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica para autenticar o usuário
-    console.log('Dados do formulário de login:', formData);
-    // Limpar o formulário
-    setFormData({
-      email: '',
-      password: '',
+    console.log('log');
+    await signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log(userCredential);
+    }) 
+    .catch((error) => {
+      toast.error("Invalid email or password!");
+      console.log(error);
     });
+
+    console.log('cheguei');
+  }
+  const linkStyle = {
+    color: '#344648',
+    textDecoration: 'none',
   };
+  // <style scoped>
+  //   form
+  // </style>
+return (
+  <div>
 
-
-  return (
-    <div>
-        <header>
-        <h1>Meu Cabeçalho</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Página Inicial</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
+   <body>
     
-    <h1>This or That - The Game</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">E-mail:</label>
-          <input
+    <div className="wrapHeader">
+      <header>
+          <div className="NavBar">
+          <div className="logo"><h3>This or That - The Game</h3></div>
+              {/* <ul className="links">
+                  <li><a href="/pagina-inicial">Página Inicial</a></li>
+                  <li><a href="/escolher-opcoes">Jogar</a></li>
+                  <li><a href="/ranking">Ranking</a></li>
+              </ul> */}
+          </div>
+          
+      </header>
+    </div>
+    <div className="wrapMain">
+    
+      <div className = "FormSubmit">
+      
+      <form onSubmit={signIn}>
+      <h2 className="loginTitle">Login</h2>
+          <input className="input1"
             type="email"
+            placeholder="Email"
             id="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </div>
-        <div>
-          <label htmlFor="password">Senha:</label>
-          <input
+          <input className="input2"
             type="password"
+            placeholder="Senha"
             id="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </div>
-        <div className='Links'>
-          <Link to="/pagina-inicial">
-          <Link to="/recuperar-senha">
-          <p className='RecuperarSenha'>Esqueci Minha Senha</p>
-         </Link>
-
-           <Link to="/sign-up">
-          <button>Criar Conta</button>
-        </Link>
+       
+      <Link to="/recuperar-senha" style={linkStyle}>
+        <p className='RecuperarSenha'>Esqueci Minha Senha</p>
+      </Link>
+      <Link to="/sign-up">
+        <button className = "botaoCriar" type="button" >Criar Conta</button>
+      </Link>
+        <button className = "botaoEntrar" type="submit">Entrar</button>
         
-
-          <button type="submit">Entrar</button>
-          
-          </Link>
-        </div>
       </form>
-      
-    </main>
-
-    <footer>
-        <p>&copy; 2023 Minha Empresa. Todos os direitos reservados.</p>
+      </div>
+    
+    </div>
+    </body>
+    
+    <footer className="bottom">
+        <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
     </footer>
     </div>
   );
