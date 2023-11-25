@@ -184,8 +184,7 @@
     font-size: 0.8rem;
   }
   
-
-  .imagens-container {
+  .box-images {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -205,4 +204,4 @@
   .bottomPrincipal {
     padding: 0.5rem 0;
   }
-
+}
