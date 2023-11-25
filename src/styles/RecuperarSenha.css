@@ -155,7 +155,7 @@
   }
 
   .CorpoRecuperarSenha .botoesRecuperarSenha {
-    width: 100%;
+    align-self: center;
   }
 }
 
@@ -181,7 +181,7 @@
   }
 
   .CorpoRecuperarSenha .botoesRecuperarSenha {
-    width: 100%;
+    align-self: center;
   }
 }
 

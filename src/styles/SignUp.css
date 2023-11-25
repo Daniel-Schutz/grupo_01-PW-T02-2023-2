@@ -117,3 +117,13 @@ flex-direction: column;
   bottom: 0;
   background: linear-gradient(100deg, #FBE0C3, #FFBB98); 
 }
+
+/* Smartphones e telas menores */
+@media only screen and (max-width: 480px) {
+  .FormSignUp {
+    width: 50%;
+    max-width: 400px; /* Evita que o formulário fique muito largo */
+    margin: 0 auto; /* Centraliza o formulário */
+  }
+
+}

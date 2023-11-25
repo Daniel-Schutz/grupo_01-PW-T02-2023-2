@@ -198,7 +198,12 @@ flex-direction: column;
 
 }
 
-/* 
-@media (max-width: 992px) {
-  .NavBar .links,
-} */
+/* Smartphones e telas menores */
+@media only screen and (max-width: 480px) {
+  .FormSubmit {
+    width: 50%;
+    max-width: 400px; /* Evita que o formulário fique muito largo */
+    margin: 0 auto; /* Centraliza o formulário */
+  }
+
+}
