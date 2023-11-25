@@ -4,6 +4,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.bodyAdjust{
+  min-height: 80vh;
+}
+
 .wrapEditarPerfilHeader{
   position: relative;
   padding: 0 1rem;
@@ -49,11 +53,12 @@
 }
 
 .wrapMainEditarPerfil {
+  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  margin-bottom: 0px;
+  margin-top: 1rem;
 }
 
 
