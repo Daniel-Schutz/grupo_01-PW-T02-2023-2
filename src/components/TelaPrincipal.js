@@ -20,6 +20,7 @@ function TelaPrincipal() {
   const [votesImage2, setVotesImage2] = useState(0);
   const [cont, setCont] = useState(0);
   const [showVoteBars, setShowVoteBars] = useState(false);
+  const [showDescription, setShowDescription] = useState(false);
   const location = useLocation();
   const categoriasSelecionadas = useMemo(() => location.state?.categoriasSelecionadas || {}, [location.state?.categoriasSelecionadas]);
   const navigate = useNavigate();
@@ -43,13 +44,21 @@ function TelaPrincipal() {
     }
 
     setShowVoteBars(true);
-    buscarImagens();
+
+    setTimeout(()=>{
+      setShowVoteBars(false);
+    },1000)
+
+    setTimeout(()=>{
+      buscarImagens();
+    },500)
+    
     setTimeout(() => {
       
-      setShowVoteBars(false);
       setVotesImage1(0);
       setVotesImage2(0);
-    }, 2000);
+      setShowDescription(true)
+    }, 3000);
   };
 
   const selecionarImagem = async (caminhoDaImagem) => {
@@ -134,6 +143,7 @@ function TelaPrincipal() {
   useEffect(() => {
     if(cont===1){
       buscarImagens();
+      setShowDescription(true);
     }else{
       setCont(cont+1)
     }
@@ -193,19 +203,18 @@ function TelaPrincipal() {
             {infoImagens.map((imagem, index) => (
               <div key={index} className="imagem-wrapper">
                
-                {showVoteBars && (
-                  <div
-                    className={`imagem-vote-bar ${index === 0 ? 'image1-bar' : 'image2-bar'}`}
-                    style={{ width: `${index === 0 ? votesImage1 : votesImage2}%` }}
-                  ></div>
-                )}
                 <img
                   className="imagem-item"
                   alt="Imagem do Firebase Storage"
                   src={imagem.url}
                   onClick={() => handleImagemClick(imagem)}
                 />
+                 {showDescription && (
                 <p className='imagem-descricao'>{imagem.descricao}</p>
+                 )}
+                {showVoteBars && (
+                  <p  className='imagem-descricao'>{imagem.votos} votos!</p>
+                )}
               </div>
             ))}
           </div>
