@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { db } from '../firebaseConnection';
 import {
@@ -18,9 +18,10 @@ function TelaPrincipal() {
   const [infoImagens, setInfoImagens] = useState([]);
   const [votesImage1, setVotesImage1] = useState(0);
   const [votesImage2, setVotesImage2] = useState(0);
+  const [cont, setCont] = useState(0);
   const [showVoteBars, setShowVoteBars] = useState(false);
   const location = useLocation();
-  const categoriasSelecionadas = location.state?.categoriasSelecionadas || {};
+  const categoriasSelecionadas = useMemo(() => location.state?.categoriasSelecionadas || {}, [location.state?.categoriasSelecionadas]);
   const navigate = useNavigate();
 
   const handleImagemClick = async (imagem) => {
@@ -65,6 +66,7 @@ function TelaPrincipal() {
   };
 
   const buscarImagens = async () => {
+    console.log("entrou")
     try {
       const imagensCollection = collection(db, 'imagens');
       let imagensQuery = query(imagensCollection);
@@ -130,8 +132,13 @@ function TelaPrincipal() {
   };
 
   useEffect(() => {
-    buscarImagens();
-  }, [categoriasSelecionadas]);
+    if(cont===1){
+      buscarImagens();
+    }else{
+      setCont(cont+1)
+    }
+
+  }, [categoriasSelecionadas,cont]);
 
   useEffect(() => {
     const updateVoteBars = () => {

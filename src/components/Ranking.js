@@ -58,7 +58,7 @@ function Ranking() {
       <body>
         <header className='rankingHeader'>
           <div className='NavBarRanking'>
-            <Link className='TituloHeaderRanking'>This or That - The Game</Link>
+            <Link to="/" className='TituloHeaderRanking'>This or That - The Game</Link>
 
             <ul className='listLinks'>
               <li><Link className='listsLinksNames' to="/pagina-inicial">Página Inicial</Link></li>

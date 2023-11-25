@@ -130,3 +130,59 @@
   bottom: 0;
   background: linear-gradient(100deg, #FBE0C3, #FFBB98); 
 }
+
+
+
+/* Adicionando media queries para telas menores */
+
+/* Tablets e telas menores */
+@media only screen and (max-width: 768px) {
+  .wrapMainRecuperarSenha {
+    height: auto;
+    padding: 2rem;
+  }
+
+  .wrapMainRecuperarSenha .CorpoRecuperarSenha {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .CorpoRecuperarSenha .BotoesRecuperarSenhaPai {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .CorpoRecuperarSenha .botoesRecuperarSenha {
+    width: 100%;
+  }
+}
+
+/* Smartphones e telas menores */
+@media only screen and (max-width: 480px) {
+  .CorpoRecuperarSenha {
+    width: 90%;
+    max-width: 400px; /* Evita que o formulário fique muito largo */
+    margin: 0 auto; /* Centraliza o formulário */
+  }
+
+  .InputRecuperarSenha {
+    width: 100%;
+    font-size: 0.9rem;
+    box-sizing: border-box; /* Garante que a largura inclua o padding */
+    margin-bottom: 1rem; /* Espaçamento entre os campos */
+  }
+
+  .CorpoRecuperarSenha .BotoesRecuperarSenhaPai {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .CorpoRecuperarSenha .botoesRecuperarSenha {
+    width: 100%;
+  }
+}
+
+

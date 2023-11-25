@@ -51,9 +51,9 @@ function EditarPerfil() {
 
 
   return (
-    <div>
+    <div className='all'>
 
-      <body>
+    
 
         <div className='wrapEditarPerfilHeader'>
          <header>
@@ -71,75 +71,88 @@ function EditarPerfil() {
       </header>
 
       </div>
-
+      <body>
       <div className='wrapMainEditarPerfil'>      
 
       <div className='FormEditarPerfil'>
-        <h2 className='TituloEditarPerfil'>Editar Perfil</h2>
-        <span className='reguaEditarPerfil'></span>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <h3 className='titlesEditarPerfil'>Nome de Usuário:</h3>
-          <input className='inputEditarPerfil'
-            type="text"
-            id="username"
-            placeholder='Nome'
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <h3 className='titlesEditarPerfil'>E-mail:</h3>
-          <input className='inputEditarPerfil'
-            type="email"
-            id="email"
-            placeholder='Email'
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <h3 className='titlesEditarPerfil'>Senha Atual:</h3>
-          <input className='inputEditarPerfil'
-            type="password"
-            id="senhaAtual"
-            placeholder='SenhaAtual'
-            name="senhaAtual"
-            value={formData.senhaAtual}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <h3 className='titlesEditarPerfil'>Nova Senha:</h3>
-          <input className='inputEditarPerfil'
-            type="password"
-            id="novaSenha"
-            placeholder='SenhaNova'
-            name="novaSenha"
-            value={formData.novaSenha}
-            onChange={handleChange}
-          />
-        </div>
-          <button className='BotoesEditarPerfil' onClick={handleVoltar}>Cancelar edições</button>
-          <button className='BotoesEditarPerfil' onClick={handleVoltar}>Salvar edições</button>
-        
-          
-   
-        
-      </form>
+  <h2 className='TituloEditarPerfil'>Editar Perfil</h2>
+  <span className='reguaEditarPerfil'></span>
 
+  <form onSubmit={handleSubmit}>
+    <div className="UserEmailContainer">
+      <div>
+        <h3 className='titlesEditarPerfil'>Nome de Usuário:</h3>
+        <input
+          className='inputEditarPerfil'
+          type="text"
+          id="username"
+          placeholder='Nome'
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+          required
+        />
       </div>
+      <div>
+        <h3 className='titlesEditarPerfil'>E-mail:</h3>
+        <input
+          className='inputEditarPerfil'
+          type="email"
+          id="email"
+          placeholder='Email'
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+      </div>
+    </div>
+
+    <div className="SenhaContainer">
+      <div>
+        <h3 className='titlesEditarPerfil'>Senha Atual:</h3>
+        <input
+          className='inputEditarPerfil'
+          type="password"
+          id="senhaAtual"
+          placeholder='SenhaAtual'
+          name="senhaAtual"
+          value={formData.senhaAtual}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <h3 className='titlesEditarPerfil'>Nova Senha:</h3>
+        <input
+          className='inputEditarPerfil'
+          type="password"
+          id="novaSenha"
+          placeholder='SenhaNova'
+          name="novaSenha"
+          value={formData.novaSenha}
+          onChange={handleChange}
+        />
+      </div>
+    </div>
+
+    <button className='BotoesEditarPerfil' onClick={handleVoltar}>
+      Cancelar edições
+    </button>
+    <button className='BotoesEditarPerfil2' onClick={handleVoltar}>
+      Salvar edições
+    </button>
+  </form>
+  
+</div>
+
+
       
       </div>
+      </body>
       <footer className='footerEditarPerfil'>
         <p>&copy; 2023 This or That - The Game. Todos os direitos reservados.</p>
       </footer>
-      </body>
     </div>
   );
 }
