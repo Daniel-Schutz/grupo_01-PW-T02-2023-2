@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ### `npm start`, não esqueça de rodar npm install antes para baixar as dependências!
+Rodando npm install e depois npm start, o nosso projeto funciona.
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
